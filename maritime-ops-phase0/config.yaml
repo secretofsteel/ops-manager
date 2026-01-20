@@ -1,0 +1,106 @@
+# Maritime Operations Email Classification Configuration
+
+# Classification taxonomy
+categories:
+  HUSBANDRY:
+    description: "Vessel husbandry services and supplies"
+    subcategories:
+      GARBAGE_DISPOSAL:
+        description: "Garbage and waste disposal services"
+        keywords:
+          - garbage
+          - waste disposal
+          - slop
+          - refuse
+          - trash collection
+      SLUDGE_DISPOSAL:
+        description: "Sludge and slops disposal"
+        keywords:
+          - sludge
+          - slops
+          - oily waste
+          - bilge
+      CASH_TO_MASTER:
+        description: "Cash advance requests for vessel master"
+        keywords:
+          - cash to master
+          - ctm
+          - cash advance
+          - master cash
+          - funds request
+      FRESH_WATER:
+        description: "Fresh water supply services"
+        keywords:
+          - fresh water
+          - fw supply
+          - potable water
+          - water supply
+          - drinking water
+
+  UNCATEGORIZED:
+    description: "Emails that don't fit other categories"
+    subcategories: {}
+
+# Rule-based classification settings
+rules:
+  # Minimum confidence to accept rule-based classification (0.0 to 1.0)
+  confidence_threshold: 0.85
+
+  # Keyword matching settings
+  keyword_matching:
+    case_sensitive: false
+    # Boost confidence if multiple keywords from same category found
+    multi_keyword_boost: 0.1
+    # Base confidence for single keyword match
+    base_confidence: 0.7
+
+# LLM classification prompt template
+prompts:
+  system_instruction: |
+    You are a maritime operations expert specializing in email classification for shipping companies.
+    Your task is to analyze emails and classify them according to the provided categories.
+    Pay special attention to vessel names, port locations, dates, and urgency indicators.
+
+  classification_template: |
+    Analyze the following email and extract structured information.
+
+    EMAIL DETAILS:
+    Subject: {subject}
+    From: {sender}
+    Body: {body}
+
+    VALID CATEGORIES AND SUBCATEGORIES:
+    {categories_list}
+
+    INSTRUCTIONS:
+    1. Identify the vessel name if mentioned (look for common vessel naming patterns)
+    2. Classify into the most appropriate category and subcategory
+    3. Extract the port location if mentioned
+    4. Extract any dates mentioned in the email
+    5. Assess urgency level: LOW (informational), MEDIUM (routine request), HIGH (time-sensitive), URGENT (immediate action needed)
+    6. Write a concise 1-2 sentence summary
+    7. Determine if action is required (true/false)
+
+    OUTPUT FORMAT:
+    Return ONLY valid JSON with this exact structure:
+    {{
+      "vessel_name": "string or null",
+      "category": "string",
+      "subcategory": "string or null",
+      "port": "string or null",
+      "dates_mentioned": ["YYYY-MM-DD", ...],
+      "urgency": "LOW|MEDIUM|HIGH|URGENT",
+      "summary": "string",
+      "action_required": boolean,
+      "confidence": 0.0-1.0
+    }}
+
+    Do not include any explanatory text, only the JSON object.
+
+# LLM API settings
+llm_settings:
+  model_name: "gemini-2.0-flash-exp"
+  temperature: 0.1
+  max_tokens: 1024
+  # Timeout for API calls in seconds
+  timeout: 30
