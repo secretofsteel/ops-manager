@@ -8,34 +8,42 @@ categories:
       GARBAGE_DISPOSAL:
         description: "Garbage and waste disposal services"
         keywords:
-          - garbage
+          - garbage disposal
+          - garbage collection
           - waste disposal
-          - slop
-          - refuse
+          - refuse collection
           - trash collection
+          - waste removal
       SLUDGE_DISPOSAL:
         description: "Sludge and slops disposal"
         keywords:
-          - sludge
-          - slops
+          - sludge disposal
+          - sludge removal
+          - slops disposal
+          - slops removal
           - oily waste
-          - bilge
+          - bilge water
+          - oily sludge
       CASH_TO_MASTER:
         description: "Cash advance requests for vessel master"
         keywords:
           - cash to master
-          - ctm
           - cash advance
-          - master cash
-          - funds request
+          - master's cash
+          - captain's cash
+          - ctm request
+          - funds for master
+          - crew wages cash
       FRESH_WATER:
         description: "Fresh water supply services"
         keywords:
-          - fresh water
-          - fw supply
+          - fresh water supply
+          - fresh water delivery
           - potable water
-          - water supply
           - drinking water
+          - water supply
+          - fw delivery
+          - water barge
 
   UNCATEGORIZED:
     description: "Emails that don't fit other categories"
@@ -49,58 +57,143 @@ rules:
   # Keyword matching settings
   keyword_matching:
     case_sensitive: false
+    # Use word boundaries for matching (prevents "slop" matching "sloppy")
+    use_word_boundaries: true
     # Boost confidence if multiple keywords from same category found
     multi_keyword_boost: 0.1
     # Base confidence for single keyword match
     base_confidence: 0.7
 
-# LLM classification prompt template
+# LLM classification settings
 prompts:
   system_instruction: |
-    You are a maritime operations expert specializing in email classification for shipping companies.
-    Your task is to analyze emails and classify them according to the provided categories.
-    Pay special attention to vessel names, port locations, dates, and urgency indicators.
+    You are a maritime operations expert classifying emails for a shipping company.
+    Your goal is to identify emails related to vessel husbandry services so they can be routed to the correct workflow.
+    
+    HUSBANDRY SERVICES include:
+    - GARBAGE_DISPOSAL: Removal of garbage, waste, refuse, trash, sewage, or general waste from vessels
+    - SLUDGE_DISPOSAL: Removal of sludge, oily waste, bilge water, oily water, wash water, or engine room waste
+    - FRESH_WATER: Supply of fresh water, potable water, drinking water to vessels
+    - CASH_TO_MASTER: Cash advances, CTM, funds delivery to vessel master for crew wages or ship expenses
 
   classification_template: |
-    Analyze the following email and extract structured information.
+    Analyze the following email and classify it.
 
     EMAIL DETAILS:
     Subject: {subject}
     From: {sender}
     Body: {body}
 
-    VALID CATEGORIES AND SUBCATEGORIES:
+    VALID CATEGORIES:
     {categories_list}
 
-    INSTRUCTIONS:
-    1. Identify the vessel name if mentioned (look for common vessel naming patterns)
-    2. Classify into the most appropriate category and subcategory
-    3. Extract the port location if mentioned
-    4. Extract any dates mentioned in the email
-    5. Assess urgency level: LOW (informational), MEDIUM (routine request), HIGH (time-sensitive), URGENT (immediate action needed)
-    6. Write a concise 1-2 sentence summary
-    7. Determine if action is required (true/false)
+    === CLASSIFICATION INSTRUCTIONS ===
 
-    OUTPUT FORMAT:
-    Return ONLY valid JSON with this exact structure:
+    STEP 1: IDENTIFY THE TOPIC (read the ENTIRE email)
+    
+    This email may contain quoted replies, forwarded messages, or email chains.
+    You MUST read ALL content including quoted/forwarded sections to understand the topic.
+    
+    Ask yourself: "What service or matter is this email thread fundamentally about?"
+    
+    Look for SEMANTIC MEANING, not just exact keywords. Examples:
+    
+    | If you see...                                      | Category           | Subcategory       |
+    |----------------------------------------------------|--------------------| ------------------|
+    | "reception facilities for sludge/garbage"          | HUSBANDRY          | SLUDGE_DISPOSAL or GARBAGE_DISPOSAL |
+    | "waste disposal services needed"                   | HUSBANDRY          | GARBAGE_DISPOSAL  |
+    | "remove oily water from engine room"               | HUSBANDRY          | SLUDGE_DISPOSAL   |
+    | "arrange water supply", "potable water"            | HUSBANDRY          | FRESH_WATER       |
+    | "CTM", "cash advance", "funds for master"          | HUSBANDRY          | CASH_TO_MASTER    |
+    | "crew wages payment", "USD for captain"            | HUSBANDRY          | CASH_TO_MASTER    |
+    | "kindly arrange disposal"                          | HUSBANDRY          | (determine from context) |
+    | "proceed with arrangements for the disposal"       | HUSBANDRY          | (determine from context) |
+    
+    IMPORTANT: 
+    - "discharging" in subject line usually refers to CARGO operations, not waste disposal
+    - If the quoted message asks about sludge/garbage, the ENTIRE thread is about sludge/garbage
+    - A follow-up saying "please revert" or "noted, thanks" inherits the topic from the original message
+    
+    STEP 2: ASSESS THE CURRENT MESSAGE (top of email)
+    
+    Once you know the topic, evaluate the LATEST message for operational relevance:
+    
+    action_required = TRUE if the latest message contains:
+    - New requests or questions needing response
+    - Changed dates, times, amounts, or quantities  
+    - Schedule updates (ETA/ETD changes)
+    - Price quotes or cost confirmations needed
+    - Any information requiring acknowledgment or action
+    
+    action_required = FALSE if the latest message is only:
+    - "Noted, thanks" / "Well received"
+    - Simple acknowledgments with no new information
+    - Auto-replies or read receipts
+    
+    urgency levels:
+    - URGENT: Immediate action needed, vessel arriving within 24 hours
+    - HIGH: Time-sensitive, schedule changes, delays affecting operations  
+    - MEDIUM: Routine requests with normal turnaround
+    - LOW: Informational only, acknowledgments, no timeline pressure
+
+    === EXAMPLES ===
+
+    EXAMPLE 1:
+    Subject: "MV Example // Santos for loading"
+    Body: "Dear Sirs, please advise availability of reception facilities for sludge/oily water/garbage and costs..."
+    
+    → Category: HUSBANDRY
+    → Subcategory: SLUDGE_DISPOSAL (sludge mentioned first, or use GARBAGE_DISPOSAL - pick primary)
+    → action_required: true (they asked a question)
+    
+    EXAMPLE 2:
+    Subject: "RE: MV Example // Santos for loading"  
+    Body: "Dear Ops, Unless overlooked, we have not yet received an answer to ours below, kindly revert.
+           --- Original Message ---
+           ...please advise availability of reception facilities for sludge/garbage..."
+    
+    → Category: HUSBANDRY  
+    → Subcategory: SLUDGE_DISPOSAL (from the quoted original)
+    → action_required: true (they're waiting for response)
+    → Summary should mention: "Follow-up on sludge/garbage disposal inquiry"
+    
+    EXAMPLE 3:
+    Subject: "RE: CTM arrangements - MV Example"
+    Body: "Noted and thanks, will coordinate with agent."
+    
+    → Category: HUSBANDRY
+    → Subcategory: CASH_TO_MASTER (from subject context)
+    → action_required: false (just an acknowledgment)
+    
+    EXAMPLE 4:
+    Subject: "MV Example Voy.5 // Santos for discharging"
+    Body: "ETA is now delayed to tomorrow 0800 due to weather. Please adjust sludge disposal with vendors accly."
+    
+    → Category: HUSBANDRY
+    → Subcategory: SLUDGE_DISPOSAL
+    → action_required: true (schedule change affecting the service)
+    → urgency: HIGH (time-sensitive update)
+
+    === OUTPUT FORMAT ===
+    
+    Return ONLY valid JSON with this exact structure (no additional text):
     {{
       "vessel_name": "string or null",
-      "category": "string",
-      "subcategory": "string or null",
+      "category": "HUSBANDRY or UNCATEGORIZED",
+      "subcategory": "GARBAGE_DISPOSAL|SLUDGE_DISPOSAL|FRESH_WATER|CASH_TO_MASTER or null",
       "port": "string or null",
-      "dates_mentioned": ["YYYY-MM-DD", ...],
+      "dates_mentioned": ["YYYY-MM-DD"],
       "urgency": "LOW|MEDIUM|HIGH|URGENT",
-      "summary": "string",
-      "action_required": boolean,
+      "summary": "One sentence describing what this email thread is about and current status",
+      "action_required": true/false,
       "confidence": 0.0-1.0
     }}
 
-    Do not include any explanatory text, only the JSON object.
+    ONLY output the JSON object. No preamble, no explanation, no markdown code blocks.
 
 # LLM API settings
 llm_settings:
-  model_name: "gemini-2.0-flash-exp"
+  model_name: "gemini-2.5-flash-lite"
   temperature: 0.1
-  max_tokens: 1024
-  # Timeout for API calls in seconds
+  max_tokens: 8192
   timeout: 30

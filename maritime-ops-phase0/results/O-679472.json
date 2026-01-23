@@ -1,0 +1,30 @@
+{
+  "parsed_email": {
+    "message_id": null,
+    "subject": "Thalassini Voy.50 // Isdemir for discharging - CTM",
+    "sender": "ops@astraship.com",
+    "recipients": [
+      "thalassini@vessels.astraship.com",
+      "agency@cerrahgil.com.tr"
+    ],
+    "received_at": "2025-02-27T13:24:16+02:00",
+    "body_text": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">\n<html>\n <head>\n  <meta charset=\"UTF-8\" />\n  <meta content=\"MSHTML 11.00.10570.1001\" name=\"GENERATOR\" />\n </head>\n <body><span class=\"inf-header-start\"></span><div style=\"color:#000000;font-family:verdana;font-size:x-small\">\n   <div>\n    <table border=\"1\" cellpadding=\"2\" cellspacing=\"2\" style=\"background-color:#d7d7d7\" width=\"100%\">\n     <tr height=\"26\" valign=\"top\">\n      <td style=\"font-size:x-small\">\n       <div><b>Message Number: </b>679472</div>\n       <hr />\n       <div><b>From: </b>ops@astraship.com</div>\n       <div><b>To: </b>THALASSINI (thalassini@vessels.astraship.com)</div>\n       <div><b>Cc: </b>CERRAHGIL ISTANBUL (agency@cerrahgil.com.tr)</div>\n       <div><b>Sent: </b> Thursday, Feb 27, 2025 13:26 (UTC +02:00)</div>\n       <div><b>Subject: </b>Thalassini Voy.50 // Isdemir for discharging - CTM</div>\n      </td>\n     </tr>\n    </table>\n    <br />\n   </div>\n  </div><span class=\"inf-header-end\"></span><div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Dear Capt. Andy,&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Good Day.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Please note that Owners had arranged the delivery of USD 35,000 as CTM at Isdemir port.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Therefore, kindly liaise directly with our agent, who is RIC, for the required denominations.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Many Thanks /&nbsp;Best Regards,<br /> Dimitra Ioannidou<br /> Operations Dept.<br /> Astra Shipmanagement Inc.<br /> (as agents only)</div>\n  </div>\n </body>\n</html>",
+    "body_html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">\n<html>\n <head>\n  <meta charset=\"UTF-8\" />\n  <meta content=\"MSHTML 11.00.10570.1001\" name=\"GENERATOR\" />\n </head>\n <body><span class=\"inf-header-start\"></span><div style=\"color:#000000;font-family:verdana;font-size:x-small\">\n   <div>\n    <table border=\"1\" cellpadding=\"2\" cellspacing=\"2\" style=\"background-color:#d7d7d7\" width=\"100%\">\n     <tr height=\"26\" valign=\"top\">\n      <td style=\"font-size:x-small\">\n       <div><b>Message Number: </b>679472</div>\n       <hr />\n       <div><b>From: </b>ops@astraship.com</div>\n       <div><b>To: </b>THALASSINI (thalassini@vessels.astraship.com)</div>\n       <div><b>Cc: </b>CERRAHGIL ISTANBUL (agency@cerrahgil.com.tr)</div>\n       <div><b>Sent: </b> Thursday, Feb 27, 2025 13:26 (UTC +02:00)</div>\n       <div><b>Subject: </b>Thalassini Voy.50 // Isdemir for discharging - CTM</div>\n      </td>\n     </tr>\n    </table>\n    <br />\n   </div>\n  </div><span class=\"inf-header-end\"></span><div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Dear Capt. Andy,&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Good Day.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Please note that Owners had arranged the delivery of USD 35,000 as CTM at Isdemir port.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Therefore, kindly liaise directly with our agent, who is RIC, for the required denominations.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Many Thanks /&nbsp;Best Regards,<br /> Dimitra Ioannidou<br /> Operations Dept.<br /> Astra Shipmanagement Inc.<br /> (as agents only)</div>\n  </div>\n </body>\n</html>",
+    "attachments": [],
+    "raw_path": "emails\\O-679472.eml"
+  },
+  "classification": {
+    "vessel_name": "Thalassini",
+    "category": "HUSBANDRY",
+    "subcategory": "CASH_TO_MASTER",
+    "port": "Isdemir",
+    "dates_mentioned": [],
+    "urgency": "MEDIUM",
+    "summary": "Arrangement for USD 35,000 CTM delivery at Isdemir port for vessel Thalassini.",
+    "action_required": true,
+    "confidence": 1.0,
+    "source": "LLM"
+  },
+  "errors": [],
+  "processing_time_seconds": 0.9398870468139648
+}

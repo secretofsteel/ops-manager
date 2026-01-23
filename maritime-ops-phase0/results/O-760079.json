@@ -1,0 +1,29 @@
+{
+  "parsed_email": {
+    "message_id": null,
+    "subject": "Eleoussa Voy.82 // Cartagena for discharging",
+    "sender": "ops@astraship.com",
+    "recipients": [
+      "eleoussa@vessels.astraship.com"
+    ],
+    "received_at": "2025-12-08T15:25:19+02:00",
+    "body_text": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">\n<html>\n <head>\n  <meta charset=\"UTF-8\" />\n  <meta content=\"MSHTML 11.00.10570.1001\" name=\"GENERATOR\" />\n </head>\n <body><span class=\"inf-header-start\"></span><div style=\"color:#000000;font-family:verdana;font-size:x-small\">\n   <div>\n    <table border=\"1\" cellpadding=\"2\" cellspacing=\"2\" style=\"background-color:#d7d7d7\" width=\"100%\">\n     <tr height=\"26\" valign=\"top\">\n      <td style=\"font-size:x-small\">\n       <div><b>Message Number: </b>760079</div>\n       <hr />\n       <div><b>From: </b>ops@astraship.com</div>\n       <div><b>To: </b>ELEOUSSA (eleoussa@vessels.astraship.com)</div>\n       <div><b>Sent: </b> Monday, Dec 8, 2025 15:27 (UTC +02:00)</div>\n       <div><b>Subject: </b>Eleoussa Voy.82 // Cartagena for discharging</div>\n      </td>\n     </tr>\n    </table>\n    <br />\n   </div>\n  </div><span class=\"inf-header-end\"></span><div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Dear Capt. Gleen,&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Good Day.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Please be so kind to revert with the estimated garbage and sludge rob upon arrival Cartagena.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Many thanks /&nbsp;Best Regards,<br /> Dimitra Ioannidou<br /> Operations Dept.<br />\n    <br /> Astra Shipmanagement Inc<br /> (as agents only)<br /> 6 Vouliagmenis Avenue &amp; 12 Nirvana St.<br /> Voula, 166 73<br /> Athens - Greece<br /> Tel: +30 213 0175 106</div>\n  </div>\n </body>\n</html>",
+    "body_html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">\n<html>\n <head>\n  <meta charset=\"UTF-8\" />\n  <meta content=\"MSHTML 11.00.10570.1001\" name=\"GENERATOR\" />\n </head>\n <body><span class=\"inf-header-start\"></span><div style=\"color:#000000;font-family:verdana;font-size:x-small\">\n   <div>\n    <table border=\"1\" cellpadding=\"2\" cellspacing=\"2\" style=\"background-color:#d7d7d7\" width=\"100%\">\n     <tr height=\"26\" valign=\"top\">\n      <td style=\"font-size:x-small\">\n       <div><b>Message Number: </b>760079</div>\n       <hr />\n       <div><b>From: </b>ops@astraship.com</div>\n       <div><b>To: </b>ELEOUSSA (eleoussa@vessels.astraship.com)</div>\n       <div><b>Sent: </b> Monday, Dec 8, 2025 15:27 (UTC +02:00)</div>\n       <div><b>Subject: </b>Eleoussa Voy.82 // Cartagena for discharging</div>\n      </td>\n     </tr>\n    </table>\n    <br />\n   </div>\n  </div><span class=\"inf-header-end\"></span><div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Dear Capt. Gleen,&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Good Day.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Please be so kind to revert with the estimated garbage and sludge rob upon arrival Cartagena.</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">&nbsp;</div>\n   <div style=\"color:#000033; font-family:Segoe UI Symbol; font-size:10pt\">Many thanks /&nbsp;Best Regards,<br /> Dimitra Ioannidou<br /> Operations Dept.<br />\n    <br /> Astra Shipmanagement Inc<br /> (as agents only)<br /> 6 Vouliagmenis Avenue &amp; 12 Nirvana St.<br /> Voula, 166 73<br /> Athens - Greece<br /> Tel: +30 213 0175 106</div>\n  </div>\n </body>\n</html>",
+    "attachments": [],
+    "raw_path": "emails\\O-760079.eml"
+  },
+  "classification": {
+    "vessel_name": "Eleoussa",
+    "category": "HUSBANDRY",
+    "subcategory": "GARBAGE_DISPOSAL",
+    "port": "Cartagena",
+    "dates_mentioned": [],
+    "urgency": "MEDIUM",
+    "summary": "Request for estimated garbage and sludge quantities upon arrival in Cartagena.",
+    "action_required": true,
+    "confidence": 0.9,
+    "source": "LLM"
+  },
+  "errors": [],
+  "processing_time_seconds": 0.7380027770996094
+}

@@ -1,0 +1,31 @@
+{
+  "parsed_email": {
+    "message_id": "<ctm-request-003@vessel-atlantic.com>",
+    "subject": "Cash to Master request - MV Atlantic Star",
+    "sender": "master@vessel-atlantic.com",
+    "recipients": [
+      "agency@portservices.com"
+    ],
+    "received_at": "2024-01-17T09:15:00Z",
+    "body_text": "Dear Port Agent,\n\nPlease arrange cash advance for Master of MV Atlantic Star.\n\nAmount: USD 5,000\nPurpose: Crew wages and sundry expenses\nPort: Hamburg\nArrival: 22-Jan-2024\n\nPlease confirm cash availability and collection procedure.\nMaster will provide signed receipt upon collection.\n\nRegards,\nCaptain James Anderson\nMV Atlantic Star\n",
+    "body_html": null,
+    "attachments": [],
+    "raw_path": "emails\\sample_cash.eml"
+  },
+  "classification": {
+    "vessel_name": "MV Atlantic Star",
+    "category": "HUSBANDRY",
+    "subcategory": "CASH_TO_MASTER",
+    "port": "Hamburg",
+    "dates_mentioned": [
+      "2024-01-22"
+    ],
+    "urgency": "URGENT",
+    "summary": "Request for a cash advance of USD 5,000 for crew wages and sundry expenses for the MV Atlantic Star arriving in Hamburg on January 22, 2024.",
+    "action_required": true,
+    "confidence": 1.0,
+    "source": "LLM"
+  },
+  "errors": [],
+  "processing_time_seconds": 1.2475874423980713
+}

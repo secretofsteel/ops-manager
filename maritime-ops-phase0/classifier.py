@@ -6,7 +6,7 @@ import json
 import logging
 import os
 import re
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Tuple
 
 import google.generativeai as genai
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
@@ -86,16 +86,17 @@ class EmailClassifier:
             ClassificationResult
 
         Raises:
-            ValueError: If classification fails
+            ValueError: If classification fails completely
         """
         # Stage 1: Try rule-based classification
         logger.debug(f"Attempting rule-based classification for: {email.subject}")
-        rule_result = self._apply_rules(email)
+        rule_result, matched_keywords = self._apply_rules(email)
 
         confidence_threshold = self.rules_config['confidence_threshold']
         if rule_result.confidence >= confidence_threshold:
             logger.info(
-                f"Rule-based classification succeeded with confidence {rule_result.confidence:.2f}"
+                f"Rule-based classification succeeded: {rule_result.category}/{rule_result.subcategory} "
+                f"(confidence: {rule_result.confidence:.2f}, keywords: {matched_keywords})"
             )
             return rule_result
 
@@ -110,11 +111,11 @@ class EmailClassifier:
             return llm_result
         except Exception as e:
             logger.error(f"LLM classification failed: {e}")
-            # Fallback to rule result with reduced confidence
-            logger.warning("Falling back to rule-based result")
+            # Fallback to rule result even with low confidence
+            logger.warning("Falling back to rule-based result despite low confidence")
             return rule_result
 
-    def _apply_rules(self, email: ParsedEmail) -> ClassificationResult:
+    def _apply_rules(self, email: ParsedEmail) -> Tuple[ClassificationResult, List[str]]:
         """
         Apply rule-based classification using keywords.
 
@@ -122,27 +123,42 @@ class EmailClassifier:
             email: Parsed email
 
         Returns:
-            ClassificationResult with source=RULES
+            Tuple of (ClassificationResult with source=RULES, list of matched keywords)
         """
         # Combine subject and body for keyword matching
         search_text = f"{email.subject} {email.body_text or ''}"
+        search_text_lower = search_text.lower()
 
-        if not self.rules_config['keyword_matching']['case_sensitive']:
-            search_text = search_text.lower()
+        use_word_boundaries = self.rules_config['keyword_matching'].get('use_word_boundaries', True)
 
         # Find matching keywords
-        matches = {}  # category_subcategory -> count
+        matches = {}  # category_subcategory -> list of matched keywords
         for keyword, classifications in self.keyword_index.items():
-            if keyword in search_text:
+            # Check if keyword matches
+            if use_word_boundaries:
+                # Use word boundary matching to avoid partial matches
+                pattern = r'\b' + re.escape(keyword) + r'\b'
+                if re.search(pattern, search_text_lower):
+                    matched = True
+                else:
+                    matched = False
+            else:
+                # Simple substring match
+                matched = keyword in search_text_lower
+
+            if matched:
                 for cls in classifications:
                     key = f"{cls['category']}_{cls['subcategory']}"
-                    matches[key] = matches.get(key, 0) + 1
+                    if key not in matches:
+                        matches[key] = []
+                    matches[key].append(keyword)
 
         # Determine best match
         if matches:
-            # Sort by count (descending)
-            best_match_key = max(matches, key=matches.get)
-            match_count = matches[best_match_key]
+            # Sort by number of keyword matches (descending)
+            best_match_key = max(matches, key=lambda k: len(matches[k]))
+            matched_keywords = matches[best_match_key]
+            match_count = len(matched_keywords)
 
             category, subcategory = best_match_key.split('_', 1)
 
@@ -151,25 +167,116 @@ class EmailClassifier:
             boost = self.rules_config['keyword_matching']['multi_keyword_boost']
             confidence = min(1.0, base_conf + (match_count - 1) * boost)
 
+            # Try to extract vessel name from subject using common patterns
+            vessel_name = self._extract_vessel_name(email.subject)
+            
+            # Try to extract port from subject/body
+            port = self._extract_port_hint(search_text)
+
+            # Detect urgency from keywords
+            urgency = self._detect_urgency(search_text_lower)
+
             return ClassificationResult(
+                vessel_name=vessel_name,
                 category=category,
                 subcategory=subcategory,
-                urgency=UrgencyLevel.MEDIUM,  # Default urgency
-                summary=f"Classified as {category}/{subcategory} based on keyword matching",
-                action_required=True,  # Assume action needed for matched categories
+                port=port,
+                urgency=urgency,
+                summary=f"Matched keywords: {', '.join(matched_keywords)}. Review for details.",
+                action_required=True,
                 confidence=confidence,
                 source=ClassificationSource.RULES
-            )
+            ), matched_keywords
 
         # No matches - return UNCATEGORIZED with low confidence
         return ClassificationResult(
             category='UNCATEGORIZED',
             urgency=UrgencyLevel.LOW,
-            summary="No keywords matched, classified as uncategorized",
+            summary="No classification keywords found. Manual review required.",
             action_required=False,
             confidence=0.3,
             source=ClassificationSource.RULES
-        )
+        ), []
+
+    def _extract_vessel_name(self, text: str) -> Optional[str]:
+        """
+        Try to extract vessel name from text using common patterns.
+        
+        Args:
+            text: Text to search (usually subject line)
+            
+        Returns:
+            Vessel name if found, None otherwise
+        """
+        # Common vessel name patterns
+        patterns = [
+            r'\b(M[/]?V\s+[A-Z][A-Z\s\-\.]+)',  # MV or M/V followed by name
+            r'\b(M[/]?T\s+[A-Z][A-Z\s\-\.]+)',  # MT or M/T followed by name
+            r'\b(VESSEL\s+[A-Z][A-Z\s\-\.]+)',  # VESSEL followed by name
+        ]
+        
+        text_upper = text.upper()
+        
+        for pattern in patterns:
+            match = re.search(pattern, text_upper)
+            if match:
+                vessel_name = match.group(1).strip()
+                # Clean up extra spaces
+                vessel_name = ' '.join(vessel_name.split())
+                # Limit length to avoid grabbing too much
+                if len(vessel_name) <= 50:
+                    return vessel_name
+        
+        return None
+
+    def _extract_port_hint(self, text: str) -> Optional[str]:
+        """
+        Try to extract port name from text.
+        
+        This is a simple heuristic - LLM will do better.
+        
+        Args:
+            text: Text to search
+            
+        Returns:
+            Port name if found with high confidence, None otherwise
+        """
+        # Look for common port indicators
+        patterns = [
+            r'\bat\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\s+port\b',  # "at Singapore port"
+            r'\bport\s+of\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\b',  # "port of Rotterdam"
+            r'\barriv(?:al|ing)\s+(?:at\s+)?([A-Z][a-z]+)\b',     # "arriving at Piraeus"
+        ]
+        
+        for pattern in patterns:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                return match.group(1).strip()
+        
+        return None
+
+    def _detect_urgency(self, text_lower: str) -> UrgencyLevel:
+        """
+        Detect urgency level from text.
+        
+        Args:
+            text_lower: Lowercased text to analyze
+            
+        Returns:
+            UrgencyLevel
+        """
+        urgent_keywords = ['urgent', 'urgently', 'asap', 'immediately', 'emergency', 'critical']
+        high_keywords = ['as soon as possible', 'time sensitive', 'priority', 'earliest']
+        
+        for kw in urgent_keywords:
+            if kw in text_lower:
+                return UrgencyLevel.URGENT
+        
+        for kw in high_keywords:
+            if kw in text_lower:
+                return UrgencyLevel.HIGH
+        
+        return UrgencyLevel.MEDIUM
 
     def _llm_classify(self, email: ParsedEmail) -> ClassificationResult:
         """
@@ -185,16 +292,21 @@ class EmailClassifier:
             ValueError: If LLM client not initialized or API call fails
         """
         if self.llm_client is None:
-            raise ValueError("LLM client not initialized")
+            raise ValueError("LLM client not initialized. Check GOOGLE_API_KEY.")
 
         # Build categories list for prompt
         categories_list = self._format_categories_for_prompt()
+
+        # Truncate body if too long (keep first 3000 chars)
+        body_text = email.body_text or email.body_html or "(empty)"
+        if len(body_text) > 3000:
+            body_text = body_text[:3000] + "\n...(truncated)"
 
         # Format the prompt
         prompt = self.prompts['classification_template'].format(
             subject=email.subject,
             sender=email.sender,
-            body=email.body_text or email.body_html or "(empty)",
+            body=body_text,
             categories_list=categories_list
         )
 
@@ -202,7 +314,7 @@ class EmailClassifier:
         full_prompt = f"{self.prompts['system_instruction']}\n\n{prompt}"
 
         try:
-            # Configure safety settings to be less restrictive
+            # Configure safety settings to be less restrictive for business emails
             safety_settings = {
                 HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
                 HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
@@ -219,6 +331,10 @@ class EmailClassifier:
                 },
                 safety_settings=safety_settings
             )
+
+            # Check if we got a valid response
+            if not response.text:
+                raise ValueError("Empty response from LLM")
 
             # Extract and parse JSON response
             result_json = self._extract_json_from_response(response.text)
@@ -241,7 +357,7 @@ class EmailClassifier:
 
     def _extract_json_from_response(self, response_text: str) -> dict:
         """
-        Extract JSON from LLM response, handling markdown code blocks.
+        Extract JSON from LLM response, handling various formats.
 
         Args:
             response_text: Raw response from LLM
@@ -252,22 +368,53 @@ class EmailClassifier:
         Raises:
             ValueError: If JSON cannot be extracted or parsed
         """
-        # Try to find JSON in markdown code block
-        json_match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', response_text, re.DOTALL)
+        # Clean up the response
+        text = response_text.strip()
+        
+        # Try to find JSON in markdown code block first
+        json_match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
         if json_match:
             json_str = json_match.group(1)
         else:
-            # Try to find raw JSON
-            json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
-            if json_match:
-                json_str = json_match.group(0)
-            else:
-                raise ValueError("No JSON found in LLM response")
+            # Try to find raw JSON object
+            # Look for outermost braces
+            start_idx = text.find('{')
+            if start_idx == -1:
+                raise ValueError("No JSON object found in LLM response")
+            
+            # Find matching closing brace
+            brace_count = 0
+            end_idx = start_idx
+            for i, char in enumerate(text[start_idx:], start=start_idx):
+                if char == '{':
+                    brace_count += 1
+                elif char == '}':
+                    brace_count -= 1
+                    if brace_count == 0:
+                        end_idx = i
+                        break
+            
+            if brace_count != 0:
+                raise ValueError("Unbalanced braces in JSON response")
+            
+            json_str = text[start_idx:end_idx + 1]
 
+        # Clean up common issues
+        json_str = json_str.strip()
+        
+        # Try to parse
         try:
             return json.loads(json_str)
         except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse JSON: {json_str}")
+            # Try to fix common issues
+            # Replace single quotes with double quotes (risky but sometimes works)
+            try:
+                fixed = json_str.replace("'", '"')
+                return json.loads(fixed)
+            except:
+                pass
+            
+            logger.error(f"Failed to parse JSON: {json_str[:500]}")
             raise ValueError(f"Invalid JSON in LLM response: {e}")
 
     def _parse_llm_response(self, result_json: dict) -> ClassificationResult:
@@ -284,37 +431,73 @@ class EmailClassifier:
             ValueError: If required fields are missing or invalid
         """
         try:
-            # Validate required fields
-            if 'category' not in result_json:
-                raise ValueError("Missing required field: category")
-            if 'urgency' not in result_json:
-                result_json['urgency'] = 'MEDIUM'
-            if 'summary' not in result_json:
-                raise ValueError("Missing required field: summary")
-            if 'action_required' not in result_json:
-                result_json['action_required'] = True
+            # Validate and set defaults for required fields
+            category = result_json.get('category', 'UNCATEGORIZED')
+            if not category:
+                category = 'UNCATEGORIZED'
 
+            subcategory = result_json.get('subcategory')
+            if subcategory == 'null' or subcategory == '':
+                subcategory = None
+
+            urgency_str = result_json.get('urgency', 'MEDIUM')
+            if not urgency_str:
+                urgency_str = 'MEDIUM'
+            
             # Parse urgency
-            urgency_str = result_json['urgency'].upper()
             try:
-                urgency = UrgencyLevel(urgency_str)
+                urgency = UrgencyLevel(urgency_str.upper())
             except ValueError:
                 logger.warning(f"Invalid urgency '{urgency_str}', defaulting to MEDIUM")
                 urgency = UrgencyLevel.MEDIUM
 
+            summary = result_json.get('summary', 'No summary provided')
+            if not summary:
+                summary = 'No summary provided'
+
+            action_required = result_json.get('action_required', True)
+            if isinstance(action_required, str):
+                action_required = action_required.lower() == 'true'
+
+            confidence = result_json.get('confidence', 0.8)
+            if isinstance(confidence, str):
+                try:
+                    confidence = float(confidence)
+                except:
+                    confidence = 0.8
+            confidence = max(0.0, min(1.0, confidence))
+
+            # Handle dates_mentioned
+            dates = result_json.get('dates_mentioned', [])
+            if dates is None:
+                dates = []
+            if isinstance(dates, str):
+                dates = [dates] if dates else []
+
+            # Handle vessel_name
+            vessel_name = result_json.get('vessel_name')
+            if vessel_name in ['null', '', 'None', 'N/A']:
+                vessel_name = None
+
+            # Handle port
+            port = result_json.get('port')
+            if port in ['null', '', 'None', 'N/A']:
+                port = None
+
             return ClassificationResult(
-                vessel_name=result_json.get('vessel_name'),
-                category=result_json['category'],
-                subcategory=result_json.get('subcategory'),
-                port=result_json.get('port'),
-                dates_mentioned=result_json.get('dates_mentioned', []),
+                vessel_name=vessel_name,
+                category=category,
+                subcategory=subcategory,
+                port=port,
+                dates_mentioned=dates,
                 urgency=urgency,
-                summary=result_json['summary'],
-                action_required=result_json['action_required'],
-                confidence=result_json.get('confidence', 0.9),
+                summary=summary,
+                action_required=action_required,
+                confidence=confidence,
                 source=ClassificationSource.LLM
             )
 
         except Exception as e:
             logger.error(f"Failed to parse LLM response: {e}")
+            logger.error(f"Response was: {result_json}")
             raise ValueError(f"Invalid LLM response format: {e}")

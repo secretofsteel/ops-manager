@@ -1,0 +1,29 @@
+{
+  "parsed_email": {
+    "message_id": "<garbage-urgent-002@port.com>",
+    "subject": "Urgent - Garbage disposal needed for MV Sea Navigator",
+    "sender": "harbor.services@port.com",
+    "recipients": [
+      "ops@maritime.com"
+    ],
+    "received_at": "2024-01-16T14:30:00Z",
+    "body_text": "URGENT REQUEST\n\nVessel: MV Sea Navigator\nPort: Rotterdam\nETA: Tomorrow 06:00\n\nWe require immediate garbage and waste disposal services upon arrival.\nApproximately 15 cubic meters of general waste and refuse.\n\nPlease arrange collection crew and confirm timing ASAP.\n\nContact: Captain Smith\nMobile: +31-123-456789\n",
+    "body_html": null,
+    "attachments": [],
+    "raw_path": "emails\\sample_garbage.eml"
+  },
+  "classification": {
+    "vessel_name": "MV Sea Navigator",
+    "category": "HUSBANDRY",
+    "subcategory": "GARBAGE_DISPOSAL",
+    "port": "Rotterdam",
+    "dates_mentioned": [],
+    "urgency": "URGENT",
+    "summary": "Urgent request for garbage and waste disposal services for MV Sea Navigator upon arrival tomorrow.",
+    "action_required": true,
+    "confidence": 1.0,
+    "source": "LLM"
+  },
+  "errors": [],
+  "processing_time_seconds": 0.6974241733551025
+}

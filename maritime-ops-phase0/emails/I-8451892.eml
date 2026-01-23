@@ -1,0 +1,451 @@
+From - Thu Jan 08 17:14:52 2026
+X-DMS-Device: 6 8
+X-DMS-mailuser: ops@astraship.com
+Return-Path: <gabriel.felipe@hellas-shipping.com.br>
+Delivered-To: ops@astraship.com
+Received: from localhost (localhost [127.0.0.1])
+	by safemail2.astraship.com (Postfix) with ESMTP id EA0D320217A
+	for <ops@astraship.com>; Thu,  8 Jan 2026 17:14:26 +0200 (EET)
+X-Virus-Scanned: Debian amavisd-new at safemail2.astra.local
+Received: from safemail2.astraship.com ([127.0.0.1])
+	by localhost (safemail2.astraship.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Jf7-1R09-Up3 for <ops@astraship.com>;
+	Thu,  8 Jan 2026 17:14:25 +0200 (EET)
+X-Comment: SPF skipped for whitelisted relay domain - client-ip=185.201.17.200; helo=delivery.mtaroutes.com; envelope-from=gabriel.felipe@hellas-shipping.com.br; receiver=<UNKNOWN> 
+Received: from delivery.mtaroutes.com (delivery.mtaroutes.com [185.201.17.200])
+	by safemail2.astraship.com (Postfix) with ESMTPS id C6CAA202149
+	for <ops@astraship.com>; Thu,  8 Jan 2026 17:14:24 +0200 (EET)
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	by mx272.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <gabriel.felipe@hellas-shipping.com.br>)
+	id 1vdraO-004Sjt-Bb
+	for ops@astraship.com; Thu, 08 Jan 2026 16:14:22 +0100
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-88ffcb14e11so35282526d6.0
+        for <ops@astraship.com>; Thu, 08 Jan 2026 07:14:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hellas-shipping-com-br.20230601.gappssmtp.com; s=20230601; t=1767885252; x=1768490052; darn=astraship.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/KUrjr2WsBRaMWSjpJMxiRQ4Z8zY9zDBRI4sv4ZNFGs=;
+        b=A5dH6CSVOIKaqH170hoJTvMKXVoYahnIKbMQFfVZSi2K/pLuStaUkytBrstQpgw/oS
+         2kB4yrn2mdvn9ZMG6Zb61LUZ1HF/NQaYroBEiTR8jglPwBdl0V+brBUjNwHyIW80fnfu
+         2I7rdqCpKKWFhfbaa1wvpCUzInOU8/68BPg1DLUBspa0TjzZ+pdp7Hz7dYtoUsqYwkqE
+         12NOBDJzs8roFF0LmxXxrLdF60EeTfo9l7oB9TwcSiuA7jufSPYvx9tAA8dut7cA766F
+         GoYKbX9hGTHM2PpQ+Nxb1CLN/dboO79In/usUA0Z2zb8p26ZVbJzo2JWhH3lmla2LAZZ
+         YiFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767885252; x=1768490052;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/KUrjr2WsBRaMWSjpJMxiRQ4Z8zY9zDBRI4sv4ZNFGs=;
+        b=CREJXtyU4zXoPs/uxgu1A1OquKjsn5TkQyF3kxgHCWVxp+kqNmNrMRIkLFbDfz9z93
+         d9ATqlHvoBoCVUWGo+ERy+jB2jznxtZb/HzDnQ4QgAofRnSHg0GXmjE2f+kmn3CLBKeP
+         0P/yKAGwat/OVQf6EicAL0F/TxEZNQMglecYdbDb6ZIyzSATE/SKfFai8+JO7GjRXscD
+         5Iqgk4TUZOQ/KkDbeM4Zd3BHETBGx5TAiHIvXWex6nKLMPo0i+i8iqa0pDGGIkvG49FK
+         iT8ZXdv0EV93d1pliiOyBMMohENVfvFYMPMiTcdr6e6R037aFYokYQUgQrF6f/DG7gaR
+         8IBg==
+X-Gm-Message-State: AOJu0YxeM9ENBDAlGDm7EVp9F1AH3Wewav5rzte3yve3ynrAZ1ShOFnw
+	g3sWaX1HcZsqARe2DuVkvcD7Wg0RkVP6gZ8MLLO9S5iT/IyGJ301CLA+eONP4Avh4Zo7J7em4E4
+	wlIh2tJSfnW3D3loKq2gm+V1Gx9HbT2y5APnujKrD4P4ymsyIaHJi+Os=
+X-Gm-Gg: AY/fxX4055Iiu/H5aq3wgbu+4KQopABw9Gxal2DQBu5H8viyhZ7m4iJlVhF7t1Z8M/v
+	ZPxR2rc+zwc8Ub6bBrGfcmx8DwKOhIULgl1DO8OLCuKlgmkPWkvFcstPKg0AjdQC2R+NiE9W12/
+	pY9bO5ODCqUz/bGc4uhZ8GLsoHjx8PvUYfpYQUS7myNX7wYGWD0imod3+wpB5TXSthphHvXjSFi
+	tqDy74DQtL8iU93kNTGCEY7ocs3/N1i8jRpgHAcYrB8BeZJRrksCGvm5xMRleS24Y+WncvtgOw+
+	njQS+TDv/HNj9Et9MJjAoVHt4IbAPSvYz3/7EzEaO0/EWF2pYpywOjW1IZk2
+X-Google-Smtp-Source: AGHT+IEbCtkcEuHssxtnSgHCkbcJc58n+Ra/JtTvIQufWprSJElldiMnw2SYqn4bKr+dcwMwKlXpt+Ck+07aIvKnwII=
+X-Received: by 2002:a05:6214:5911:b0:88a:277d:100 with SMTP id
+ 6a1803df08f44-890842ac284mr79136626d6.62.1767885252029; Thu, 08 Jan 2026
+ 07:14:12 -0800 (PST)
+MIME-Version: 1.0
+References: <17678753370.A305c269F.774433@oracle-lnx.astra.local>
+In-Reply-To: <17678753370.A305c269F.774433@oracle-lnx.astra.local>
+From: Operations - Hellas Shipping Agencies <operations1@hellas-shipping.com.br>
+Date: Thu, 8 Jan 2026 12:14:02 -0300
+X-Gm-Features: AQt7F2oK1V4lJsnZ0EfJ3ZfzJucjr3JI0M4_JFHx4-zE9zmnbGs0Kh4-DoTUv1M
+Message-ID: <CANf+WWd+3N2K_tYQmf7jT_yBDs_H74Yfh8DUXfeqGJ2Am9_-vQ@mail.gmail.com>
+Subject: Re: Pelagia Voy.02 // Paranagua for loading
+To: Operations - Astra Shipmanagement Inc <ops@astraship.com>
+Cc: Operations - Hellas Shipping Agencies <operations1@hellas-shipping.com.br>
+X-SPF-Result: mx272.antispamcloud.com: domain of hellas-shipping.com.br designates 2607:f8b0:4864:20::f2f as permitted sender
+Authentication-Results: mx272.antispamcloud.com;
+	iprev=pass (mail-qv1-xf2f.google.com) smtp.remote-ip=2607:f8b0:4864:20::f2f;
+	spf=pass smtp.mailfrom=hellas-shipping.com.br;
+	dkim=pass header.d=hellas-shipping-com-br.20230601.gappssmtp.com header.s=20230601 header.a=rsa-sha256;
+	dmarc=pass header.from=hellas-shipping.com.br
+Authentication-Results:  antispamcloud.com; spf=pass smtp.mailfrom=gabriel.felipe@hellas-shipping.com.br; dkim=pass header.i=hellas-shipping-com-br.20230601.gappssmtp.com
+X-Spampanel-Class: ham
+X-Spampanel-Evidence: Combined (0.09)
+X-Recommended-Action: accept
+X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgBqR3BGVlyZaTyV4FT6EOnKekG8RceY69kLyUQjCnD6hYDDBys/7ADS5
+ jR3I8cKzA6LyLfDVoHJFiRc0IIdqT9sQEloJvfKUTNV2IyQF93a9btYmSxY17mRN/xO/79iJsWR4
+ 3Q2vzOSR180cTXXUUcrEU3ec7Tfym98ew2WuvWrxbsgefmnuPq/t7q+rG1o+XIVOF3gnukHcf18E
+ /SIoLzl4mkvGNo8cTUD87Jn5X53EJfiVNTuFM5LOoX9BqtqhOAmt/xFgXbOQAvegkNi/aWt9w6Ew
+ XICYy0ePXtGEMhqrfP6J7t3u/osB8/5uJsAzJ2U6UgOqKJ9sMwhVoOBGSAIZmL0kTGIVN3DthM1B
+ 8FVxCrA7XJ2hQf80foVYO3lcvMpRXfHSABFCKTj2JcsdrXq9VoAsEIwpjQp0A5NUKX/ID34myCzL
+ zvmvt2JHaN7CgAdZMTnDWPU/5wT1EUAVOGKUERKx18Njsak71U5YmaDpeuKYSSqPeHIsWgV5qwUE
+ iRFQWp55y+7UUSv7gfJ7wOXzHEXUPHf6j5vwcX/hIRiU3KCoc6mP0zGT6OH7ln476ms9vBf9u0JE
+ S/xj8P9YlhoR37FaFlv3F2PbvabG99OCbPN7v9MApiZJ0jIuv2upMAEiRQv+PVjjwa+Z5RFCOMSb
+ lvltFwGdJkRdcnPk4LptuXBAEGO1h2Q2cc2zMoDDU66SHWGAVa3J9SJjZa0Jj2QsCiDyZlkSjgQJ
+ 3Xy4q/kLuYMomGpXY20UYGofP0yMcRLOc+hPeFLUnd09v6Zfyc9TSwj5Yu2oRYshrmM/mRekqMoo
+ Zl+9TlX2VMSdlRFktJcL7p14Kx3Bim6nyyEfWuU1HLI9CQlqSBoJv1q9ZOVEEL8S2TET1VCI/4tk
+ XKIuismJnZH9YEI8mongtoqcQ5zzKn41jL+Sb+TGdqSo6DgLEs5z6E94UtSd3T2/pl/Jz2l65gEY
+ 1VWBlDhO666Wbxc2YYcJkX1le19LEiRkuxsdmdySlZou9qHIGOZDEEo7O9DWiHGh7StF2Y0j500w
+ V+M=
+X-Report-Abuse-To: spam@quarantine15.antispamcloud.com
+X-Complaints-To: abuse@master.antispamcloud.com
+Content-Type: multipart/alternative;
+ boundary=--boundary_28_81b318b2-823c-43a2-93e2-b28f7934c1dd
+
+
+----boundary_28_81b318b2-823c-43a2-93e2-b28f7934c1dd
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>=0A <head>=0A  <meta content=3D"text/html; charset=3DUTF-8"=
+ http-equiv=3D"Content-Type" />=0A </head>=0A <body>=0A  <div>=0A=
+<!FWREPLACE>=0A<table border=3D"1" cellpadding=3D"1" cellspacing=3D=
+"1" height=3D"26" style=3D"background-color:#d7d7d7" width=3D"100=
+%">=0A    <tbody>=0A     <tr>=0A      <td style=3D"font-family:Ve=
+rdana;font-size:x-small">=0A       <div><strong>Message: <span>84=
+51892</span></strong></div>=0A       <hr />=0A       <div><strong=
+>From: </strong><span>Operations - Hellas Shipping Agencies &lt;o=
+perations1@hellas-shipping.com.br&gt;</span></div>=0A       <div>=
+<strong>To: </strong><span>Operations - Astra Shipmanagement Inc =
+&lt;ops@astraship.com&gt;</span></div>=0A       <div><strong>Cc: =
+</strong><span>Operations - Hellas Shipping Agencies &lt;operatio=
+ns1@hellas-shipping.com.br&gt;</span></div>=0A       <div><strong=
+>Date: </strong><span>Thu, 08/Jan/2026 17:15:16 (UTC: +02:00)</sp=
+an></div>=0A       <div><strong>Subject: </strong><span>Re: Pelag=
+ia Voy.02 // Paranagua for loading</span></div>=0A       <div><st=
+rong></strong></div>=0A      </td>=0A     </tr>=0A    </tbody>=0A=
+   </table>=0A   <br />=0A<!-- FWREPLACE -->=0A</div>=0A  <div di=
+r=3D"ltr">=0A   <div>Dear Ms. Dimitra Ioannidou, Good day!<br />=0A=
+    <br />Costs for such services are generally based on the quan=
+tities involved and are calculated per cubic meter or ton, depend=
+ing on the type of waste. In certain cases, and subject to the qu=
+antities of sludge to be discharged, it may be possible to obtain=
+ reduced rates or even full cost waivers.<br />=0A    <br />In or=
+der to proceed with a more accurate evaluation and cost discussio=
+n, we kindly request that you provide the estimated quantities an=
+d categories of materials to be discharged.<p class=3D"gmail-isSe=
+lectedEnd"><span style=3D"color:rgb(7,55,99);font-family:Cambria;=
+font-size:10pt;font-weight:bold;text-indent:0in">Our best regards=
+,</span></p>=0A   </div>=0A   <div>=0A    <div class=3D"gmail_sig=
+nature" data-smartmail=3D"gmail_signature" dir=3D"ltr">=0A     <d=
+iv dir=3D"ltr">=0A      <p style=3D"margin:0pt 0in;text-indent:0i=
+n;direction:ltr;vertical-align:baseline;word-break:normal"><span =
+style=3D"color:rgb(7,55,99);font-size:10pt;font-family:Cambria;fo=
+nt-weight:bold"><br />Gabriel</span><span style=3D"color:rgb(7,55=
+,99);font-size:10pt;font-family:Cambria;font-weight:bold">&nbsp;<=
+/span><span style=3D"color:rgb(7,55,99);font-size:10pt;font-famil=
+y:Cambria;font-weight:bold">Felipe<br /></span><font color=3D"#ff=
+0000"><span style=3D"font-size:10pt;font-family:Cambria;font-weig=
+ht:bold"><br />Attending</span><span style=3D"font-size:10pt;font=
+-family:Cambria;font-weight:bold"> </span><span style=3D"font-siz=
+e:10pt;font-family:Cambria;font-weight:bold">all</span><span styl=
+e=3D"font-size:10pt;font-family:Cambria;font-weight:bold"> </span=
+><span style=3D"font-size:10pt;font-family:Cambria;font-weight:bo=
+ld">ports</span><span style=3D"font-size:10pt;font-family:Cambria=
+;font-weight:bold"> </span><span style=3D"font-size:10pt;font-fam=
+ily:Cambria;font-weight:bold">of</span><span style=3D"font-size:1=
+0pt;font-family:Cambria;font-weight:bold"> South </span><span sty=
+le=3D"font-size:10pt;font-family:Cambria;font-weight:bold">and</s=
+pan><span style=3D"font-size:10pt;font-family:Cambria;font-weight=
+:bold"> Central </span><span style=3D"font-size:10pt;font-family:=
+Cambria;font-weight:bold">America</span><span style=3D"font-size:=
+10pt;font-family:Cambria;font-weight:bold">. Head office in&nbsp;=
+</span></font></p>=0A      <p style=3D"margin:0pt 0in;text-indent=
+:0in;direction:ltr;vertical-align:baseline;word-break:normal"><fo=
+nt color=3D"#ff0000"><span style=3D"font-size:10pt;font-family:Ca=
+mbria;font-weight:bold">Brazil</span><span style=3D"font-size:10p=
+t;font-family:Cambria;font-weight:bold">&nbsp;</span><span style=3D=
+"font-size:10pt;font-family:Cambria;font-weight:bold">and</span><=
+span style=3D"font-size:10pt;font-family:Cambria;font-weight:bold=
+"> </span><span style=3D"font-size:10pt;font-family:Cambria;font-=
+weight:bold">branch</span><span style=3D"font-size:10pt;font-fami=
+ly:Cambria;font-weight:bold"> offices </span><span style=3D"font-=
+size:10pt;font-family:Cambria;font-weight:bold">at</span><span st=
+yle=3D"font-size:10pt;font-family:Cambria;font-weight:bold"> Arge=
+ntina, Uruguay, Peru and</span></font><span style=3D"color:rgb(25=
+5,0,0);text-indent:0in;font-size:10pt;font-family:Cambria;font-we=
+ight:bold">&nbsp;Venezuela<br />=0A        <br /></span></p>=0A  =
+    <p style=3D"margin:0pt 0in;text-indent:0in;direction:ltr;vert=
+ical-align:baseline;word-break:normal"><font color=3D"#073763"><s=
+pan style=3D"font-size:10pt;font-family:Cambria;font-weight:bold"=
+>Gabriel</span><span style=3D"font-size:10pt;font-family:Cambria;=
+font-weight:bold"> </span><span style=3D"font-size:10pt;font-fami=
+ly:Cambria;font-weight:bold">Felipe</span><span style=3D"font-siz=
+e:10pt;font-family:Cambria;font-weight:bold"> </span></font></p>=0A=
+      <p style=3D"margin:0pt 0in;direction:ltr;vertical-align:bas=
+eline;word-break:normal">=0A      </p>=0A      <p style=3D"margin=
+:0pt 0in;text-indent:0in;direction:ltr;vertical-align:baseline;wo=
+rd-break:normal"><font color=3D"#073763"><span style=3D"font-size=
+:10pt;font-family:Cambria;font-weight:bold">Mobile </span><span s=
+tyle=3D"font-size:10pt;font-family:Cambria;font-weight:bold">numb=
+er</span><span style=3D"font-size:10pt;font-family:Cambria;font-w=
+eight:bold">:&nbsp;+55&nbsp;</span><span style=3D"font-size:10pt;=
+font-family:Cambria;font-weight:bold">1</span><span style=3D"font=
+-size:10pt;font-family:Cambria;font-weight:bold">3 997645095&nbsp=
+;</span></font></p>=0A      <p style=3D"margin:0pt 0in;direction:=
+ltr;vertical-align:baseline;word-break:normal"><b><font color=3D"=
+#073763"></font><img src=3D"https://ci3.googleusercontent.com/mai=
+l-sig/AIorK4xtE2_IPnVO2twPnxctjancuy0FkIoHz947WqeXoCwPfXSZov3XrJj=
+dBdCV-fpQJzUvqNGVcUY" /><br /></b></p>=0A     </div>=0A    </div>=
+=0A   </div>=0A   <br />=0A  </div>=0A  <br />=0A  <div class=3D"=
+gmail_quote gmail_quote_container">=0A   <div class=3D"gmail_attr=
+" dir=3D"ltr">Em qui., 8 de jan. de 2026 =C3=A0s 09:29, Operation=
+s - Astra Shipmanagement Inc &lt;<a href=3D"mailto:ops@astraship.=
+com">ops@astraship.com</a>&gt; escreveu:<br />=0A   </div>=0A   <=
+blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8e=
+x;border-left:1px solid rgb(204,204,204);padding-left:1ex"><u></u=
+><div><span></span><div style=3D"color:rgb(0,0,0);font-family:ver=
+dana;font-size:x-small">=0A      <div>=0A       <table border=3D"=
+1" cellpadding=3D"2" cellspacing=3D"2" style=3D"background-color:=
+rgb(215,215,215)" width=3D"100%">=0A        <tbody>=0A         <t=
+r height=3D"26" valign=3D"top">=0A          <td style=3D"font-siz=
+e:x-small">=0A           <div><b>Message Number: </b>767763</div>=
+=0A           <hr />=0A           <div><b>From: </b><a href=3D"ma=
+ilto:ops@astraship.com" target=3D"_blank">ops@astraship.com</a></=
+div>=0A           <div><b>To: </b>HELLAS SANTOS (<a href=3D"mailt=
+o:operations1@hellas-shipping.com.br" target=3D"_blank">operation=
+s1@hellas-shipping.com.br</a>)</div>=0A           <div><b>Sent: <=
+/b> Thursday, Jan 8, 2026 14:28 (UTC +02:00)</div>=0A           <=
+div><b>Subject: </b>Pelagia Voy.02 // Paranagua for loading</div>=
+=0A          </td>=0A         </tr>=0A        </tbody>=0A       <=
+/table>=0A       <br />=0A      </div>=0A     </div><span></span>=
+<div style=3D"color:rgb(0,0,51);font-family:&quot;Segoe UI Symbol=
+&quot;;font-size:10pt">=0A      <div style=3D"color:rgb(0,0,51);f=
+ont-family:&quot;Segoe UI Symbol&quot;;font-size:10pt">Dear Sirs,=
+&nbsp;</div>=0A      <div style=3D"color:rgb(0,0,51);font-family:=
+&quot;Segoe UI Symbol&quot;;font-size:10pt">&nbsp;</div>=0A      =
+<div style=3D"color:rgb(0,0,51);font-family:&quot;Segoe UI Symbol=
+&quot;;font-size:10pt">Good Day.</div>=0A      <div style=3D"colo=
+r:rgb(0,0,51);font-family:&quot;Segoe UI Symbol&quot;;font-size:1=
+0pt">&nbsp;</div>=0A      <div style=3D"color:rgb(0,0,51);font-fa=
+mily:&quot;Segoe UI Symbol&quot;;font-size:10pt">Kindly advise av=
+ailability of reception facilities for sludge/oily water/wash wat=
+er/sewage/garbage, cost per cbm or ton and procedures for orderin=
+g such operation.</div>=0A      <div style=3D"color:rgb(0,0,51);f=
+ont-family:&quot;Segoe UI Symbol&quot;;font-size:10pt">Please adv=
+ise if any disposal is compulsory. In addition to this, kindly ad=
+vise whether the providers are ISO14001 approved.</div>=0A      <=
+div style=3D"color:rgb(0,0,51);font-family:&quot;Segoe UI Symbol&=
+quot;;font-size:10pt">&nbsp;</div>=0A      <div style=3D"color:rg=
+b(0,0,51);font-family:&quot;Segoe UI Symbol&quot;;font-size:10pt"=
+>Awaiting yours.</div>=0A      <div style=3D"color:rgb(0,0,51);fo=
+nt-family:&quot;Segoe UI Symbol&quot;;font-size:10pt">&nbsp;</div=
+>=0A      <div style=3D"color:rgb(0,0,51);font-family:&quot;Segoe=
+ UI Symbol&quot;;font-size:10pt">Best Regards,<br /> Dimitra Ioan=
+nidou<br /> Operations Dept.<br />=0A       <br /> Astra Shipmana=
+gement Inc<br /> (as agents only)<br /> 6 Vouliagmenis Avenue &am=
+p; 12 Nirvana St.<br /> Voula, 166 73<br /> Athens - Greece<br />=
+ Tel: +30 213 0175 106</div>=0A     </div><span lang=3D"EN-US" st=
+yle=3D"color:rgb(89,89,89)"><div><font face=3D"Calibri"><strong><=
+hr /></strong></font></div>=0A      <div><font face=3D"Calibri"><=
+strong>Prioritizing the wellbeing of our planet and its people<em=
+>.</em></strong></font></div>=0A      <div><em><font face=3D"Cali=
+bri"></font></em>&nbsp;</div>=0A      <div><em><font face=3D"Cali=
+bri">This email may contain confidential and privileged informati=
+on. Use or disclosure of it by anyone other than an intended reci=
+pient is prohibited. <br />If you received this email in error, p=
+lease notify the sender immediately by return email and destroy a=
+ll copies of this email.</font></em></div>=0A      <div><em><font=
+ face=3D"Calibri"></font></em>&nbsp;</div>=0A      <div><font fac=
+e=3D"Calibri"><em>*</em>Please consider the environment before pr=
+inting<em>*</em></font></div></span></div>=0A   </blockquote>=0A =
+ </div>=0A </body>=0A</html>
+----boundary_28_81b318b2-823c-43a2-93e2-b28f7934c1dd
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PGh0bWw+CiA8aGVhZD4KICA8bWV0YSBjb250ZW50PSJ0ZXh0L2h0bWw7IGNoYXJzZXQ9
+VVRGLTgiIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgLz4KIDwvaGVhZD4KIDxib2R5
+PgogIDxkaXY+CjwhRldSRVBMQUNFPgo8dGFibGUgYm9yZGVyPSIxIiBjZWxscGFkZGlu
+Zz0iMSIgY2VsbHNwYWNpbmc9IjEiIGhlaWdodD0iMjYiIHN0eWxlPSJiYWNrZ3JvdW5k
+LWNvbG9yOiNkN2Q3ZDciIHdpZHRoPSIxMDAlIj4KICAgIDx0Ym9keT4KICAgICA8dHI+
+CiAgICAgIDx0ZCBzdHlsZT0iZm9udC1mYW1pbHk6VmVyZGFuYTtmb250LXNpemU6eC1z
+bWFsbCI+CiAgICAgICA8ZGl2PjxzdHJvbmc+TWVzc2FnZTogPHNwYW4+ODQ1MTg5Mjwv
+c3Bhbj48L3N0cm9uZz48L2Rpdj4KICAgICAgIDxociAvPgogICAgICAgPGRpdj48c3Ry
+b25nPkZyb206IDwvc3Ryb25nPjxzcGFuPk9wZXJhdGlvbnMgLSBIZWxsYXMgU2hpcHBp
+bmcgQWdlbmNpZXMgJmx0O29wZXJhdGlvbnMxQGhlbGxhcy1zaGlwcGluZy5jb20uYnIm
+Z3Q7PC9zcGFuPjwvZGl2PgogICAgICAgPGRpdj48c3Ryb25nPlRvOiA8L3N0cm9uZz48
+c3Bhbj5PcGVyYXRpb25zIC0gQXN0cmEgU2hpcG1hbmFnZW1lbnQgSW5jICZsdDtvcHNA
+YXN0cmFzaGlwLmNvbSZndDs8L3NwYW4+PC9kaXY+CiAgICAgICA8ZGl2PjxzdHJvbmc+
+Q2M6IDwvc3Ryb25nPjxzcGFuPk9wZXJhdGlvbnMgLSBIZWxsYXMgU2hpcHBpbmcgQWdl
+bmNpZXMgJmx0O29wZXJhdGlvbnMxQGhlbGxhcy1zaGlwcGluZy5jb20uYnImZ3Q7PC9z
+cGFuPjwvZGl2PgogICAgICAgPGRpdj48c3Ryb25nPkRhdGU6IDwvc3Ryb25nPjxzcGFu
+PlRodSwgMDgvSmFuLzIwMjYgMTc6MTU6MTYgKFVUQzogKzAyOjAwKTwvc3Bhbj48L2Rp
+dj4KICAgICAgIDxkaXY+PHN0cm9uZz5TdWJqZWN0OiA8L3N0cm9uZz48c3Bhbj5SZTog
+UGVsYWdpYSBWb3kuMDIgLy8gUGFyYW5hZ3VhIGZvciBsb2FkaW5nPC9zcGFuPjwvZGl2
+PgogICAgICAgPGRpdj48c3Ryb25nPjwvc3Ryb25nPjwvZGl2PgogICAgICA8L3RkPgog
+ICAgIDwvdHI+CiAgICA8L3Rib2R5PgogICA8L3RhYmxlPgogICA8YnIgLz4KPCEtLSBG
+V1JFUExBQ0UgLS0+CjwvZGl2PgogIDxkaXYgZGlyPSJsdHIiPgogICA8ZGl2PkRlYXIg
+TXMuIERpbWl0cmEgSW9hbm5pZG91LCBHb29kIGRheSE8YnIgLz4KICAgIDxiciAvPkNv
+c3RzIGZvciBzdWNoIHNlcnZpY2VzIGFyZSBnZW5lcmFsbHkgYmFzZWQgb24gdGhlIHF1
+YW50aXRpZXMgaW52b2x2ZWQgYW5kIGFyZSBjYWxjdWxhdGVkIHBlciBjdWJpYyBtZXRl
+ciBvciB0b24sIGRlcGVuZGluZyBvbiB0aGUgdHlwZSBvZiB3YXN0ZS4gSW4gY2VydGFp
+biBjYXNlcywgYW5kIHN1YmplY3QgdG8gdGhlIHF1YW50aXRpZXMgb2Ygc2x1ZGdlIHRv
+IGJlIGRpc2NoYXJnZWQsIGl0IG1heSBiZSBwb3NzaWJsZSB0byBvYnRhaW4gcmVkdWNl
+ZCByYXRlcyBvciBldmVuIGZ1bGwgY29zdCB3YWl2ZXJzLjxiciAvPgogICAgPGJyIC8+
+SW4gb3JkZXIgdG8gcHJvY2VlZCB3aXRoIGEgbW9yZSBhY2N1cmF0ZSBldmFsdWF0aW9u
+IGFuZCBjb3N0IGRpc2N1c3Npb24sIHdlIGtpbmRseSByZXF1ZXN0IHRoYXQgeW91IHBy
+b3ZpZGUgdGhlIGVzdGltYXRlZCBxdWFudGl0aWVzIGFuZCBjYXRlZ29yaWVzIG9mIG1h
+dGVyaWFscyB0byBiZSBkaXNjaGFyZ2VkLjxwIGNsYXNzPSJnbWFpbC1pc1NlbGVjdGVk
+RW5kIj48c3BhbiBzdHlsZT0iY29sb3I6cmdiKDcsNTUsOTkpO2ZvbnQtZmFtaWx5OkNh
+bWJyaWE7Zm9udC1zaXplOjEwcHQ7Zm9udC13ZWlnaHQ6Ym9sZDt0ZXh0LWluZGVudDow
+aW4iPk91ciBiZXN0IHJlZ2FyZHMsPC9zcGFuPjwvcD4KICAgPC9kaXY+CiAgIDxkaXY+
+CiAgICA8ZGl2IGNsYXNzPSJnbWFpbF9zaWduYXR1cmUiIGRhdGEtc21hcnRtYWlsPSJn
+bWFpbF9zaWduYXR1cmUiIGRpcj0ibHRyIj4KICAgICA8ZGl2IGRpcj0ibHRyIj4KICAg
+ICAgPHAgc3R5bGU9Im1hcmdpbjowcHQgMGluO3RleHQtaW5kZW50OjBpbjtkaXJlY3Rp
+b246bHRyO3ZlcnRpY2FsLWFsaWduOmJhc2VsaW5lO3dvcmQtYnJlYWs6bm9ybWFsIj48
+c3BhbiBzdHlsZT0iY29sb3I6cmdiKDcsNTUsOTkpO2ZvbnQtc2l6ZToxMHB0O2ZvbnQt
+ZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+PGJyIC8+R2FicmllbDwvc3Bh
+bj48c3BhbiBzdHlsZT0iY29sb3I6cmdiKDcsNTUsOTkpO2ZvbnQtc2l6ZToxMHB0O2Zv
+bnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+Jm5ic3A7PC9zcGFuPjxz
+cGFuIHN0eWxlPSJjb2xvcjpyZ2IoNyw1NSw5OSk7Zm9udC1zaXplOjEwcHQ7Zm9udC1m
+YW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj5GZWxpcGU8YnIgLz48L3NwYW4+
+PGZvbnQgY29sb3I9IiNmZjAwMDAiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtm
+b250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPjxiciAvPkF0dGVuZGlu
+Zzwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2Ft
+YnJpYTtmb250LXdlaWdodDpib2xkIj4gPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNp
+emU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPmFsbDwv
+c3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJp
+YTtmb250LXdlaWdodDpib2xkIj4gPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6
+MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPnBvcnRzPC9z
+cGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlh
+O2ZvbnQtd2VpZ2h0OmJvbGQiPiA8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTox
+MHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+b2Y8L3NwYW4+
+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9u
+dC13ZWlnaHQ6Ym9sZCI+IFNvdXRoIDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXpl
+OjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj5hbmQ8L3Nw
+YW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7
+Zm9udC13ZWlnaHQ6Ym9sZCI+IENlbnRyYWwgPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250
+LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPkFt
+ZXJpY2E8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5
+OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+LiBIZWFkIG9mZmljZSBpbiZuYnNwOzwv
+c3Bhbj48L2ZvbnQ+PC9wPgogICAgICA8cCBzdHlsZT0ibWFyZ2luOjBwdCAwaW47dGV4
+dC1pbmRlbnQ6MGluO2RpcmVjdGlvbjpsdHI7dmVydGljYWwtYWxpZ246YmFzZWxpbmU7
+d29yZC1icmVhazpub3JtYWwiPjxmb250IGNvbG9yPSIjZmYwMDAwIj48c3BhbiBzdHls
+ZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpi
+b2xkIj5CcmF6aWw8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQt
+ZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+Jm5ic3A7PC9zcGFuPjxzcGFu
+IHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2Vp
+Z2h0OmJvbGQiPmFuZDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9u
+dC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj4gPC9zcGFuPjxzcGFuIHN0
+eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0
+OmJvbGQiPmJyYW5jaDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9u
+dC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj4gb2ZmaWNlcyA8L3NwYW4+
+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9u
+dC13ZWlnaHQ6Ym9sZCI+YXQ8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0
+O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IEFyZ2VudGluYSwg
+VXJ1Z3VheSwgUGVydSBhbmQ8L3NwYW4+PC9mb250PjxzcGFuIHN0eWxlPSJjb2xvcjpy
+Z2IoMjU1LDAsMCk7dGV4dC1pbmRlbnQ6MGluO2ZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFt
+aWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+Jm5ic3A7VmVuZXp1ZWxhPGJyIC8+
+CiAgICAgICAgPGJyIC8+PC9zcGFuPjwvcD4KICAgICAgPHAgc3R5bGU9Im1hcmdpbjow
+cHQgMGluO3RleHQtaW5kZW50OjBpbjtkaXJlY3Rpb246bHRyO3ZlcnRpY2FsLWFsaWdu
+OmJhc2VsaW5lO3dvcmQtYnJlYWs6bm9ybWFsIj48Zm9udCBjb2xvcj0iIzA3Mzc2MyI+
+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9u
+dC13ZWlnaHQ6Ym9sZCI+R2FicmllbDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXpl
+OjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj4gPC9zcGFu
+PjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2Zv
+bnQtd2VpZ2h0OmJvbGQiPkZlbGlwZTwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXpl
+OjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj4gPC9zcGFu
+PjwvZm9udD48L3A+CiAgICAgIDxwIHN0eWxlPSJtYXJnaW46MHB0IDBpbjtkaXJlY3Rp
+b246bHRyO3ZlcnRpY2FsLWFsaWduOmJhc2VsaW5lO3dvcmQtYnJlYWs6bm9ybWFsIj4K
+ICAgICAgPC9wPgogICAgICA8cCBzdHlsZT0ibWFyZ2luOjBwdCAwaW47dGV4dC1pbmRl
+bnQ6MGluO2RpcmVjdGlvbjpsdHI7dmVydGljYWwtYWxpZ246YmFzZWxpbmU7d29yZC1i
+cmVhazpub3JtYWwiPjxmb250IGNvbG9yPSIjMDczNzYzIj48c3BhbiBzdHlsZT0iZm9u
+dC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj5N
+b2JpbGUgPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWls
+eTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPm51bWJlcjwvc3Bhbj48c3BhbiBzdHls
+ZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpi
+b2xkIj46Jm5ic3A7KzU1Jm5ic3A7PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6
+MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPjE8L3NwYW4+
+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9u
+dC13ZWlnaHQ6Ym9sZCI+MyA5OTc2NDUwOTUmbmJzcDs8L3NwYW4+PC9mb250PjwvcD4K
+ICAgICAgPHAgc3R5bGU9Im1hcmdpbjowcHQgMGluO2RpcmVjdGlvbjpsdHI7dmVydGlj
+YWwtYWxpZ246YmFzZWxpbmU7d29yZC1icmVhazpub3JtYWwiPjxiPjxmb250IGNvbG9y
+PSIjMDczNzYzIj48L2ZvbnQ+PGltZyBzcmM9Imh0dHBzOi8vY2kzLmdvb2dsZXVzZXJj
+b250ZW50LmNvbS9tYWlsLXNpZy9BSW9ySzR4dEUyX0lQblZPMnR3UG54Y3RqYW5jdXkw
+RmtJb0h6OTQ3V3FlWG9Dd1BmWFNab3YzWHJKamRCZENWLWZwUUp6VXZxTkdWY1VZIiAv
+PjxiciAvPjwvYj48L3A+CiAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICAgPC9kaXY+CiAg
+IDxiciAvPgogIDwvZGl2PgogIDxiciAvPgogIDxkaXYgY2xhc3M9ImdtYWlsX3F1b3Rl
+IGdtYWlsX3F1b3RlX2NvbnRhaW5lciI+CiAgIDxkaXYgY2xhc3M9ImdtYWlsX2F0dHIi
+IGRpcj0ibHRyIj5FbSBxdWkuLCA4IGRlIGphbi4gZGUgMjAyNiDDoHMgMDk6MjksIE9w
+ZXJhdGlvbnMgLSBBc3RyYSBTaGlwbWFuYWdlbWVudCBJbmMgJmx0OzxhIGhyZWY9Im1h
+aWx0bzpvcHNAYXN0cmFzaGlwLmNvbSI+b3BzQGFzdHJhc2hpcC5jb208L2E+Jmd0OyBl
+c2NyZXZldTo8YnIgLz4KICAgPC9kaXY+CiAgIDxibG9ja3F1b3RlIGNsYXNzPSJnbWFp
+bF9xdW90ZSIgc3R5bGU9Im1hcmdpbjowcHggMHB4IDBweCAwLjhleDtib3JkZXItbGVm
+dDoxcHggc29saWQgcmdiKDIwNCwyMDQsMjA0KTtwYWRkaW5nLWxlZnQ6MWV4Ij48dT48
+L3U+PGRpdj48c3Bhbj48L3NwYW4+PGRpdiBzdHlsZT0iY29sb3I6cmdiKDAsMCwwKTtm
+b250LWZhbWlseTp2ZXJkYW5hO2ZvbnQtc2l6ZTp4LXNtYWxsIj4KICAgICAgPGRpdj4K
+ICAgICAgIDx0YWJsZSBib3JkZXI9IjEiIGNlbGxwYWRkaW5nPSIyIiBjZWxsc3BhY2lu
+Zz0iMiIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6cmdiKDIxNSwyMTUsMjE1KSIgd2lk
+dGg9IjEwMCUiPgogICAgICAgIDx0Ym9keT4KICAgICAgICAgPHRyIGhlaWdodD0iMjYi
+IHZhbGlnbj0idG9wIj4KICAgICAgICAgIDx0ZCBzdHlsZT0iZm9udC1zaXplOngtc21h
+bGwiPgogICAgICAgICAgIDxkaXY+PGI+TWVzc2FnZSBOdW1iZXI6IDwvYj43Njc3NjM8
+L2Rpdj4KICAgICAgICAgICA8aHIgLz4KICAgICAgICAgICA8ZGl2PjxiPkZyb206IDwv
+Yj48YSBocmVmPSJtYWlsdG86b3BzQGFzdHJhc2hpcC5jb20iIHRhcmdldD0iX2JsYW5r
+Ij5vcHNAYXN0cmFzaGlwLmNvbTwvYT48L2Rpdj4KICAgICAgICAgICA8ZGl2PjxiPlRv
+OiA8L2I+SEVMTEFTIFNBTlRPUyAoPGEgaHJlZj0ibWFpbHRvOm9wZXJhdGlvbnMxQGhl
+bGxhcy1zaGlwcGluZy5jb20uYnIiIHRhcmdldD0iX2JsYW5rIj5vcGVyYXRpb25zMUBo
+ZWxsYXMtc2hpcHBpbmcuY29tLmJyPC9hPik8L2Rpdj4KICAgICAgICAgICA8ZGl2Pjxi
+PlNlbnQ6IDwvYj4gVGh1cnNkYXksIEphbiA4LCAyMDI2IDE0OjI4IChVVEMgKzAyOjAw
+KTwvZGl2PgogICAgICAgICAgIDxkaXY+PGI+U3ViamVjdDogPC9iPlBlbGFnaWEgVm95
+LjAyIC8vIFBhcmFuYWd1YSBmb3IgbG9hZGluZzwvZGl2PgogICAgICAgICAgPC90ZD4K
+ICAgICAgICAgPC90cj4KICAgICAgICA8L3Rib2R5PgogICAgICAgPC90YWJsZT4KICAg
+ICAgIDxiciAvPgogICAgICA8L2Rpdj4KICAgICA8L2Rpdj48c3Bhbj48L3NwYW4+PGRp
+diBzdHlsZT0iY29sb3I6cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1b3Q7U2Vnb2Ug
+VUkgU3ltYm9sJnF1b3Q7O2ZvbnQtc2l6ZToxMHB0Ij4KICAgICAgPGRpdiBzdHlsZT0i
+Y29sb3I6cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1b3Q7U2Vnb2UgVUkgU3ltYm9s
+JnF1b3Q7O2ZvbnQtc2l6ZToxMHB0Ij5EZWFyIFNpcnMsJm5ic3A7PC9kaXY+CiAgICAg
+IDxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFtaWx5OiZxdW90O1Nl
+Z29lIFVJIFN5bWJvbCZxdW90Oztmb250LXNpemU6MTBwdCI+Jm5ic3A7PC9kaXY+CiAg
+ICAgIDxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFtaWx5OiZxdW90
+O1NlZ29lIFVJIFN5bWJvbCZxdW90Oztmb250LXNpemU6MTBwdCI+R29vZCBEYXkuPC9k
+aXY+CiAgICAgIDxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFtaWx5
+OiZxdW90O1NlZ29lIFVJIFN5bWJvbCZxdW90Oztmb250LXNpemU6MTBwdCI+Jm5ic3A7
+PC9kaXY+CiAgICAgIDxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFt
+aWx5OiZxdW90O1NlZ29lIFVJIFN5bWJvbCZxdW90Oztmb250LXNpemU6MTBwdCI+S2lu
+ZGx5IGFkdmlzZSBhdmFpbGFiaWxpdHkgb2YgcmVjZXB0aW9uIGZhY2lsaXRpZXMgZm9y
+IHNsdWRnZS9vaWx5IHdhdGVyL3dhc2ggd2F0ZXIvc2V3YWdlL2dhcmJhZ2UsIGNvc3Qg
+cGVyIGNibSBvciB0b24gYW5kIHByb2NlZHVyZXMgZm9yIG9yZGVyaW5nIHN1Y2ggb3Bl
+cmF0aW9uLjwvZGl2PgogICAgICA8ZGl2IHN0eWxlPSJjb2xvcjpyZ2IoMCwwLDUxKTtm
+b250LWZhbWlseTomcXVvdDtTZWdvZSBVSSBTeW1ib2wmcXVvdDs7Zm9udC1zaXplOjEw
+cHQiPlBsZWFzZSBhZHZpc2UgaWYgYW55IGRpc3Bvc2FsIGlzIGNvbXB1bHNvcnkuIElu
+IGFkZGl0aW9uIHRvIHRoaXMsIGtpbmRseSBhZHZpc2Ugd2hldGhlciB0aGUgcHJvdmlk
+ZXJzIGFyZSBJU08xNDAwMSBhcHByb3ZlZC48L2Rpdj4KICAgICAgPGRpdiBzdHlsZT0i
+Y29sb3I6cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1b3Q7U2Vnb2UgVUkgU3ltYm9s
+JnF1b3Q7O2ZvbnQtc2l6ZToxMHB0Ij4mbmJzcDs8L2Rpdj4KICAgICAgPGRpdiBzdHls
+ZT0iY29sb3I6cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1b3Q7U2Vnb2UgVUkgU3lt
+Ym9sJnF1b3Q7O2ZvbnQtc2l6ZToxMHB0Ij5Bd2FpdGluZyB5b3Vycy48L2Rpdj4KICAg
+ICAgPGRpdiBzdHlsZT0iY29sb3I6cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1b3Q7
+U2Vnb2UgVUkgU3ltYm9sJnF1b3Q7O2ZvbnQtc2l6ZToxMHB0Ij4mbmJzcDs8L2Rpdj4K
+ICAgICAgPGRpdiBzdHlsZT0iY29sb3I6cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1
+b3Q7U2Vnb2UgVUkgU3ltYm9sJnF1b3Q7O2ZvbnQtc2l6ZToxMHB0Ij5CZXN0IFJlZ2Fy
+ZHMsPGJyIC8+IERpbWl0cmEgSW9hbm5pZG91PGJyIC8+IE9wZXJhdGlvbnMgRGVwdC48
+YnIgLz4KICAgICAgIDxiciAvPiBBc3RyYSBTaGlwbWFuYWdlbWVudCBJbmM8YnIgLz4g
+KGFzIGFnZW50cyBvbmx5KTxiciAvPiA2IFZvdWxpYWdtZW5pcyBBdmVudWUgJmFtcDsg
+MTIgTmlydmFuYSBTdC48YnIgLz4gVm91bGEsIDE2NiA3MzxiciAvPiBBdGhlbnMgLSBH
+cmVlY2U8YnIgLz4gVGVsOiArMzAgMjEzIDAxNzUgMTA2PC9kaXY+CiAgICAgPC9kaXY+
+PHNwYW4gbGFuZz0iRU4tVVMiIHN0eWxlPSJjb2xvcjpyZ2IoODksODksODkpIj48ZGl2
+Pjxmb250IGZhY2U9IkNhbGlicmkiPjxzdHJvbmc+PGhyIC8+PC9zdHJvbmc+PC9mb250
+PjwvZGl2PgogICAgICA8ZGl2Pjxmb250IGZhY2U9IkNhbGlicmkiPjxzdHJvbmc+UHJp
+b3JpdGl6aW5nIHRoZSB3ZWxsYmVpbmcgb2Ygb3VyIHBsYW5ldCBhbmQgaXRzIHBlb3Bs
+ZTxlbT4uPC9lbT48L3N0cm9uZz48L2ZvbnQ+PC9kaXY+CiAgICAgIDxkaXY+PGVtPjxm
+b250IGZhY2U9IkNhbGlicmkiPjwvZm9udD48L2VtPiZuYnNwOzwvZGl2PgogICAgICA8
+ZGl2PjxlbT48Zm9udCBmYWNlPSJDYWxpYnJpIj5UaGlzIGVtYWlsIG1heSBjb250YWlu
+IGNvbmZpZGVudGlhbCBhbmQgcHJpdmlsZWdlZCBpbmZvcm1hdGlvbi4gVXNlIG9yIGRp
+c2Nsb3N1cmUgb2YgaXQgYnkgYW55b25lIG90aGVyIHRoYW4gYW4gaW50ZW5kZWQgcmVj
+aXBpZW50IGlzIHByb2hpYml0ZWQuIDxiciAvPklmIHlvdSByZWNlaXZlZCB0aGlzIGVt
+YWlsIGluIGVycm9yLCBwbGVhc2Ugbm90aWZ5IHRoZSBzZW5kZXIgaW1tZWRpYXRlbHkg
+YnkgcmV0dXJuIGVtYWlsIGFuZCBkZXN0cm95IGFsbCBjb3BpZXMgb2YgdGhpcyBlbWFp
+bC48L2ZvbnQ+PC9lbT48L2Rpdj4KICAgICAgPGRpdj48ZW0+PGZvbnQgZmFjZT0iQ2Fs
+aWJyaSI+PC9mb250PjwvZW0+Jm5ic3A7PC9kaXY+CiAgICAgIDxkaXY+PGZvbnQgZmFj
+ZT0iQ2FsaWJyaSI+PGVtPio8L2VtPlBsZWFzZSBjb25zaWRlciB0aGUgZW52aXJvbm1l
+bnQgYmVmb3JlIHByaW50aW5nPGVtPio8L2VtPjwvZm9udD48L2Rpdj48L3NwYW4+PC9k
+aXY+CiAgIDwvYmxvY2txdW90ZT4KICA8L2Rpdj4KIDwvYm9keT4KPC9odG1sPg==
+----boundary_28_81b318b2-823c-43a2-93e2-b28f7934c1dd--
+

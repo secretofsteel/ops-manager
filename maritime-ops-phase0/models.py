@@ -84,9 +84,33 @@ class ClassificationResult(BaseModel):
     @field_validator('subcategory', mode='before')
     @classmethod
     def validate_subcategory(cls, v):
-        if v is not None and isinstance(v, str):
+        if v is None:
+            return None
+        if isinstance(v, str):
             v = v.strip().upper()
-            if not v:
+            if not v or v in ('NULL', 'NONE', 'N/A'):
+                return None
+        return v
+
+    @field_validator('vessel_name', mode='before')
+    @classmethod
+    def validate_vessel_name(cls, v):
+        if v is None:
+            return None
+        if isinstance(v, str):
+            v = v.strip()
+            if not v or v.lower() in ('null', 'none', 'n/a', ''):
+                return None
+        return v
+
+    @field_validator('port', mode='before')
+    @classmethod
+    def validate_port(cls, v):
+        if v is None:
+            return None
+        if isinstance(v, str):
+            v = v.strip()
+            if not v or v.lower() in ('null', 'none', 'n/a', ''):
                 return None
         return v
 
@@ -96,6 +120,15 @@ class ClassificationResult(BaseModel):
         if not v or not v.strip():
             raise ValueError('Summary cannot be empty')
         return v.strip()
+
+    @field_validator('dates_mentioned', mode='before')
+    @classmethod
+    def validate_dates(cls, v):
+        if v is None:
+            return []
+        if isinstance(v, str):
+            return [v] if v.strip() else []
+        return v
 
 
 class ProcessedEmail(BaseModel):
@@ -118,6 +151,7 @@ class ProcessedEmail(BaseModel):
             'category': self.classification.category if self.classification else 'ERROR',
             'subcategory': self.classification.subcategory if self.classification else None,
             'vessel': self.classification.vessel_name if self.classification else None,
+            'port': self.classification.port if self.classification else None,
             'urgency': self.classification.urgency.value if self.classification else None,
             'source': self.classification.source.value if self.classification else None,
             'confidence': self.classification.confidence if self.classification else 0.0,

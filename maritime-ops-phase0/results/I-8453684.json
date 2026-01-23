@@ -1,0 +1,31 @@
+{
+  "parsed_email": {
+    "message_id": "<CABrxWpC8kvavoGZa9ELnx1mXF_UM6AgBqdakkT3kqhg7djGJEA@mail.gmail.com>",
+    "subject": "Re: Malteza Voy.33 // Casablanca for discharging",
+    "sender": "Somaship Sarl <ssomaship@gmail.com>",
+    "recipients": [
+      "ops@astraship.com",
+      "malteza@vessels.astraship.com",
+      "ssomaship@gmail.com"
+    ],
+    "received_at": "2026-01-09T09:48:45+01:00",
+    "body_text": null,
+    "body_html": null,
+    "attachments": [],
+    "raw_path": "emails\\I-8453684.eml"
+  },
+  "classification": {
+    "vessel_name": "Malteza",
+    "category": "UNCATEGORIZED",
+    "subcategory": null,
+    "port": "Casablanca",
+    "dates_mentioned": [],
+    "urgency": "LOW",
+    "summary": "Email thread regarding vessel Malteza's voyage 33 to Casablanca for discharging.",
+    "action_required": false,
+    "confidence": 0.9,
+    "source": "LLM"
+  },
+  "errors": [],
+  "processing_time_seconds": 1.2268004417419434
+}

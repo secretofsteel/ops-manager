@@ -1,0 +1,31 @@
+{
+  "parsed_email": {
+    "message_id": "<fw-request-001@portservices.com>",
+    "subject": "Fresh water supply required - MV Ocean Trader",
+    "sender": "operations@portservices.com",
+    "recipients": [
+      "vessel.ops@shipping.com"
+    ],
+    "received_at": "2024-01-15T10:00:00Z",
+    "body_text": "Dear Operations Team,\n\nWe need to arrange fresh water supply for MV Ocean Trader arriving\nat Singapore port on January 20th, 2024.\n\nRequired quantity: 50 tons\nEstimated arrival: 20-Jan-2024 08:00 local time\nBerth: Terminal 3, Berth 12\n\nPlease confirm availability and provide pricing quotation.\n\nBest regards,\nPort Services Team\n",
+    "body_html": null,
+    "attachments": [],
+    "raw_path": "emails\\sample_fresh_water.eml"
+  },
+  "classification": {
+    "vessel_name": "MV Ocean Trader",
+    "category": "HUSBANDRY",
+    "subcategory": "FRESH_WATER",
+    "port": "Singapore",
+    "dates_mentioned": [
+      "2024-01-20"
+    ],
+    "urgency": "MEDIUM",
+    "summary": "Request for fresh water supply for MV Ocean Trader arriving on January 20th, 2024, with a required quantity of 50 tons.",
+    "action_required": true,
+    "confidence": 1.0,
+    "source": "LLM"
+  },
+  "errors": [],
+  "processing_time_seconds": 1.0182054042816162
+}

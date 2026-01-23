@@ -1,0 +1,1479 @@
+From - Fri Jan 09 14:53:53 2026
+X-DMS-Device: 6 8
+X-DMS-mailuser: ops@astraship.com
+Return-Path: <gabriel.felipe@hellas-shipping.com.br>
+Delivered-To: ops@astraship.com
+Received: from localhost (localhost [127.0.0.1])
+	by safemail2.astraship.com (Postfix) with ESMTP id D5F40202179
+	for <ops@astraship.com>; Fri,  9 Jan 2026 14:53:37 +0200 (EET)
+X-Virus-Scanned: Debian amavisd-new at safemail2.astra.local
+Received: from safemail2.astraship.com ([127.0.0.1])
+	by localhost (safemail2.astraship.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id vP3ov65lgUKH for <ops@astraship.com>;
+	Fri,  9 Jan 2026 14:53:36 +0200 (EET)
+X-Comment: SPF check N/A for local connections - client-ip=185.201.16.200; helo=out12-200.antispamcloud.com; envelope-from=gabriel.felipe@hellas-shipping.com.br; receiver=<UNKNOWN> 
+Received: from out12-200.antispamcloud.com (out12-200.antispamcloud.com [185.201.16.200])
+	by safemail2.astraship.com (Postfix) with ESMTPS id DF30C202149
+	for <ops@astraship.com>; Fri,  9 Jan 2026 14:53:35 +0200 (EET)
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	by mx283.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <gabriel.felipe@hellas-shipping.com.br>)
+	id 1veBzd-007JGZ-SX
+	for ops@astraship.com; Fri, 09 Jan 2026 13:53:34 +0100
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-8b29ff9d18cso445889385a.3
+        for <ops@astraship.com>; Fri, 09 Jan 2026 04:53:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hellas-shipping-com-br.20230601.gappssmtp.com; s=20230601; t=1767963208; x=1768568008; darn=astraship.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jmpekGaIfuSTK1nhEDnypJJWVTLVsdvI8/I5TQwKC58=;
+        b=xZr2oM2JPuC13lpBpTlGZwfXgiP4hHoEC8/bJK1VY6D9r0gfiYswCS3t9bZWGHfmT2
+         yohUCmxEmGIGNRFziZK16//3vRFWvi4ijo8XxHFqZQQt5RXl19e9sz0md+C0c8xiMT6i
+         fMcx45UQWlUGAgtj147BRNLXSAR1hmPtmXGmRXNB8U8o2ISXiTaJl0lUDEZsHSD6lZOk
+         sJoNZHA9/gXmcw6UZ1JcSNfFDxgwAU6Ztyrx3YBNTnAAM7uu2bB6VOMLEZjNauh80kFk
+         brbzeIo5fTylx/Hd3PVzr6EcVfw2FYWdPIgtUdYSWITCOYmF1hjg3uDl3+GMtWuy0IkG
+         W06Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767963208; x=1768568008;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jmpekGaIfuSTK1nhEDnypJJWVTLVsdvI8/I5TQwKC58=;
+        b=YmDvhICZ1QB/bHf06GvX/DJzw1PACTI0ziBcOf4y0HPN15A897zyS9CgBI+oEdQ0iz
+         HJ3C7Zk+87ThA6MbbJqG1aVPhmi7toP11T7euMnBOTNJxnk3y8xC4h17yd7wvxoDr1EV
+         RqtE8ggo3qK/mOiiXIBlyMSPCZFCsX1a69Cb42J8FI1DDQD84nW9QiUfemqAjR5qSZQT
+         jrB9udlXvz+t+yqCPWLVxBxFQXMlXAv5PtsiuwJ70iJ8P/Tizhqnnk7mS/mHT5GkyGtW
+         gP7JP9STVyAbRzmMnlQhW6gn10RcHuZcCbc+6gBSHBqrOXTXVwEJijqQrrvWT2/y5kYO
+         /rEQ==
+X-Gm-Message-State: AOJu0YzxSihY40oQFkp9OOc8xgxcKzsVAyrQHwMMFX2+Kw4oINnsjzGS
+	5UN4sSINQZYS4EENhqD2nv39lI/h5G3sLUzVq2Mp4v8HhcMyc/ZXSo7rAZFfXCuAXmQxWFB8a7B
+	UwAZzEAgLmkbWJ2cFcNXV4k7tv/7m5W7XiaIAdVbxN4g0Kx8WtczbZPU=
+X-Gm-Gg: AY/fxX7/jVLLaW07jKSfy5Qyx2LV7NClkIO63mqwcx6FIqn9MnsAZaDmvNCNp4nu4S4
+	VKwe14LEM7a/8STXeXqxSe5yAkgEDY36S/ffY7rmlRdvBsKAN4cyMm80SV5BNQQg7yQ8/SFfLWy
+	4xtfdj2cvUoPhBEcXd76vYxa+I6dW7JAHPz+zKJN+M3XR4ee3yk4J+4c0/ELQHBL4zymHTsvXJe
+	6JPhayLSMwbTO9nls4ODTCiCyL/r8bbce3ghJII63zY8lG2HjsFRZ6nFyqI8G4lEvwnfs79yZjf
+	wqVcMylC7j/MOproyS9Rdm3mSUN1sULw0VaKzi7xTL2EZc9nKvcXjshCmqF5
+X-Google-Smtp-Source: AGHT+IHL9zuBkB3vNVa08epiiE4JhYx5Z9PWbJmjZgLDlPUg1ltFSSk92CvoMBY8UZXaoraxWcKewrq4dJFY6Ag0yGA=
+X-Received: by 2002:a05:620a:298c:b0:8b2:767c:31d3 with SMTP id
+ af79cd13be357-8c389369160mr1271335085a.6.1767963208259; Fri, 09 Jan 2026
+ 04:53:28 -0800 (PST)
+MIME-Version: 1.0
+References: <17679482520.De7F.983287@oracle-lnx.astra.local>
+In-Reply-To: <17679482520.De7F.983287@oracle-lnx.astra.local>
+From: Operations - Hellas Shipping Agencies <operations1@hellas-shipping.com.br>
+Date: Fri, 9 Jan 2026 09:53:19 -0300
+X-Gm-Features: AZwV_QgjdHjxmuu9S81v-d7i2ys80axJnvsKSBk7FqTQMAp4UWeeNDaG_xKP2lM
+Message-ID: <CANf+WWe8YOyPjjWLOrOyUM_HyMdSAN3iMGu65BYqMCC=5t259Q@mail.gmail.com>
+Subject: Re: Pelagia Voy.02 // Paranagua for loading
+To: Operations - Astra Shipmanagement Inc <ops@astraship.com>
+Cc: Operations - Hellas Shipping Agencies <operations1@hellas-shipping.com.br>, 
+	Accounts - Hellas Shipping Agencies <accounts@hellas-shipping.com.br>
+X-SPF-Result: mx283.antispamcloud.com: domain of hellas-shipping.com.br designates 2607:f8b0:4864:20::72f as permitted sender
+Authentication-Results: mx283.antispamcloud.com;
+	iprev=pass (mail-qk1-x72f.google.com) smtp.remote-ip=2607:f8b0:4864:20::72f;
+	spf=pass smtp.mailfrom=hellas-shipping.com.br;
+	dkim=pass header.d=hellas-shipping-com-br.20230601.gappssmtp.com header.s=20230601 header.a=rsa-sha256;
+	dmarc=pass header.from=hellas-shipping.com.br
+Authentication-Results:  antispamcloud.com; spf=pass smtp.mailfrom=gabriel.felipe@hellas-shipping.com.br; dkim=pass header.i=hellas-shipping-com-br.20230601.gappssmtp.com
+X-Spampanel-Class: ham
+X-Spampanel-Evidence: SB/antispamcloud_com (0.0465405355902)
+X-Recommended-Action: accept
+X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgBqR3BGVlyZaTyV4FT6EOnKekG8RceY69kLyUQjCnD6hYDDBys/7ADS5
+ jR3I8cKzA91xiy3Up+LVd7GIn5u8EGUQEloJvfKUTNV2IyQF93a9btYmSxY17mRN/xO/79iJsWR4
+ 3Q2vzOSR180cTXXUUcrEU3ec7Tfym98ew2WuvWrxbsgefmnuPq/t7q+rG1o+XLYke9eEKiOTUvNa
+ n8Yx/2t4mkvGNo8cTUD87Jn5X53EJfiVNTuFM5LOoX9BqtqhOAmt/xFgXbOQAvegkNi/aWt9w6Ew
+ XICYy0ePXtGEMhqrmJPIrhzghSrnv+4/8PwVimU6UgOqKJ9sMwhVoOBGSAIZmL0kTGIVN3DthM1B
+ 8FVxCrA7XJ2hQf80foVYO3lcvOsHPItHnAl1J2t1/TO6CeMcxH9FxkmibvPm0QFj3G8U0c43qklf
+ ehDafB31yHafrfPRySi5cY3VDRon9B4UdBQW5YYZ7fj+43UbyOgwrXwHtShaMFMotjAnt5ns/dq/
+ gWr9v6R5/EuLcEbi8uNVGwQBhW+4DXFXtzsK1ipTC/qRH6LhGwY4A2xoDuuQ5/yqtCjTWT+ZLfUC
+ QU0+BY3gz/2P0EVGJ0baKVQseEPDGjIH2IuMDxR4eSBRjnCBsHyQsJtS+4cbDF0B4QmHN4w0WJUa
+ mUdylUIKhf3z2GAHxH7IRwQQ4NklEY+CdcTFVb9oIJfK3e7ZR+p0JSpmLhwuOwcWNQ1ZSEfZXfV4
+ +FapD+P//wc1v/QUNTHjXTcKDVfEEkStKzRfejKhNzyP+juq6XG5Nwk3bZt5tzlUznMXijCoRhb5
+ uK0eimgl0wnTqZaP8j3djGHKlv3uUBjKNVWnk05zlDKNA8S+ppi7LwOwtcq7UV8ShebT8U8Xw9HT
+ DfreWfF/1GGBU+K1zOo8cThxW+iqx8BsF9Tfr2ednwyYW/3p7cTs80/2FnZg/IMsIAdedbk3CTdt
+ m3m3OVTOcxeKMKiUuY/GeAIE8mt8/iL5wRiNJmkP8s1HCfLKOW1F2ohPJ/AFMvX7q8M4x6bP/gjz
+ w0M1n4ljxEYXW3Y9en6YI6Dz
+X-Report-Abuse-To: spam@quarantine15.antispamcloud.com
+X-Complaints-To: abuse@master.antispamcloud.com
+Content-Type: multipart/alternative;
+ boundary=--boundary_21_a3a2d042-7df3-413a-9e8a-d098dd10368e
+
+
+----boundary_21_a3a2d042-7df3-413a-9e8a-d098dd10368e
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>=0A <head>=0A  <meta content=3D"text/html; charset=3DUTF-8"=
+ http-equiv=3D"Content-Type" />=0A </head>=0A <body>=0A  <div>=0A=
+<!FWREPLACE>=0A<table border=3D"1" cellpadding=3D"1" cellspacing=3D=
+"1" height=3D"26" style=3D"background-color:#d7d7d7" width=3D"100=
+%">=0A    <tbody>=0A     <tr>=0A      <td style=3D"font-family:Ve=
+rdana;font-size:x-small">=0A       <div><strong>Message: <span>84=
+54809</span></strong></div>=0A       <hr />=0A       <div><strong=
+>From: </strong><span>Operations - Hellas Shipping Agencies &lt;o=
+perations1@hellas-shipping.com.br&gt;</span></div>=0A       <div>=
+<strong>To: </strong><span>Operations - Astra Shipmanagement Inc =
+&lt;ops@astraship.com&gt;</span></div>=0A       <div><strong>Cc: =
+</strong><span>Operations - Hellas Shipping Agencies &lt;operatio=
+ns1@hellas-shipping.com.br&gt;,Accounts - Hellas Shipping Agencie=
+s &lt;accounts@hellas-shipping.com.br&gt;</span></div>=0A       <=
+div><strong>Date: </strong><span>Fri, 09/Jan/2026 14:54:20 (UTC: =
++02:00)</span></div>=0A       <div><strong>Subject: </strong><spa=
+n>Re: Pelagia Voy.02 // Paranagua for loading</span></div>=0A    =
+   <div><strong></strong></div>=0A      </td>=0A     </tr>=0A    =
+</tbody>=0A   </table>=0A   <br />=0A<!-- FWREPLACE -->=0A</div>=0A=
+  <div dir=3D"ltr">=0A   <div>=0A    <div class=3D"gmail_default"=
+ style=3D"">Dear Ms. Dimitra Ioannidou, Good day!<br />=0A     <b=
+r />Kindly be informed we can remove both free of charge.<span st=
+yle=3D"font-family:&quot;Segoe UI Symbol&quot;;color:rgb(0,0,51);=
+font-size:13.3333px"><br />=0A      <br /></span><span style=3D"f=
+ont-family:Cambria;color:rgb(7,55,99);font-size:10pt;font-weight:=
+bold;text-indent:0in">Our best regards,</span><span style=3D"colo=
+r:rgb(0,0,51);font-family:&quot;Segoe UI Symbol&quot;;font-size:1=
+3.3333px;font-size:13.3333px"></span></div>=0A   </div>=0A   <div=
+>=0A    <div class=3D"gmail_signature" data-smartmail=3D"gmail_si=
+gnature" dir=3D"ltr">=0A     <div dir=3D"ltr">=0A      <p style=3D=
+"margin:0pt 0in;text-indent:0in;direction:ltr;vertical-align:base=
+line;word-break:normal"><span style=3D"color:rgb(7,55,99);font-si=
+ze:10pt;font-family:Cambria;font-weight:bold"><br />Gabriel</span=
+><span style=3D"color:rgb(7,55,99);font-size:10pt;font-family:Cam=
+bria;font-weight:bold">&nbsp;</span><span style=3D"color:rgb(7,55=
+,99);font-size:10pt;font-family:Cambria;font-weight:bold">Felipe<=
+br /></span><font color=3D"#ff0000"><span style=3D"font-size:10pt=
+;font-family:Cambria;font-weight:bold"><br />Attending</span><spa=
+n style=3D"font-size:10pt;font-family:Cambria;font-weight:bold"> =
+</span><span style=3D"font-size:10pt;font-family:Cambria;font-wei=
+ght:bold">all</span><span style=3D"font-size:10pt;font-family:Cam=
+bria;font-weight:bold"> </span><span style=3D"font-size:10pt;font=
+-family:Cambria;font-weight:bold">ports</span><span style=3D"font=
+-size:10pt;font-family:Cambria;font-weight:bold"> </span><span st=
+yle=3D"font-size:10pt;font-family:Cambria;font-weight:bold">of</s=
+pan><span style=3D"font-size:10pt;font-family:Cambria;font-weight=
+:bold"> South </span><span style=3D"font-size:10pt;font-family:Ca=
+mbria;font-weight:bold">and</span><span style=3D"font-size:10pt;f=
+ont-family:Cambria;font-weight:bold"> Central </span><span style=3D=
+"font-size:10pt;font-family:Cambria;font-weight:bold">America</sp=
+an><span style=3D"font-size:10pt;font-family:Cambria;font-weight:=
+bold">. Head office in&nbsp;</span></font></p>=0A      <p style=3D=
+"margin:0pt 0in;text-indent:0in;direction:ltr;vertical-align:base=
+line;word-break:normal"><font color=3D"#ff0000"><span style=3D"fo=
+nt-size:10pt;font-family:Cambria;font-weight:bold">Brazil</span><=
+span style=3D"font-size:10pt;font-family:Cambria;font-weight:bold=
+">&nbsp;</span><span style=3D"font-size:10pt;font-family:Cambria;=
+font-weight:bold">and</span><span style=3D"font-size:10pt;font-fa=
+mily:Cambria;font-weight:bold"> </span><span style=3D"font-size:1=
+0pt;font-family:Cambria;font-weight:bold">branch</span><span styl=
+e=3D"font-size:10pt;font-family:Cambria;font-weight:bold"> office=
+s </span><span style=3D"font-size:10pt;font-family:Cambria;font-w=
+eight:bold">at</span><span style=3D"font-size:10pt;font-family:Ca=
+mbria;font-weight:bold"> Argentina, Uruguay, Peru and</span></fon=
+t><span style=3D"color:rgb(255,0,0);text-indent:0in;font-size:10p=
+t;font-family:Cambria;font-weight:bold">&nbsp;Venezuela<br />=0A =
+       <br /></span></p>=0A      <p style=3D"margin:0pt 0in;text-=
+indent:0in;direction:ltr;vertical-align:baseline;word-break:norma=
+l"><font color=3D"#073763"><span style=3D"font-size:10pt;font-fam=
+ily:Cambria;font-weight:bold">Gabriel</span><span style=3D"font-s=
+ize:10pt;font-family:Cambria;font-weight:bold"> </span><span styl=
+e=3D"font-size:10pt;font-family:Cambria;font-weight:bold">Felipe<=
+/span><span style=3D"font-size:10pt;font-family:Cambria;font-weig=
+ht:bold"> </span></font></p>=0A      <p style=3D"margin:0pt 0in;d=
+irection:ltr;vertical-align:baseline;word-break:normal">=0A      =
+</p>=0A      <p style=3D"margin:0pt 0in;text-indent:0in;direction=
+:ltr;vertical-align:baseline;word-break:normal"><font color=3D"#0=
+73763"><span style=3D"font-size:10pt;font-family:Cambria;font-wei=
+ght:bold">Mobile </span><span style=3D"font-size:10pt;font-family=
+:Cambria;font-weight:bold">number</span><span style=3D"font-size:=
+10pt;font-family:Cambria;font-weight:bold">:&nbsp;+55&nbsp;</span=
+><span style=3D"font-size:10pt;font-family:Cambria;font-weight:bo=
+ld">1</span><span style=3D"font-size:10pt;font-family:Cambria;fon=
+t-weight:bold">3 997645095&nbsp;</span></font></p>=0A      <p sty=
+le=3D"margin:0pt 0in;direction:ltr;vertical-align:baseline;word-b=
+reak:normal"><b><font color=3D"#073763"></font><img src=3D"https:=
+//ci3.googleusercontent.com/mail-sig/AIorK4xtE2_IPnVO2twPnxctjanc=
+uy0FkIoHz947WqeXoCwPfXSZov3XrJjdBdCV-fpQJzUvqNGVcUY" /><br /></b>=
+</p>=0A     </div>=0A    </div>=0A   </div>=0A   <br />=0A  </div=
+>=0A  <br />=0A  <div class=3D"gmail_quote gmail_quote_container"=
+>=0A   <div class=3D"gmail_attr" dir=3D"ltr">Em sex., 9 de jan. d=
+e 2026 =C3=A0s 05:44, Operations - Astra Shipmanagement Inc &lt;<=
+a href=3D"mailto:ops@astraship.com">ops@astraship.com</a>&gt; esc=
+reveu:<br />=0A   </div>=0A   <blockquote class=3D"gmail_quote" s=
+tyle=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,20=
+4,204);padding-left:1ex"><u></u><div><span></span><div style=3D"c=
+olor:rgb(0,0,0);font-family:verdana;font-size:x-small">=0A      <=
+div>=0A       <table border=3D"1" cellpadding=3D"2" cellspacing=3D=
+"2" style=3D"background-color:rgb(215,215,215)" width=3D"100%">=0A=
+        <tbody>=0A         <tr height=3D"26" valign=3D"top">=0A  =
+        <td style=3D"font-size:x-small">=0A           <div><b>Mes=
+sage Number: </b>767991</div>=0A           <hr />=0A           <d=
+iv><b>From: </b><a href=3D"mailto:ops@astraship.com" target=3D"_b=
+lank">ops@astraship.com</a></div>=0A           <div><b>To: </b>HE=
+LLAS SHIPPING BR (<a href=3D"mailto:operations1@hellas-shipping.c=
+om.br" target=3D"_blank">operations1@hellas-shipping.com.br</a>)<=
+/div>=0A           <div><b>Cc: </b><a href=3D"mailto:operations1@=
+hellas-shipping.com.br" target=3D"_blank">operations1@hellas-ship=
+ping.com.br</a></div>=0A           <div><b>Sent: </b> Friday, Jan=
+ 9, 2026 10:44 (UTC +02:00)</div>=0A           <div><b>Subject: <=
+/b>Pelagia Voy.02 // Paranagua for loading</div>=0A          </td=
+>=0A         </tr>=0A        </tbody>=0A       </table>=0A       =
+<br />=0A      </div>=0A     </div><span></span><div style=3D"col=
+or:rgb(0,0,51);font-family:&quot;Segoe UI Symbol&quot;;font-size:=
+10pt">=0A      <div style=3D"color:rgb(0,0,51);font-family:&quot;=
+Segoe UI Symbol&quot;;font-size:10pt">Dear Gabriel,&nbsp;</div>=0A=
+      <div style=3D"color:rgb(0,0,51);font-family:&quot;Segoe UI =
+Symbol&quot;;font-size:10pt">&nbsp;</div>=0A      <div style=3D"c=
+olor:rgb(0,0,51);font-family:&quot;Segoe UI Symbol&quot;;font-siz=
+e:10pt">Good Day.</div>=0A      <div style=3D"color:rgb(0,0,51);f=
+ont-family:&quot;Segoe UI Symbol&quot;;font-size:10pt">&nbsp;</di=
+v>=0A      <div style=3D"color:rgb(0,0,51);font-family:&quot;Sego=
+e UI Symbol&quot;;font-size:10pt">Please see&nbsp;below estimated=
+ breakdown of garbage and sludge on arrival Paranagua: <p style=3D=
+"text-align:start;margin:0px">&nbsp;</p>=0A       <table style=3D=
+"font-family:&quot;Times New Roman&quot;;background-color:rgb(255=
+,255,255);text-decoration-style:initial;text-decoration-color:ini=
+tial;width:463px;margin-left:0px;border-collapse:collapse" width=3D=
+"463">=0A        <tbody>=0A         <tr>=0A          <td style=3D=
+"border-width:1px;border-style:solid;border-color:black;width:68p=
+x;padding:0cm 7px;height:20px;background-color:rgb(255,255,255)">=
+=0A           <p align=3D"center" style=3D"text-align:center;marg=
+in:0px"><span style=3D"font-size:12pt"><span style=3D"font-family=
+:Calibri,sans-serif"><span style=3D"font-size:11pt"><span style=3D=
+"color:black">Category</span></span></span></span></p>=0A        =
+  </td>=0A          <td style=3D"border-bottom:1px solid black;wi=
+dth:196px;padding:0cm 7px;height:20px;background-color:rgb(255,25=
+5,255);border-top:1px solid black;border-right:1px solid black;bo=
+rder-left:none">=0A           <p align=3D"center" style=3D"text-a=
+lign:center;margin:0px"><span style=3D"font-size:12pt"><span styl=
+e=3D"font-family:Calibri,sans-serif"><span style=3D"font-size:11p=
+t"><span style=3D"color:black">Description</span></span></span></=
+span></p>=0A          </td>=0A          <td style=3D"border-botto=
+m:1px solid black;width:85px;padding:0cm 7px;height:20px;backgrou=
+nd-color:rgb(255,255,255);border-top:1px solid black;border-right=
+:1px solid black;border-left:none">=0A           <p align=3D"cent=
+er" style=3D"text-align:center;margin:0px"><span style=3D"font-si=
+ze:12pt"><span style=3D"font-family:Calibri,sans-serif"><span sty=
+le=3D"font-size:11pt"><span style=3D"color:black">Quantity</span>=
+</span></span></span></p>=0A          </td>=0A          <td style=
+=3D"border-bottom:1px solid black;width:113px;padding:0cm 7px;hei=
+ght:20px;background-color:rgb(255,255,255);border-top:1px solid b=
+lack;border-right:1px solid black;border-left:none">=0A          =
+ <p align=3D"center" style=3D"text-align:center;margin:0px"><span=
+ style=3D"font-size:12pt"><span style=3D"font-family:Calibri,sans=
+-serif"><span style=3D"font-size:11pt"><span style=3D"color:black=
+">unit</span></span></span></span></p>=0A          </td>=0A      =
+   </tr>=0A         <tr>=0A          <td style=3D"border-bottom:1=
+px solid black;width:68px;padding:0cm 7px;height:20px;background-=
+color:rgb(255,255,255);border-top:none;border-right:1px solid bla=
+ck;border-left:1px solid black">=0A           <p align=3D"center"=
+ style=3D"text-align:center;margin:0px"><span style=3D"font-size:=
+12pt"><span style=3D"font-family:Calibri,sans-serif"><span style=3D=
+"font-size:11pt"><span style=3D"color:black">A</span></span></spa=
+n></span></p>=0A          </td>=0A          <td style=3D"border-b=
+ottom:1px solid black;width:196px;padding:0cm 7px;height:20px;bac=
+kground-color:rgb(255,255,255);border-top:none;border-right:1px s=
+olid black;border-left:none">=0A           <p align=3D"center" st=
+yle=3D"text-align:center;margin:0px"><span style=3D"font-size:12p=
+t"><span style=3D"font-family:Calibri,sans-serif"><span style=3D"=
+font-size:11pt"><span style=3D"color:black">Plastics</span></span=
+></span></span></p>=0A          </td>=0A          <td style=3D"bo=
+rder-bottom:1px solid black;width:85px;padding:0cm 7px;height:20p=
+x;background-color:rgb(255,255,255);border-top:none;border-right:=
+1px solid black;border-left:none">=0A           <p align=3D"cente=
+r" style=3D"text-align:center;margin:0px"><span style=3D"font-siz=
+e:12pt"><span style=3D"font-family:Calibri,sans-serif"><span styl=
+e=3D"font-size:11pt"><span style=3D"color:black">3.7</span></span=
+></span></span></p>=0A          </td>=0A          <td style=3D"bo=
+rder-bottom:1px solid black;width:113px;padding:0cm 7px;height:20=
+px;background-color:rgb(255,255,255);border-top:none;border-right=
+:1px solid black;border-left:none">=0A           <p align=3D"cent=
+er" style=3D"text-align:center;margin:0px"><span style=3D"font-si=
+ze:12pt"><span style=3D"font-family:Calibri,sans-serif"><span sty=
+le=3D"font-size:11pt"><span style=3D"color:black">cbm</span></spa=
+n></span></span></p>=0A          </td>=0A         </tr>=0A       =
+  <tr>=0A          <td style=3D"border-bottom:1px solid black;wid=
+th:68px;padding:0cm 7px;height:20px;background-color:rgb(255,255,=
+255);border-top:none;border-right:1px solid black;border-left:1px=
+ solid black">=0A           <p align=3D"center" style=3D"text-ali=
+gn:center;margin:0px"><span style=3D"font-size:12pt"><span style=3D=
+"font-family:Calibri,sans-serif"><span style=3D"font-size:11pt"><=
+span style=3D"color:black">B</span></span></span></span></p>=0A  =
+        </td>=0A          <td style=3D"border-bottom:1px solid bl=
+ack;width:196px;padding:0cm 7px;height:20px;background-color:rgb(=
+255,255,255);border-top:none;border-right:1px solid black;border-=
+left:none">=0A           <p align=3D"center" style=3D"text-align:=
+center;margin:0px"><span style=3D"font-size:12pt"><span style=3D"=
+font-family:Calibri,sans-serif"><span style=3D"font-size:11pt"><s=
+pan style=3D"color:black">Food</span></span></span></span></p>=0A=
+          </td>=0A          <td style=3D"border-bottom:1px solid =
+black;width:85px;padding:0cm 7px;height:20px;background-color:rgb=
+(255,255,255);border-top:none;border-right:1px solid black;border=
+-left:none">=0A           <p align=3D"center" style=3D"text-align=
+:center;margin:0px"><span style=3D"font-size:12pt"><span style=3D=
+"font-family:Calibri,sans-serif"><span style=3D"font-size:11pt"><=
+span style=3D"color:black">0.1</span></span></span></span></p>=0A=
+          </td>=0A          <td style=3D"border-bottom:1px solid =
+black;width:113px;padding:0cm 7px;height:20px;background-color:rg=
+b(255,255,255);border-top:none;border-right:1px solid black;borde=
+r-left:none">=0A           <p align=3D"center" style=3D"text-alig=
+n:center;margin:0px"><span style=3D"font-size:12pt"><span style=3D=
+"font-family:Calibri,sans-serif"><span style=3D"font-size:11pt"><=
+span style=3D"color:black">cbm</span></span></span></span></p>=0A=
+          </td>=0A         </tr>=0A         <tr>=0A          <td =
+style=3D"border-bottom:1px solid black;width:68px;padding:0cm 7px=
+;height:20px;background-color:rgb(255,255,255);border-top:none;bo=
+rder-right:1px solid black;border-left:1px solid black">=0A      =
+     <p align=3D"center" style=3D"text-align:center;margin:0px"><=
+span style=3D"font-size:12pt"><span style=3D"font-family:Calibri,=
+sans-serif"><span style=3D"font-size:11pt"><span style=3D"color:b=
+lack">C</span></span></span></span></p>=0A          </td>=0A     =
+     <td style=3D"border-bottom:1px solid black;width:196px;paddi=
+ng:0cm 7px;height:20px;background-color:rgb(255,255,255);border-t=
+op:none;border-right:1px solid black;border-left:none">=0A       =
+    <p align=3D"center" style=3D"text-align:center;margin:0px"><s=
+pan style=3D"font-size:12pt"><span style=3D"font-family:Calibri,s=
+ans-serif"><span style=3D"font-size:11pt"><span style=3D"color:bl=
+ack">Domestic</span></span></span></span></p>=0A          </td>=0A=
+          <td style=3D"border-bottom:1px solid black;width:85px;p=
+adding:0cm 7px;height:20px;background-color:rgb(255,255,255);bord=
+er-top:none;border-right:1px solid black;border-left:none">=0A   =
+        <p align=3D"center" style=3D"text-align:center;margin:0px=
+"><span style=3D"font-size:12pt"><span style=3D"font-family:Calib=
+ri,sans-serif"><span style=3D"font-size:11pt"><span style=3D"colo=
+r:black">1.6</span></span></span></span></p>=0A          </td>=0A=
+          <td style=3D"border-bottom:1px solid black;width:113px;=
+padding:0cm 7px;height:20px;background-color:rgb(255,255,255);bor=
+der-top:none;border-right:1px solid black;border-left:none">=0A  =
+         <p align=3D"center" style=3D"text-align:center;margin:0p=
+x"><span style=3D"font-size:12pt"><span style=3D"font-family:Cali=
+bri,sans-serif"><span style=3D"font-size:11pt"><span style=3D"col=
+or:black">cbm</span></span></span></span></p>=0A          </td>=0A=
+         </tr>=0A         <tr>=0A          <td style=3D"border-bo=
+ttom:1px solid black;width:68px;padding:0cm 7px;height:40px;backg=
+round-color:rgb(255,255,255);border-top:none;border-right:1px sol=
+id black;border-left:1px solid black">=0A           <p align=3D"c=
+enter" style=3D"text-align:center;margin:0px"><span style=3D"font=
+-size:12pt"><span style=3D"font-family:Calibri,sans-serif"><span =
+style=3D"font-size:11pt"><span style=3D"color:black">D</span></sp=
+an></span></span></p>=0A          </td>=0A          <td style=3D"=
+border-bottom:1px solid black;width:196px;padding:0cm 7px;height:=
+40px;background-color:rgb(255,255,255);border-top:none;border-rig=
+ht:1px solid black;border-left:none">=0A           <p align=3D"ce=
+nter" style=3D"text-align:center;margin:0px"><span style=3D"font-=
+size:12pt"><span style=3D"font-family:Calibri,sans-serif"><span s=
+tyle=3D"font-size:11pt"><span style=3D"color:black">Used Cooking =
+Oil</span></span></span></span></p>=0A          </td>=0A         =
+ <td style=3D"border-bottom:1px solid black;width:85px;padding:0c=
+m 7px;height:40px;background-color:rgb(255,255,255);border-top:no=
+ne;border-right:1px solid black;border-left:none">=0A           <=
+p align=3D"center" style=3D"text-align:center;margin:0px"><span s=
+tyle=3D"font-size:12pt"><span style=3D"font-family:Calibri,sans-s=
+erif"><span style=3D"font-size:11pt"><span style=3D"color:black">=
+0.02</span></span></span></span></p>=0A          </td>=0A        =
+  <td style=3D"border-bottom:1px solid black;width:113px;padding:=
+0cm 7px;height:40px;background-color:rgb(255,255,255);border-top:=
+none;border-right:1px solid black;border-left:none">=0A          =
+ <p align=3D"center" style=3D"text-align:center;margin:0px"><span=
+ style=3D"font-size:12pt"><span style=3D"font-family:Calibri,sans=
+-serif"><span style=3D"font-size:11pt"><span style=3D"color:black=
+">cbm</span></span></span></span></p>=0A          </td>=0A       =
+  </tr>=0A         <tr>=0A          <td style=3D"border-bottom:1p=
+x solid black;width:68px;padding:0cm 7px;height:20px;background-c=
+olor:rgb(255,255,255);border-top:none;border-right:1px solid blac=
+k;border-left:1px solid black">=0A           <p align=3D"center" =
+style=3D"text-align:center;margin:0px"><span style=3D"font-size:1=
+2pt"><span style=3D"font-family:Calibri,sans-serif"><span style=3D=
+"font-size:11pt"><span style=3D"color:black">E</span></span></spa=
+n></span></p>=0A          </td>=0A         =20<td style=3D"border=
+-bottom:1px solid black;width:196px;padding:0cm 7px;height:20px;b=
+ackground-color:rgb(255,255,255);border-top:none;border-right:1px=
+ solid black;border-left:none">=0A           <p align=3D"center" =
+style=3D"text-align:center;margin:0px"><span style=3D"font-size:1=
+2pt"><span style=3D"font-family:Calibri,sans-serif"><span style=3D=
+"font-size:11pt"><span style=3D"color:black">Incinerator Ash</spa=
+n></span></span></span></p>=0A          </td>=0A          <td sty=
+le=3D"border-bottom:1px solid black;width:85px;padding:0cm 7px;he=
+ight:20px;background-color:rgb(255,255,255);border-top:none;borde=
+r-right:1px solid black;border-left:none">=0A           <p align=3D=
+"center" style=3D"text-align:center;margin:0px"><span style=3D"fo=
+nt-size:12pt"><span style=3D"font-family:Calibri,sans-serif"><spa=
+n style=3D"font-size:11pt"><span style=3D"color:black">0.02</span=
+></span></span></span></p>=0A          </td>=0A          <td styl=
+e=3D"border-bottom:1px solid black;width:113px;padding:0cm 7px;he=
+ight:20px;background-color:rgb(255,255,255);border-top:none;borde=
+r-right:1px solid black;border-left:none">=0A           <p align=3D=
+"center" style=3D"text-align:center;margin:0px"><span style=3D"fo=
+nt-size:12pt"><span style=3D"font-family:Calibri,sans-serif"><spa=
+n style=3D"font-size:11pt"><span style=3D"color:black">cbm</span>=
+</span></span></span></p>=0A          </td>=0A         </tr>=0A  =
+       <tr>=0A          <td style=3D"border-bottom:1px solid blac=
+k;width:68px;padding:0cm 7px;height:37px;background-color:rgb(255=
+,255,255);border-top:none;border-right:1px solid black;border-lef=
+t:1px solid black">=0A           <p align=3D"center" style=3D"tex=
+t-align:center;margin:0px"><span style=3D"font-size:12pt"><span s=
+tyle=3D"font-family:Calibri,sans-serif"><span style=3D"font-size:=
+11pt"><span style=3D"color:black">F</span></span></span></span></=
+p>=0A          </td>=0A          <td style=3D"border-bottom:1px s=
+olid black;width:196px;padding:0cm 7px;height:37px;background-col=
+or:rgb(255,255,255);border-top:none;border-right:1px solid black;=
+border-left:none">=0A           <p align=3D"center" style=3D"text=
+-align:center;margin:0px"><span style=3D"font-size:12pt"><span st=
+yle=3D"font-family:Calibri,sans-serif"><span style=3D"font-size:1=
+1pt"><span style=3D"color:black">Operational Waste (Oily Rags)</s=
+pan></span></span></span></p>=0A          </td>=0A          <td s=
+tyle=3D"border-bottom:1px solid black;width:85px;padding:0cm 7px;=
+height:37px;background-color:rgb(255,255,255);border-top:none;bor=
+der-right:1px solid black;border-left:none">=0A           <p alig=
+n=3D"center" style=3D"text-align:center;margin:0px"><span style=3D=
+"font-size:12pt"><span style=3D"font-family:Calibri,sans-serif"><=
+span style=3D"font-size:11pt"><span style=3D"color:black">0.2</sp=
+an></span></span></span></p>=0A          </td>=0A          <td st=
+yle=3D"border-bottom:1px solid black;width:113px;padding:0cm 7px;=
+height:37px;background-color:rgb(255,255,255);border-top:none;bor=
+der-right:1px solid black;border-left:none">=0A           <p alig=
+n=3D"center" style=3D"text-align:center;margin:0px"><span style=3D=
+"font-size:12pt"><span style=3D"font-family:Calibri,sans-serif"><=
+span style=3D"font-size:11pt"><span style=3D"color:black">cbm</sp=
+an></span></span></span></p>=0A          </td>=0A         </tr>=0A=
+         <tr>=0A          <td style=3D"border-bottom:1px solid bl=
+ack;width:68px;padding:0cm 7px;height:65px;background-color:rgb(2=
+55,255,255);border-top:none;border-right:1px solid black;border-l=
+eft:1px solid black">=0A           <p align=3D"center" style=3D"t=
+ext-align:center;margin:0px"><span style=3D"font-size:12pt"><span=
+ style=3D"font-family:Calibri,sans-serif"><span style=3D"font-siz=
+e:11pt"><span style=3D"color:black">F</span></span></span></span>=
+</p>=0A          </td>=0A          <td style=3D"border-bottom:1px=
+ solid black;width:196px;padding:0cm 7px;height:65px;background-c=
+olor:rgb(255,255,255);border-top:none;border-right:1px solid blac=
+k;border-left:none">=0A           <p align=3D"center" style=3D"te=
+xt-align:center;margin:0px"><span style=3D"font-size:12pt"><span =
+style=3D"font-family:Calibri,sans-serif"><span style=3D"font-size=
+:11pt"><span style=3D"color:black">Operational Waste (Empty Chemi=
+cal Containers, Empty Paint Cans)</span></span></span></span></p>=
+=0A          </td>=0A          <td style=3D"border-bottom:1px sol=
+id black;width:85px;padding:0cm 7px;height:65px;background-color:=
+rgb(255,255,255);border-top:none;border-right:1px solid black;bor=
+der-left:none">=0A           <p align=3D"center" style=3D"text-al=
+ign:center;margin:0px"><span style=3D"font-size:12pt"><span style=
+=3D"font-family:Calibri,sans-serif"><span style=3D"font-size:11pt=
+"><span style=3D"color:black">2</span></span></span></span></p>=0A=
+          </td>=0A          <td style=3D"border-bottom:1px solid =
+black;width:113px;padding:0cm 7px;height:65px;background-color:rg=
+b(255,255,255);border-top:none;border-right:1px solid black;borde=
+r-left:none">=0A           <p align=3D"center" style=3D"text-alig=
+n:center;margin:0px"><span style=3D"font-size:12pt"><span style=3D=
+"font-family:Calibri,sans-serif"><span style=3D"font-size:11pt"><=
+span style=3D"color:black">cbm</span></span></span></span></p>=0A=
+          </td>=0A         </tr>=0A         <tr>=0A          <td =
+style=3D"border-bottom:1px solid black;width:68px;padding:0cm 7px=
+;height:20px;background-color:rgb(255,255,255);border-top:none;bo=
+rder-right:1px solid black;border-left:1px solid black">=0A      =
+     <p align=3D"center" style=3D"text-align:center;margin:0px"><=
+span style=3D"font-size:12pt"><span style=3D"font-family:Calibri,=
+sans-serif"><span style=3D"font-size:11pt"><span style=3D"color:b=
+lack">I</span></span></span></span></p>=0A          </td>=0A     =
+     <td style=3D"border-bottom:1px solid black;width:196px;paddi=
+ng:0cm 7px;height:20px;background-color:rgb(255,255,255);border-t=
+op:none;border-right:1px solid black;border-left:none">=0A       =
+    <p align=3D"center" style=3D"text-align:center;margin:0px"><s=
+pan style=3D"font-size:12pt"><span style=3D"font-family:Calibri,s=
+ans-serif"><span style=3D"font-size:11pt"><span style=3D"color:bl=
+ack">Electrical</span></span></span></span></p>=0A          </td>=
+=0A          <td style=3D"border-bottom:1px solid black;width:85p=
+x;padding:0cm 7px;height:20px;background-color:rgb(255,255,255);b=
+order-top:none;border-right:1px solid black;border-left:none">=0A=
+           <p align=3D"center" style=3D"text-align:center;margin:=
+0px"><span style=3D"font-size:12pt"><span style=3D"font-family:Ca=
+libri,sans-serif"><span style=3D"font-size:11pt"><span style=3D"c=
+olor:black">0.1</span></span></span></span></p>=0A          </td>=
+=0A          <td style=3D"border-bottom:1px solid black;width:113=
+px;padding:0cm 7px;height:20px;background-color:rgb(255,255,255);=
+border-top:none;border-right:1px solid black;border-left:none">=0A=
+           <p align=3D"center" style=3D"text-align:center;margin:=
+0px"><span style=3D"font-size:12pt"><span style=3D"font-family:Ca=
+libri,sans-serif"><span style=3D"font-size:11pt"><span style=3D"c=
+olor:black">cbm</span></span></span></span></p>=0A          </td>=
+=0A         </tr>=0A         <tr>=0A          <td colspan=3D"2" s=
+tyle=3D"border-bottom:1px solid black;width:264px;padding:0cm 7px=
+;height:20px;background-color:rgb(255,255,255);border-top:none;bo=
+rder-right:1px solid black;border-left:1px solid black">=0A      =
+     <p align=3D"center" style=3D"text-align:center;margin:0px"><=
+span style=3D"font-size:12pt"><span style=3D"font-family:Calibri,=
+sans-serif"><b><span style=3D"font-size:11pt"><span style=3D"back=
+ground:yellow"><span style=3D"color:black">GARBAGE TOTAL</span></=
+span></span></b></span></span></p>=0A          </td>=0A          =
+<td style=3D"border-bottom:1px solid black;width:85px;padding:0cm=
+ 7px;height:20px;background-color:rgb(255,255,255);border-top:non=
+e;border-right:1px solid black;border-left:none">=0A           <p=
+ align=3D"center" style=3D"text-align:center;margin:0px"><span st=
+yle=3D"font-size:12pt"><span style=3D"font-family:Calibri,sans-se=
+rif"><b><span style=3D"font-size:11pt"><span style=3D"background:=
+yellow"><span style=3D"color:black">7.74</span></span></span></b>=
+</span></span></p>=0A          </td>=0A          <td style=3D"bor=
+der-bottom:1px solid black;width:113px;padding:0cm 7px;height:20p=
+x;background-color:rgb(255,255,255);border-top:none;border-right:=
+1px solid black;border-left:none">=0A           <p align=3D"cente=
+r" style=3D"text-align:center;margin:0px"><span style=3D"font-siz=
+e:12pt"><span style=3D"font-family:Calibri,sans-serif"><b><span s=
+tyle=3D"font-size:11pt"><span style=3D"background:yellow"><span s=
+tyle=3D"color:black">cbm</span></span></span></b></span></span></=
+p>=0A          </td>=0A         </tr>=0A         <tr>=0A         =
+ <td colspan=3D"2" style=3D"border-bottom:1px solid black;width:2=
+64px;padding:0cm 7px;height:20px;background-color:rgb(255,255,255=
+);border-top:none;border-right:1px solid black;border-left:1px so=
+lid black">=0A           <p align=3D"center" style=3D"text-align:=
+center;margin:0px"><span style=3D"font-size:12pt"><span style=3D"=
+font-family:Calibri,sans-serif"><b><span style=3D"font-size:11pt"=
+><span style=3D"background:yellow"><span style=3D"color:black">SL=
+UDGE</span></span></span></b></span></span></p>=0A          </td>=
+=0A          <td style=3D"border-bottom:1px solid black;width:85p=
+x;padding:0cm 7px;height:20px;background-color:rgb(255,255,255);b=
+order-top:none;border-right:1px solid black;border-left:none">=0A=
+           <p align=3D"center" style=3D"text-align:center;margin:=
+0px"><span style=3D"font-size:12pt"><span style=3D"font-family:Ca=
+libri,sans-serif"><b><span style=3D"font-size:11pt"><span style=3D=
+"background:yellow"><span style=3D"color:black">abt 16</span></sp=
+an></span></b></span></span></p>=0A          </td>=0A          <t=
+d style=3D"border-bottom:1px solid black;width:113px;padding:0cm =
+7px;height:20px;background-color:rgb(255,255,255);border-top:none=
+;border-right:1px solid black;border-left:none">=0A           <p =
+align=3D"center" style=3D"text-align:center;margin:0px"><span sty=
+le=3D"font-size:12pt"><span style=3D"font-family:Calibri,sans-ser=
+if"><b><span style=3D"font-size:11pt"><span style=3D"background:y=
+ellow"><span style=3D"color:black">cbm</span></span></span></b></=
+span></span></p>=0A          </td>=0A         </tr>=0A        </t=
+body>=0A       </table>=0A       <div>&nbsp;</div>=0A       <div>=
+Awaiting yours.</div>=0A       <div>&nbsp;</div>=0A       <div>Be=
+st Regards,<br /> Dimitra Ioannidou<br /> Operations Dept.<br />=0A=
+        <br /> Astra Shipmanagement Inc<br /> (as agents only)<br=
+ /> 6 Vouliagmenis Avenue &amp; 12 Nirvana St.<br /> Voula, 166 7=
+3<br /> Athens - Greece<br /> Tel: +30 213 0175 106</div>=0A     =
+ </div>=0A     </div>=0A     <p style=3D"color:rgb(0,0,51);font-s=
+ize:10pt;font-family:Verdana">_________________Original Message__=
+_______________</p>=0A     <table width=3D"100%">=0A      <tbody>=
+=0A       <tr>=0A        <td style=3D"font-family:Verdana;font-si=
+ze:x-small">=0A         <div><strong>Message: </strong><span>8451=
+892</span></div>=0A         <div><strong>From: </strong><span>HEL=
+LAS SHIPPING BR &lt;Operations - Hellas Shipping Agencies &lt;<a =
+href=3D"mailto:operations1@hellas-shipping.com.br" target=3D"_bla=
+nk">operations1@hellas-shipping.com.br</a>&gt;&gt;</span></div>=0A=
+         <div><strong>Subject: </strong><span>Re: Pelagia Voy.02 =
+// Paranagua for loading</span></div>=0A         <div><strong>Dat=
+e: </strong><span>January 8th 2026, 17:15:16</span></div>=0A     =
+    <div><strong>To: </strong><span>Operations - Astra Shipmanage=
+ment Inc &lt;<a href=3D"mailto:ops@astraship.com" target=3D"_blan=
+k">ops@astraship.com</a>&gt;</span></div>=0A         <div><strong=
+>Cc: </strong><span>Operations - Hellas Shipping Agencies &lt;<a =
+href=3D"mailto:operations1@hellas-shipping.com.br" target=3D"_bla=
+nk">operations1@hellas-shipping.com.br</a>&gt;</span></div>=0A   =
+     </td>=0A       </tr>=0A      </tbody>=0A     </table>=0A    =
+ <div>=0A      <br />=0A     </div>=0A     <div>&nbsp;</div>=0A  =
+   <div dir=3D"ltr">=0A      <div>Dear Ms. Dimitra Ioannidou, Goo=
+d day!<br />=0A       <br /> Costs for such services are generall=
+y based on the quantities involved and are calculated per cubic m=
+eter or ton, depending on the type of waste. In certain cases, an=
+d subject to the quantities of sludge to be discharged, it may be=
+ possible to obtain reduced rates or even full cost waivers.<br /=
+>=0A       <br /> In order to proceed with a more accurate evalua=
+tion and cost discussion, we kindly request that you provide the =
+estimated quantities and categories of materials to be discharged=
+. <p><span style=3D"color:rgb(7,55,99);font-family:Cambria;font-s=
+ize:10pt;font-weight:bold;text-indent:0in">Our best regards,</spa=
+n></p>=0A      </div>=0A      <div>=0A       <div class=3D"gmail_=
+signature" dir=3D"ltr">=0A        <div dir=3D"ltr">=0A         <p=
+ style=3D"margin:0pt 0in;text-indent:0in;direction:ltr;vertical-a=
+lign:baseline;word-break:normal">=0A          <br /><span style=3D=
+"color:rgb(7,55,99);font-size:10pt;font-family:Cambria;font-weigh=
+t:bold">Gabriel</span><span style=3D"color:rgb(7,55,99);font-size=
+:10pt;font-family:Cambria;font-weight:bold">&nbsp;</span><span st=
+yle=3D"color:rgb(7,55,99);font-size:10pt;font-family:Cambria;font=
+-weight:bold">Felipe</span><br />=0A          <br /><font color=3D=
+"#ff0000"><span style=3D"font-size:10pt;font-family:Cambria;font-=
+weight:bold">Attending</span><span style=3D"font-size:10pt;font-f=
+amily:Cambria;font-weight:bold"> </span><span style=3D"font-size:=
+10pt;font-family:Cambria;font-weight:bold">all</span><span style=3D=
+"font-size:10pt;font-family:Cambria;font-weight:bold"> </span><sp=
+an style=3D"font-size:10pt;font-family:Cambria;font-weight:bold">=
+ports</span><span style=3D"font-size:10pt;font-family:Cambria;fon=
+t-weight:bold"> </span><span style=3D"font-size:10pt;font-family:=
+Cambria;font-weight:bold">of</span><span style=3D"font-size:10pt;=
+font-family:Cambria;font-weight:bold"> South </span><span style=3D=
+"font-size:10pt;font-family:Cambria;font-weight:bold">and</span><=
+span style=3D"font-size:10pt;font-family:Cambria;font-weight:bold=
+"> Central </span><span style=3D"font-size:10pt;font-family:Cambr=
+ia;font-weight:bold">America</span><span style=3D"font-size:10pt;=
+font-family:Cambria;font-weight:bold">. Head office in&nbsp;</spa=
+n></font></p>=0A         <p style=3D"margin:0pt 0in;text-indent:0=
+in;direction:ltr;vertical-align:baseline;word-break:normal"><font=
+ color=3D"#ff0000"><span style=3D"font-size:10pt;font-family:Camb=
+ria;font-weight:bold">Brazil</span><span style=3D"font-size:10pt;=
+font-family:Cambria;font-weight:bold">&nbsp;</span><span style=3D=
+"font-size:10pt;font-family:Cambria;font-weight:bold">and</span><=
+span style=3D"font-size:10pt;font-family:Cambria;font-weight:bold=
+"> </span><span style=3D"font-size:10pt;font-family:Cambria;font-=
+weight:bold">branch</span><span style=3D"font-size:10pt;font-fami=
+ly:Cambria;font-weight:bold"> offices </span><span style=3D"font-=
+size:10pt;font-family:Cambria;font-weight:bold">at</span><span st=
+yle=3D"font-size:10pt;font-family:Cambria;font-weight:bold"> Arge=
+ntina, Uruguay, Peru and</span></font><span style=3D"color:rgb(25=
+5,0,0);text-indent:0in;font-size:10pt;font-family:Cambria;font-we=
+ight:bold">&nbsp;Venezuela</span><br /> &nbsp;</p>=0A         <p =
+style=3D"margin:0pt 0in;text-indent:0in;direction:ltr;vertical-al=
+ign:baseline;word-break:normal"><font color=3D"#073763"><span sty=
+le=3D"font-size:10pt;font-family:Cambria;font-weight:bold">Gabrie=
+l</span><span style=3D"font-size:10pt;font-family:Cambria;font-we=
+ight:bold"> </span><span style=3D"font-size:10pt;font-family:Camb=
+ria;font-weight:bold">Felipe</span><span style=3D"font-size:10pt;=
+font-family:Cambria;font-weight:bold"> </span></font></p>=0A     =
+    <p style=3D"margin:0pt 0in;direction:ltr;vertical-align:basel=
+ine;word-break:normal">&nbsp;</p>=0A         <p style=3D"margin:0=
+pt 0in;text-indent:0in;direction:ltr;vertical-align:baseline;word=
+-break:normal"><font color=3D"#073763"><span style=3D"font-size:1=
+0pt;font-family:Cambria;font-weight:bold">Mobile </span><span sty=
+le=3D"font-size:10pt;font-family:Cambria;font-weight:bold">number=
+</span><span style=3D"font-size:10pt;font-family:Cambria;font-wei=
+ght:bold">:&nbsp;+55&nbsp;</span><span style=3D"font-size:10pt;fo=
+nt-family:Cambria;font-weight:bold">1</span><span style=3D"font-s=
+ize:10pt;font-family:Cambria;font-weight:bold">3 997645095&nbsp;<=
+/span></font></p>=0A         <p style=3D"margin:0pt 0in;direction=
+:ltr;vertical-align:baseline;word-break:normal"><b><img src=3D"ht=
+tps://ci3.googleusercontent.com/mail-sig/AIorK4xtE2_IPnVO2twPnxct=
+jancuy0FkIoHz947WqeXoCwPfXSZov3XrJjdBdCV-fpQJzUvqNGVcUY" /></b></=
+p>=0A        </div>=0A       </div>=0A      </div>=0A     </div>=0A=
+     <div>&nbsp; <div class=3D"gmail_quote">=0A       <div class=3D=
+"gmail_attr" dir=3D"ltr">Em qui., 8 de jan. de 2026 =C3=A0s 09:29=
+, Operations - Astra Shipmanagement Inc &lt;<a href=3D"mailto:ops=
+@astraship.com" target=3D"_blank">ops@astraship.com</a>&gt; escre=
+veu:</div>=0A       <blockquote class=3D"gmail_quote" style=3D"ma=
+rgin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);pad=
+ding-left:1ex">=0A        <div>=0A         <div style=3D"color:rg=
+b(0,0,0);font-family:verdana;font-size:x-small">=0A          <div=
+>=0A           <table border=3D"1" cellpadding=3D"2" cellspacing=3D=
+"2" style=3D"background-color:rgb(215,215,215)" width=3D"100%">=0A=
+            <tbody>=0A             <tr height=3D"26" valign=3D"to=
+p">=0A              <td style=3D"font-size:x-small">=0A          =
+     <div><b>Message Number: </b>767763</div>=0A               <h=
+r />=0A               <div><b>From: </b><a href=3D"mailto:ops@ast=
+raship.com" target=3D"_blank">ops@astraship.com</a></div>=0A     =
+          <div><b>To: </b>HELLAS SANTOS (<a href=3D"mailto:operat=
+ions1@hellas-shipping.com.br" target=3D"_blank">operations1@hella=
+s-shipping.com.br</a>)</div>=0A               <div><b>Sent: </b> =
+Thursday, Jan 8, 2026 14:28 (UTC +02:00)</div>=0A               <=
+div><b>Subject: </b>Pelagia Voy.02 // Paranagua for loading</div>=
+=0A              </td>=0A             </tr>=0A            </tbody=
+>=0A           </table>=0A          </div>=0A         </div>=0A  =
+       <div style=3D"color:rgb(0,0,51);font-family:&quot;Segoe UI=
+ Symbol&quot;;font-size:10pt">=0A          <div style=3D"color:rg=
+b(0,0,51);font-family:&quot;Segoe UI Symbol&quot;;font-size:10pt"=
+>Dear Sirs,&nbsp;</div>=0A          <div style=3D"color:rgb(0,0,5=
+1);font-family:&quot;Segoe UI Symbol&quot;;font-size:10pt">&nbsp;=
+</div>=0A          <div style=3D"color:rgb(0,0,51);font-family:&q=
+uot;Segoe UI Symbol&quot;;font-size:10pt">Good Day.</div>=0A     =
+     <div style=3D"color:rgb(0,0,51);font-family:&quot;Segoe UI S=
+ymbol&quot;;font-size:10pt">&nbsp;</div>=0A          <div style=3D=
+"color:rgb(0,0,51);font-family:&quot;Segoe UI Symbol&quot;;font-s=
+ize:10pt">Kindly advise availability of reception facilities for =
+sludge/oily water/wash water/sewage/garbage, cost per cbm or ton =
+and procedures for ordering such operation.</div>=0A          <di=
+v style=3D"color:rgb(0,0,51);font-family:&quot;Segoe UI Symbol&qu=
+ot;;font-size:10pt">Please advise if any disposal is compulsory. =
+In addition to this, kindly advise whether the providers are ISO1=
+4001 approved.</div>=0A          <div style=3D"color:rgb(0,0,51);=
+font-family:&quot;Segoe UI Symbol&quot;;font-size:10pt">&nbsp;</d=
+iv>=0A          <div style=3D"color:rgb(0,0,51);font-family:&quot=
+;Segoe UI Symbol&quot;;font-size:10pt">Awaiting yours.</div>=0A  =
+        <div style=3D"color:rgb(0,0,51);font-family:&quot;Segoe U=
+I Symbol&quot;;font-size:10pt">&nbsp;</div>=0A          <div styl=
+e=3D"color:rgb(0,0,51);font-family:&quot;Segoe UI Symbol&quot;;fo=
+nt-size:10pt">Best Regards,<br /> Dimitra Ioannidou<br /> Operati=
+ons Dept.<br />=0A           <br /> Astra Shipmanagement Inc<br /=
+> (as agents only)<br /> 6 Vouliagmenis Avenue &amp; 12 Nirvana S=
+t.<br /> Voula, 166 73<br /> Athens - Greece<br /> Tel: +30 213 0=
+175 106</div>=0A         </div>=0A         <div>=0A          <hr =
+/>=0A         </div>=0A         <div><span lang=3D"EN-US" style=3D=
+"color:rgb(89,89,89)"><font face=3D"Calibri"><strong>Prioritizing=
+ the wellbeing of our planet and its people<em>.</em></strong></f=
+ont></span></div>=0A         <div><span lang=3D"EN-US" style=3D"c=
+olor:rgb(89,89,89)">&nbsp;</span></div>=0A         <div><span lan=
+g=3D"EN-US" style=3D"color:rgb(89,89,89)"><em><font face=3D"Calib=
+ri">This email may contain confidential and privileged informatio=
+n. Use or disclosure of it by anyone other than an intended recip=
+ient is prohibited.<br /> If you received this email in error, pl=
+ease notify the sender immediately by return email and destroy al=
+l copies of this email.</font></em></span></div>=0A         <div>=
+<span lang=3D"EN-US" style=3D"color:rgb(89,89,89)">&nbsp;</span><=
+/div>=0A         <div><span lang=3D"EN-US" style=3D"color:rgb(89,=
+89,89)"><font face=3D"Calibri"><em>*</em>Please consider the envi=
+ronment before printing<em>*</em></font></span></div>=0A        <=
+/div>=0A       </blockquote>=0A      </div>=0A     </div><span la=
+ng=3D"EN-US" style=3D"color:rgb(89,89,89)"><div><font face=3D"Cal=
+ibri"><strong><hr /></strong></font></div>=0A      <div><font fac=
+e=3D"Calibri"><strong>Prioritizing the wellbeing of our planet an=
+d its people<em>.</em></strong></font></div>=0A      <div><em><fo=
+nt face=3D"Calibri"></font></em>&nbsp;</div>=0A      <div><em><fo=
+nt face=3D"Calibri">This email may contain confidential and privi=
+leged information. Use or disclosure of it by anyone other than a=
+n intended recipient is prohibited. <br />If you received this em=
+ail in error, please notify the sender immediately by return emai=
+l and destroy all copies of this email.</font></em></div>=0A     =
+ <div><em><font face=3D"Calibri"></font></em>&nbsp;</div>=0A     =
+ <div><font face=3D"Calibri"><em>*</em>Please consider the enviro=
+nment before printing<em>*</em></font></div></span></div>=0A   </=
+blockquote>=0A  </div>=0A </body>=0A</html>
+----boundary_21_a3a2d042-7df3-413a-9e8a-d098dd10368e
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PGh0bWw+CiA8aGVhZD4KICA8bWV0YSBjb250ZW50PSJ0ZXh0L2h0bWw7IGNoYXJzZXQ9
+VVRGLTgiIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgLz4KIDwvaGVhZD4KIDxib2R5
+PgogIDxkaXY+CjwhRldSRVBMQUNFPgo8dGFibGUgYm9yZGVyPSIxIiBjZWxscGFkZGlu
+Zz0iMSIgY2VsbHNwYWNpbmc9IjEiIGhlaWdodD0iMjYiIHN0eWxlPSJiYWNrZ3JvdW5k
+LWNvbG9yOiNkN2Q3ZDciIHdpZHRoPSIxMDAlIj4KICAgIDx0Ym9keT4KICAgICA8dHI+
+CiAgICAgIDx0ZCBzdHlsZT0iZm9udC1mYW1pbHk6VmVyZGFuYTtmb250LXNpemU6eC1z
+bWFsbCI+CiAgICAgICA8ZGl2PjxzdHJvbmc+TWVzc2FnZTogPHNwYW4+ODQ1NDgwOTwv
+c3Bhbj48L3N0cm9uZz48L2Rpdj4KICAgICAgIDxociAvPgogICAgICAgPGRpdj48c3Ry
+b25nPkZyb206IDwvc3Ryb25nPjxzcGFuPk9wZXJhdGlvbnMgLSBIZWxsYXMgU2hpcHBp
+bmcgQWdlbmNpZXMgJmx0O29wZXJhdGlvbnMxQGhlbGxhcy1zaGlwcGluZy5jb20uYnIm
+Z3Q7PC9zcGFuPjwvZGl2PgogICAgICAgPGRpdj48c3Ryb25nPlRvOiA8L3N0cm9uZz48
+c3Bhbj5PcGVyYXRpb25zIC0gQXN0cmEgU2hpcG1hbmFnZW1lbnQgSW5jICZsdDtvcHNA
+YXN0cmFzaGlwLmNvbSZndDs8L3NwYW4+PC9kaXY+CiAgICAgICA8ZGl2PjxzdHJvbmc+
+Q2M6IDwvc3Ryb25nPjxzcGFuPk9wZXJhdGlvbnMgLSBIZWxsYXMgU2hpcHBpbmcgQWdl
+bmNpZXMgJmx0O29wZXJhdGlvbnMxQGhlbGxhcy1zaGlwcGluZy5jb20uYnImZ3Q7LEFj
+Y291bnRzIC0gSGVsbGFzIFNoaXBwaW5nIEFnZW5jaWVzICZsdDthY2NvdW50c0BoZWxs
+YXMtc2hpcHBpbmcuY29tLmJyJmd0Ozwvc3Bhbj48L2Rpdj4KICAgICAgIDxkaXY+PHN0
+cm9uZz5EYXRlOiA8L3N0cm9uZz48c3Bhbj5GcmksIDA5L0phbi8yMDI2IDE0OjU0OjIw
+IChVVEM6ICswMjowMCk8L3NwYW4+PC9kaXY+CiAgICAgICA8ZGl2PjxzdHJvbmc+U3Vi
+amVjdDogPC9zdHJvbmc+PHNwYW4+UmU6IFBlbGFnaWEgVm95LjAyIC8vIFBhcmFuYWd1
+YSBmb3IgbG9hZGluZzwvc3Bhbj48L2Rpdj4KICAgICAgIDxkaXY+PHN0cm9uZz48L3N0
+cm9uZz48L2Rpdj4KICAgICAgPC90ZD4KICAgICA8L3RyPgogICAgPC90Ym9keT4KICAg
+PC90YWJsZT4KICAgPGJyIC8+CjwhLS0gRldSRVBMQUNFIC0tPgo8L2Rpdj4KICA8ZGl2
+IGRpcj0ibHRyIj4KICAgPGRpdj4KICAgIDxkaXYgY2xhc3M9ImdtYWlsX2RlZmF1bHQi
+IHN0eWxlPSIiPkRlYXIgTXMuIERpbWl0cmEgSW9hbm5pZG91LCBHb29kIGRheSE8YnIg
+Lz4KICAgICA8YnIgLz5LaW5kbHkgYmUgaW5mb3JtZWQgd2UgY2FuIHJlbW92ZSBib3Ro
+IGZyZWUgb2YgY2hhcmdlLjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTomcXVvdDtTZWdv
+ZSBVSSBTeW1ib2wmcXVvdDs7Y29sb3I6cmdiKDAsMCw1MSk7Zm9udC1zaXplOjEzLjMz
+MzNweCI+PGJyIC8+CiAgICAgIDxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1m
+YW1pbHk6Q2FtYnJpYTtjb2xvcjpyZ2IoNyw1NSw5OSk7Zm9udC1zaXplOjEwcHQ7Zm9u
+dC13ZWlnaHQ6Ym9sZDt0ZXh0LWluZGVudDowaW4iPk91ciBiZXN0IHJlZ2FyZHMsPC9z
+cGFuPjxzcGFuIHN0eWxlPSJjb2xvcjpyZ2IoMCwwLDUxKTtmb250LWZhbWlseTomcXVv
+dDtTZWdvZSBVSSBTeW1ib2wmcXVvdDs7Zm9udC1zaXplOjEzLjMzMzNweDtmb250LXNp
+emU6MTMuMzMzM3B4Ij48L3NwYW4+PC9kaXY+CiAgIDwvZGl2PgogICA8ZGl2PgogICAg
+PGRpdiBjbGFzcz0iZ21haWxfc2lnbmF0dXJlIiBkYXRhLXNtYXJ0bWFpbD0iZ21haWxf
+c2lnbmF0dXJlIiBkaXI9Imx0ciI+CiAgICAgPGRpdiBkaXI9Imx0ciI+CiAgICAgIDxw
+IHN0eWxlPSJtYXJnaW46MHB0IDBpbjt0ZXh0LWluZGVudDowaW47ZGlyZWN0aW9uOmx0
+cjt2ZXJ0aWNhbC1hbGlnbjpiYXNlbGluZTt3b3JkLWJyZWFrOm5vcm1hbCI+PHNwYW4g
+c3R5bGU9ImNvbG9yOnJnYig3LDU1LDk5KTtmb250LXNpemU6MTBwdDtmb250LWZhbWls
+eTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPjxiciAvPkdhYnJpZWw8L3NwYW4+PHNw
+YW4gc3R5bGU9ImNvbG9yOnJnYig3LDU1LDk5KTtmb250LXNpemU6MTBwdDtmb250LWZh
+bWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPiZuYnNwOzwvc3Bhbj48c3BhbiBz
+dHlsZT0iY29sb3I6cmdiKDcsNTUsOTkpO2ZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5
+OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+RmVsaXBlPGJyIC8+PC9zcGFuPjxmb250
+IGNvbG9yPSIjZmYwMDAwIj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1m
+YW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj48YnIgLz5BdHRlbmRpbmc8L3Nw
+YW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7
+Zm9udC13ZWlnaHQ6Ym9sZCI+IDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEw
+cHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj5hbGw8L3NwYW4+
+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9u
+dC13ZWlnaHQ6Ym9sZCI+IDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7
+Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj5wb3J0czwvc3Bhbj48
+c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250
+LXdlaWdodDpib2xkIj4gPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtm
+b250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPm9mPC9zcGFuPjxzcGFu
+IHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2Vp
+Z2h0OmJvbGQiPiBTb3V0aCA8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0
+O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+YW5kPC9zcGFuPjxz
+cGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQt
+d2VpZ2h0OmJvbGQiPiBDZW50cmFsIDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXpl
+OjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj5BbWVyaWNh
+PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1i
+cmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPi4gSGVhZCBvZmZpY2UgaW4mbmJzcDs8L3NwYW4+
+PC9mb250PjwvcD4KICAgICAgPHAgc3R5bGU9Im1hcmdpbjowcHQgMGluO3RleHQtaW5k
+ZW50OjBpbjtkaXJlY3Rpb246bHRyO3ZlcnRpY2FsLWFsaWduOmJhc2VsaW5lO3dvcmQt
+YnJlYWs6bm9ybWFsIj48Zm9udCBjb2xvcj0iI2ZmMDAwMCI+PHNwYW4gc3R5bGU9ImZv
+bnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+
+QnJhemlsPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWls
+eTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPiZuYnNwOzwvc3Bhbj48c3BhbiBzdHls
+ZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpi
+b2xkIj5hbmQ8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFt
+aWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IDwvc3Bhbj48c3BhbiBzdHlsZT0i
+Zm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xk
+Ij5icmFuY2g8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFt
+aWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IG9mZmljZXMgPC9zcGFuPjxzcGFu
+IHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2Vp
+Z2h0OmJvbGQiPmF0PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250
+LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPiBBcmdlbnRpbmEsIFVydWd1
+YXksIFBlcnUgYW5kPC9zcGFuPjwvZm9udD48c3BhbiBzdHlsZT0iY29sb3I6cmdiKDI1
+NSwwLDApO3RleHQtaW5kZW50OjBpbjtmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpD
+YW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPiZuYnNwO1ZlbmV6dWVsYTxiciAvPgogICAg
+ICAgIDxiciAvPjwvc3Bhbj48L3A+CiAgICAgIDxwIHN0eWxlPSJtYXJnaW46MHB0IDBp
+bjt0ZXh0LWluZGVudDowaW47ZGlyZWN0aW9uOmx0cjt2ZXJ0aWNhbC1hbGlnbjpiYXNl
+bGluZTt3b3JkLWJyZWFrOm5vcm1hbCI+PGZvbnQgY29sb3I9IiMwNzM3NjMiPjxzcGFu
+IHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2Vp
+Z2h0OmJvbGQiPkdhYnJpZWw8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0
+O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IDwvc3Bhbj48c3Bh
+biBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdl
+aWdodDpib2xkIj5GZWxpcGU8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0
+O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IDwvc3Bhbj48L2Zv
+bnQ+PC9wPgogICAgICA8cCBzdHlsZT0ibWFyZ2luOjBwdCAwaW47ZGlyZWN0aW9uOmx0
+cjt2ZXJ0aWNhbC1hbGlnbjpiYXNlbGluZTt3b3JkLWJyZWFrOm5vcm1hbCI+CiAgICAg
+IDwvcD4KICAgICAgPHAgc3R5bGU9Im1hcmdpbjowcHQgMGluO3RleHQtaW5kZW50OjBp
+bjtkaXJlY3Rpb246bHRyO3ZlcnRpY2FsLWFsaWduOmJhc2VsaW5lO3dvcmQtYnJlYWs6
+bm9ybWFsIj48Zm9udCBjb2xvcj0iIzA3Mzc2MyI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6
+ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+TW9iaWxl
+IDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2Ft
+YnJpYTtmb250LXdlaWdodDpib2xkIj5udW1iZXI8L3NwYW4+PHNwYW4gc3R5bGU9ImZv
+bnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+
+OiZuYnNwOys1NSZuYnNwOzwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7
+Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj4xPC9zcGFuPjxzcGFu
+IHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2Vp
+Z2h0OmJvbGQiPjMgOTk3NjQ1MDk1Jm5ic3A7PC9zcGFuPjwvZm9udD48L3A+CiAgICAg
+IDxwIHN0eWxlPSJtYXJnaW46MHB0IDBpbjtkaXJlY3Rpb246bHRyO3ZlcnRpY2FsLWFs
+aWduOmJhc2VsaW5lO3dvcmQtYnJlYWs6bm9ybWFsIj48Yj48Zm9udCBjb2xvcj0iIzA3
+Mzc2MyI+PC9mb250PjxpbWcgc3JjPSJodHRwczovL2NpMy5nb29nbGV1c2VyY29udGVu
+dC5jb20vbWFpbC1zaWcvQUlvcks0eHRFMl9JUG5WTzJ0d1BueGN0amFuY3V5MEZrSW9I
+ejk0N1dxZVhvQ3dQZlhTWm92M1hySmpkQmRDVi1mcFFKelV2cU5HVmNVWSIgLz48YnIg
+Lz48L2I+PC9wPgogICAgIDwvZGl2PgogICAgPC9kaXY+CiAgIDwvZGl2PgogICA8YnIg
+Lz4KICA8L2Rpdj4KICA8YnIgLz4KICA8ZGl2IGNsYXNzPSJnbWFpbF9xdW90ZSBnbWFp
+bF9xdW90ZV9jb250YWluZXIiPgogICA8ZGl2IGNsYXNzPSJnbWFpbF9hdHRyIiBkaXI9
+Imx0ciI+RW0gc2V4LiwgOSBkZSBqYW4uIGRlIDIwMjYgw6BzIDA1OjQ0LCBPcGVyYXRp
+b25zIC0gQXN0cmEgU2hpcG1hbmFnZW1lbnQgSW5jICZsdDs8YSBocmVmPSJtYWlsdG86
+b3BzQGFzdHJhc2hpcC5jb20iPm9wc0Bhc3RyYXNoaXAuY29tPC9hPiZndDsgZXNjcmV2
+ZXU6PGJyIC8+CiAgIDwvZGl2PgogICA8YmxvY2txdW90ZSBjbGFzcz0iZ21haWxfcXVv
+dGUiIHN0eWxlPSJtYXJnaW46MHB4IDBweCAwcHggMC44ZXg7Ym9yZGVyLWxlZnQ6MXB4
+IHNvbGlkIHJnYigyMDQsMjA0LDIwNCk7cGFkZGluZy1sZWZ0OjFleCI+PHU+PC91Pjxk
+aXY+PHNwYW4+PC9zcGFuPjxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsMCk7Zm9udC1m
+YW1pbHk6dmVyZGFuYTtmb250LXNpemU6eC1zbWFsbCI+CiAgICAgIDxkaXY+CiAgICAg
+ICA8dGFibGUgYm9yZGVyPSIxIiBjZWxscGFkZGluZz0iMiIgY2VsbHNwYWNpbmc9IjIi
+IHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOnJnYigyMTUsMjE1LDIxNSkiIHdpZHRoPSIx
+MDAlIj4KICAgICAgICA8dGJvZHk+CiAgICAgICAgIDx0ciBoZWlnaHQ9IjI2IiB2YWxp
+Z249InRvcCI+CiAgICAgICAgICA8dGQgc3R5bGU9ImZvbnQtc2l6ZTp4LXNtYWxsIj4K
+ICAgICAgICAgICA8ZGl2PjxiPk1lc3NhZ2UgTnVtYmVyOiA8L2I+NzY3OTkxPC9kaXY+
+CiAgICAgICAgICAgPGhyIC8+CiAgICAgICAgICAgPGRpdj48Yj5Gcm9tOiA8L2I+PGEg
+aHJlZj0ibWFpbHRvOm9wc0Bhc3RyYXNoaXAuY29tIiB0YXJnZXQ9Il9ibGFuayI+b3Bz
+QGFzdHJhc2hpcC5jb208L2E+PC9kaXY+CiAgICAgICAgICAgPGRpdj48Yj5UbzogPC9i
+PkhFTExBUyBTSElQUElORyBCUiAoPGEgaHJlZj0ibWFpbHRvOm9wZXJhdGlvbnMxQGhl
+bGxhcy1zaGlwcGluZy5jb20uYnIiIHRhcmdldD0iX2JsYW5rIj5vcGVyYXRpb25zMUBo
+ZWxsYXMtc2hpcHBpbmcuY29tLmJyPC9hPik8L2Rpdj4KICAgICAgICAgICA8ZGl2Pjxi
+PkNjOiA8L2I+PGEgaHJlZj0ibWFpbHRvOm9wZXJhdGlvbnMxQGhlbGxhcy1zaGlwcGlu
+Zy5jb20uYnIiIHRhcmdldD0iX2JsYW5rIj5vcGVyYXRpb25zMUBoZWxsYXMtc2hpcHBp
+bmcuY29tLmJyPC9hPjwvZGl2PgogICAgICAgICAgIDxkaXY+PGI+U2VudDogPC9iPiBG
+cmlkYXksIEphbiA5LCAyMDI2IDEwOjQ0IChVVEMgKzAyOjAwKTwvZGl2PgogICAgICAg
+ICAgIDxkaXY+PGI+U3ViamVjdDogPC9iPlBlbGFnaWEgVm95LjAyIC8vIFBhcmFuYWd1
+YSBmb3IgbG9hZGluZzwvZGl2PgogICAgICAgICAgPC90ZD4KICAgICAgICAgPC90cj4K
+ICAgICAgICA8L3Rib2R5PgogICAgICAgPC90YWJsZT4KICAgICAgIDxiciAvPgogICAg
+ICA8L2Rpdj4KICAgICA8L2Rpdj48c3Bhbj48L3NwYW4+PGRpdiBzdHlsZT0iY29sb3I6
+cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1b3Q7U2Vnb2UgVUkgU3ltYm9sJnF1b3Q7
+O2ZvbnQtc2l6ZToxMHB0Ij4KICAgICAgPGRpdiBzdHlsZT0iY29sb3I6cmdiKDAsMCw1
+MSk7Zm9udC1mYW1pbHk6JnF1b3Q7U2Vnb2UgVUkgU3ltYm9sJnF1b3Q7O2ZvbnQtc2l6
+ZToxMHB0Ij5EZWFyIEdhYnJpZWwsJm5ic3A7PC9kaXY+CiAgICAgIDxkaXYgc3R5bGU9
+ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFtaWx5OiZxdW90O1NlZ29lIFVJIFN5bWJv
+bCZxdW90Oztmb250LXNpemU6MTBwdCI+Jm5ic3A7PC9kaXY+CiAgICAgIDxkaXYgc3R5
+bGU9ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFtaWx5OiZxdW90O1NlZ29lIFVJIFN5
+bWJvbCZxdW90Oztmb250LXNpemU6MTBwdCI+R29vZCBEYXkuPC9kaXY+CiAgICAgIDxk
+aXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFtaWx5OiZxdW90O1NlZ29l
+IFVJIFN5bWJvbCZxdW90Oztmb250LXNpemU6MTBwdCI+Jm5ic3A7PC9kaXY+CiAgICAg
+IDxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFtaWx5OiZxdW90O1Nl
+Z29lIFVJIFN5bWJvbCZxdW90Oztmb250LXNpemU6MTBwdCI+UGxlYXNlIHNlZSZuYnNw
+O2JlbG93IGVzdGltYXRlZCBicmVha2Rvd24gb2YgZ2FyYmFnZSBhbmQgc2x1ZGdlIG9u
+IGFycml2YWwgUGFyYW5hZ3VhOiA8cCBzdHlsZT0idGV4dC1hbGlnbjpzdGFydDttYXJn
+aW46MHB4Ij4mbmJzcDs8L3A+CiAgICAgICA8dGFibGUgc3R5bGU9ImZvbnQtZmFtaWx5
+OiZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90OztiYWNrZ3JvdW5kLWNvbG9yOnJnYigy
+NTUsMjU1LDI1NSk7dGV4dC1kZWNvcmF0aW9uLXN0eWxlOmluaXRpYWw7dGV4dC1kZWNv
+cmF0aW9uLWNvbG9yOmluaXRpYWw7d2lkdGg6NDYzcHg7bWFyZ2luLWxlZnQ6MHB4O2Jv
+cmRlci1jb2xsYXBzZTpjb2xsYXBzZSIgd2lkdGg9IjQ2MyI+CiAgICAgICAgPHRib2R5
+PgogICAgICAgICA8dHI+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci13aWR0aDox
+cHg7Ym9yZGVyLXN0eWxlOnNvbGlkO2JvcmRlci1jb2xvcjpibGFjazt3aWR0aDo2OHB4
+O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNrZ3JvdW5kLWNvbG9yOnJnYigy
+NTUsMjU1LDI1NSkiPgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0
+ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXpl
+OjEycHQiPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYi
+PjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImNvbG9yOmJs
+YWNrIj5DYXRlZ29yeTwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAg
+ICAgICA8L3RkPgogICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBz
+b2xpZCBibGFjazt3aWR0aDoxOTZweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjIwcHg7
+YmFja2dyb3VuZC1jb2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6MXB4IHNv
+bGlkIGJsYWNrO2JvcmRlci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6
+bm9uZSI+CiAgICAgICAgICAgPHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InRleHQtYWxp
+Z246Y2VudGVyO21hcmdpbjowcHgiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+
+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4g
+c3R5bGU9ImZvbnQtc2l6ZToxMXB0Ij48c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPkRl
+c2NyaXB0aW9uPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAg
+IDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4IHNvbGlk
+IGJsYWNrO3dpZHRoOjg1cHg7cGFkZGluZzowY20gN3B4O2hlaWdodDoyMHB4O2JhY2tn
+cm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1KTtib3JkZXItdG9wOjFweCBzb2xpZCBi
+bGFjaztib3JkZXItcmlnaHQ6MXB4IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0Om5vbmUi
+PgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNl
+bnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFu
+IHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxzcGFuIHN0eWxl
+PSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5RdWFudGl0
+eTwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgog
+ICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFjazt3
+aWR0aDoxMTNweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjIwcHg7YmFja2dyb3VuZC1j
+b2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6MXB4IHNvbGlkIGJsYWNrO2Jv
+cmRlci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAg
+ICAgICAgPHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21h
+cmdpbjowcHgiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9
+ImZvbnQtZmFtaWx5OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQt
+c2l6ZToxMXB0Ij48c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPnVuaXQ8L3NwYW4+PC9z
+cGFuPjwvc3Bhbj48L3NwYW4+PC9wPgogICAgICAgICAgPC90ZD4KICAgICAgICAgPC90
+cj4KICAgICAgICAgPHRyPgogICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9t
+OjFweCBzb2xpZCBibGFjazt3aWR0aDo2OHB4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6
+MjBweDtiYWNrZ3JvdW5kLWNvbG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpu
+b25lO2JvcmRlci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6MXB4IHNv
+bGlkIGJsYWNrIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idGV4
+dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTox
+MnB0Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlmIj48
+c3BhbiBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpibGFj
+ayI+QTwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3Rk
+PgogICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFj
+azt3aWR0aDoxOTZweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjIwcHg7YmFja2dyb3Vu
+ZC1jb2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTtib3JkZXItcmln
+aHQ6MXB4IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0Om5vbmUiPgogICAgICAgICAgIDxw
+IGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46MHB4
+Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250LWZh
+bWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFw
+dCI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5QbGFzdGljczwvc3Bhbj48L3NwYW4+
+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAgICAgICAgPHRkIHN0
+eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFjazt3aWR0aDo4NXB4O3BhZGRp
+bmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNrZ3JvdW5kLWNvbG9yOnJnYigyNTUsMjU1
+LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRlci1yaWdodDoxcHggc29saWQgYmxhY2s7
+Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAgICAgICAgPHAgYWxpZ249ImNlbnRlciIgc3R5
+bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdpbjowcHgiPjxzcGFuIHN0eWxlPSJmb250
+LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OkNhbGlicmksc2Fucy1z
+ZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMXB0Ij48c3BhbiBzdHlsZT0iY29s
+b3I6YmxhY2siPjMuNzwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAg
+ICAgICA8L3RkPgogICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBz
+b2xpZCBibGFjazt3aWR0aDoxMTNweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjIwcHg7
+YmFja2dyb3VuZC1jb2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTti
+b3JkZXItcmlnaHQ6MXB4IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0Om5vbmUiPgogICAg
+ICAgICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjtt
+YXJnaW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxl
+PSJmb250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxzcGFuIHN0eWxlPSJmb250
+LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5jYm08L3NwYW4+PC9z
+cGFuPjwvc3Bhbj48L3NwYW4+PC9wPgogICAgICAgICAgPC90ZD4KICAgICAgICAgPC90
+cj4KICAgICAgICAgPHRyPgogICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9t
+OjFweCBzb2xpZCBibGFjazt3aWR0aDo2OHB4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6
+MjBweDtiYWNrZ3JvdW5kLWNvbG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpu
+b25lO2JvcmRlci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6MXB4IHNv
+bGlkIGJsYWNrIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idGV4
+dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTox
+MnB0Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlmIj48
+c3BhbiBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpibGFj
+ayI+Qjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3Rk
+PgogICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFj
+azt3aWR0aDoxOTZweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjIwcHg7YmFja2dyb3Vu
+ZC1jb2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTtib3JkZXItcmln
+aHQ6MXB4IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0Om5vbmUiPgogICAgICAgICAgIDxw
+IGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46MHB4
+Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250LWZh
+bWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFw
+dCI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5Gb29kPC9zcGFuPjwvc3Bhbj48L3Nw
+YW4+PC9zcGFuPjwvcD4KICAgICAgICAgIDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9
+ImJvcmRlci1ib3R0b206MXB4IHNvbGlkIGJsYWNrO3dpZHRoOjg1cHg7cGFkZGluZzow
+Y20gN3B4O2hlaWdodDoyMHB4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1
+KTtib3JkZXItdG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3Jk
+ZXItbGVmdDpub25lIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0i
+dGV4dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6
+ZToxMnB0Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlm
+Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpi
+bGFjayI+MC4xPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAg
+IDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4IHNvbGlk
+IGJsYWNrO3dpZHRoOjExM3B4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNr
+Z3JvdW5kLWNvbG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRl
+ci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAgICAg
+ICAgPHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdp
+bjowcHgiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZv
+bnQtZmFtaWx5OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6
+ZToxMXB0Ij48c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPmNibTwvc3Bhbj48L3NwYW4+
+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAgICAgICA8L3RyPgog
+ICAgICAgICA8dHI+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4
+IHNvbGlkIGJsYWNrO3dpZHRoOjY4cHg7cGFkZGluZzowY20gN3B4O2hlaWdodDoyMHB4
+O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1KTtib3JkZXItdG9wOm5vbmU7
+Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3JkZXItbGVmdDoxcHggc29saWQg
+YmxhY2siPgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFs
+aWduOmNlbnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQi
+PjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxzcGFu
+IHN0eWxlPSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5D
+PC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAgIDwvdGQ+CiAg
+ICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4IHNvbGlkIGJsYWNrO3dp
+ZHRoOjE5NnB4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNrZ3JvdW5kLWNv
+bG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRlci1yaWdodDox
+cHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAgICAgICAgPHAgYWxp
+Z249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdpbjowcHgiPjxz
+cGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5
+OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMXB0Ij48
+c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPkRvbWVzdGljPC9zcGFuPjwvc3Bhbj48L3Nw
+YW4+PC9zcGFuPjwvcD4KICAgICAgICAgIDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9
+ImJvcmRlci1ib3R0b206MXB4IHNvbGlkIGJsYWNrO3dpZHRoOjg1cHg7cGFkZGluZzow
+Y20gN3B4O2hlaWdodDoyMHB4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1
+KTtib3JkZXItdG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3Jk
+ZXItbGVmdDpub25lIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0i
+dGV4dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6
+ZToxMnB0Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlm
+Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpi
+bGFjayI+MS42PC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAg
+IDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4IHNvbGlk
+IGJsYWNrO3dpZHRoOjExM3B4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNr
+Z3JvdW5kLWNvbG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRl
+ci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAgICAg
+ICAgPHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdp
+bjowcHgiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZv
+bnQtZmFtaWx5OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6
+ZToxMXB0Ij48c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPmNibTwvc3Bhbj48L3NwYW4+
+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAgICAgICA8L3RyPgog
+ICAgICAgICA8dHI+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4
+IHNvbGlkIGJsYWNrO3dpZHRoOjY4cHg7cGFkZGluZzowY20gN3B4O2hlaWdodDo0MHB4
+O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1KTtib3JkZXItdG9wOm5vbmU7
+Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3JkZXItbGVmdDoxcHggc29saWQg
+YmxhY2siPgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFs
+aWduOmNlbnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQi
+PjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxzcGFu
+IHN0eWxlPSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5E
+PC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAgIDwvdGQ+CiAg
+ICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4IHNvbGlkIGJsYWNrO3dp
+ZHRoOjE5NnB4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6NDBweDtiYWNrZ3JvdW5kLWNv
+bG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRlci1yaWdodDox
+cHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAgICAgICAgPHAgYWxp
+Z249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdpbjowcHgiPjxz
+cGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5
+OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMXB0Ij48
+c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPlVzZWQgQ29va2luZyBPaWw8L3NwYW4+PC9z
+cGFuPjwvc3Bhbj48L3NwYW4+PC9wPgogICAgICAgICAgPC90ZD4KICAgICAgICAgIDx0
+ZCBzdHlsZT0iYm9yZGVyLWJvdHRvbToxcHggc29saWQgYmxhY2s7d2lkdGg6ODVweDtw
+YWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjQwcHg7YmFja2dyb3VuZC1jb2xvcjpyZ2IoMjU1
+LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTtib3JkZXItcmlnaHQ6MXB4IHNvbGlkIGJs
+YWNrO2JvcmRlci1sZWZ0Om5vbmUiPgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIi
+IHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0i
+Zm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNh
+bnMtc2VyaWYiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9
+ImNvbG9yOmJsYWNrIj4wLjAyPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4K
+ICAgICAgICAgIDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206
+MXB4IHNvbGlkIGJsYWNrO3dpZHRoOjExM3B4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6
+NDBweDtiYWNrZ3JvdW5kLWNvbG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpu
+b25lO2JvcmRlci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+
+CiAgICAgICAgICAgPHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2Vu
+dGVyO21hcmdpbjowcHgiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4g
+c3R5bGU9ImZvbnQtZmFtaWx5OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9
+ImZvbnQtc2l6ZToxMXB0Ij48c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPmNibTwvc3Bh
+bj48L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAgICAg
+ICA8L3RyPgogICAgICAgICA8dHI+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1i
+b3R0b206MXB4IHNvbGlkIGJsYWNrO3dpZHRoOjY4cHg7cGFkZGluZzowY20gN3B4O2hl
+aWdodDoyMHB4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1KTtib3JkZXIt
+dG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3JkZXItbGVmdDox
+cHggc29saWQgYmxhY2siPgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxl
+PSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1z
+aXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2Vy
+aWYiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImNvbG9y
+OmJsYWNrIj5FPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAg
+IDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4IHNvbGlk
+IGJsYWNrO3dpZHRoOjE5NnB4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNr
+Z3JvdW5kLWNvbG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRl
+ci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAgICAg
+ICAgPHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdp
+bjowcHgiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZv
+bnQtZmFtaWx5OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6
+ZToxMXB0Ij48c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPkluY2luZXJhdG9yIEFzaDwv
+c3Bhbj48L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAg
+ICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFjazt3aWR0
+aDo4NXB4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNrZ3JvdW5kLWNvbG9y
+OnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRlci1yaWdodDoxcHgg
+c29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAgICAgICAgPHAgYWxpZ249
+ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdpbjowcHgiPjxzcGFu
+IHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OkNh
+bGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMXB0Ij48c3Bh
+biBzdHlsZT0iY29sb3I6YmxhY2siPjAuMDI8L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3Nw
+YW4+PC9wPgogICAgICAgICAgPC90ZD4KICAgICAgICAgIDx0ZCBzdHlsZT0iYm9yZGVy
+LWJvdHRvbToxcHggc29saWQgYmxhY2s7d2lkdGg6MTEzcHg7cGFkZGluZzowY20gN3B4
+O2hlaWdodDoyMHB4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1KTtib3Jk
+ZXItdG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3JkZXItbGVm
+dDpub25lIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idGV4dC1h
+bGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMnB0
+Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlmIj48c3Bh
+biBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpibGFjayI+
+Y2JtPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAgIDwvdGQ+
+CiAgICAgICAgIDwvdHI+CiAgICAgICAgIDx0cj4KICAgICAgICAgIDx0ZCBzdHlsZT0i
+Ym9yZGVyLWJvdHRvbToxcHggc29saWQgYmxhY2s7d2lkdGg6NjhweDtwYWRkaW5nOjBj
+bSA3cHg7aGVpZ2h0OjM3cHg7YmFja2dyb3VuZC1jb2xvcjpyZ2IoMjU1LDI1NSwyNTUp
+O2JvcmRlci10b3A6bm9uZTtib3JkZXItcmlnaHQ6MXB4IHNvbGlkIGJsYWNrO2JvcmRl
+ci1sZWZ0OjFweCBzb2xpZCBibGFjayI+CiAgICAgICAgICAgPHAgYWxpZ249ImNlbnRl
+ciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdpbjowcHgiPjxzcGFuIHN0eWxl
+PSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OkNhbGlicmks
+c2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMXB0Ij48c3BhbiBzdHls
+ZT0iY29sb3I6YmxhY2siPkY8L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9wPgog
+ICAgICAgICAgPC90ZD4KICAgICAgICAgIDx0ZCBzdHlsZT0iYm9yZGVyLWJvdHRvbTox
+cHggc29saWQgYmxhY2s7d2lkdGg6MTk2cHg7cGFkZGluZzowY20gN3B4O2hlaWdodDoz
+N3B4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1KTtib3JkZXItdG9wOm5v
+bmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3JkZXItbGVmdDpub25lIj4K
+ICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idGV4dC1hbGlnbjpjZW50
+ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMnB0Ij48c3BhbiBz
+dHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlmIj48c3BhbiBzdHlsZT0i
+Zm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpibGFjayI+T3BlcmF0aW9u
+YWwgV2FzdGUgKE9pbHkgUmFncyk8L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9w
+PgogICAgICAgICAgPC90ZD4KICAgICAgICAgIDx0ZCBzdHlsZT0iYm9yZGVyLWJvdHRv
+bToxcHggc29saWQgYmxhY2s7d2lkdGg6ODVweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0
+OjM3cHg7YmFja2dyb3VuZC1jb2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6
+bm9uZTtib3JkZXItcmlnaHQ6MXB4IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0Om5vbmUi
+PgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNl
+bnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFu
+IHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxzcGFuIHN0eWxl
+PSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj4wLjI8L3Nw
+YW4+PC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9wPgogICAgICAgICAgPC90ZD4KICAgICAg
+ICAgIDx0ZCBzdHlsZT0iYm9yZGVyLWJvdHRvbToxcHggc29saWQgYmxhY2s7d2lkdGg6
+MTEzcHg7cGFkZGluZzowY20gN3B4O2hlaWdodDozN3B4O2JhY2tncm91bmQtY29sb3I6
+cmdiKDI1NSwyNTUsMjU1KTtib3JkZXItdG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBz
+b2xpZCBibGFjaztib3JkZXItbGVmdDpub25lIj4KICAgICAgICAgICA8cCBhbGlnbj0i
+Y2VudGVyIiBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4g
+c3R5bGU9ImZvbnQtc2l6ZToxMnB0Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2Fs
+aWJyaSxzYW5zLXNlcmlmIj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFu
+IHN0eWxlPSJjb2xvcjpibGFjayI+Y2JtPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFu
+PjwvcD4KICAgICAgICAgIDwvdGQ+CiAgICAgICAgIDwvdHI+CiAgICAgICAgIDx0cj4K
+ICAgICAgICAgIDx0ZCBzdHlsZT0iYm9yZGVyLWJvdHRvbToxcHggc29saWQgYmxhY2s7
+d2lkdGg6NjhweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjY1cHg7YmFja2dyb3VuZC1j
+b2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTtib3JkZXItcmlnaHQ6
+MXB4IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0OjFweCBzb2xpZCBibGFjayI+CiAgICAg
+ICAgICAgPHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21h
+cmdpbjowcHgiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9
+ImZvbnQtZmFtaWx5OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQt
+c2l6ZToxMXB0Ij48c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPkY8L3NwYW4+PC9zcGFu
+Pjwvc3Bhbj48L3NwYW4+PC9wPgogICAgICAgICAgPC90ZD4KICAgICAgICAgIDx0ZCBz
+dHlsZT0iYm9yZGVyLWJvdHRvbToxcHggc29saWQgYmxhY2s7d2lkdGg6MTk2cHg7cGFk
+ZGluZzowY20gN3B4O2hlaWdodDo2NXB4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwy
+NTUsMjU1KTtib3JkZXItdG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFj
+aztib3JkZXItbGVmdDpub25lIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBz
+dHlsZT0idGV4dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZv
+bnQtc2l6ZToxMnB0Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5z
+LXNlcmlmIj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJj
+b2xvcjpibGFjayI+T3BlcmF0aW9uYWwgV2FzdGUgKEVtcHR5IENoZW1pY2FsIENvbnRh
+aW5lcnMsIEVtcHR5IFBhaW50IENhbnMpPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFu
+PjwvcD4KICAgICAgICAgIDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1i
+b3R0b206MXB4IHNvbGlkIGJsYWNrO3dpZHRoOjg1cHg7cGFkZGluZzowY20gN3B4O2hl
+aWdodDo2NXB4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1KTtib3JkZXIt
+dG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3JkZXItbGVmdDpu
+b25lIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idGV4dC1hbGln
+bjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMnB0Ij48
+c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlmIj48c3BhbiBz
+dHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpibGFjayI+Mjwv
+c3Bhbj48L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAg
+ICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFjazt3aWR0
+aDoxMTNweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjY1cHg7YmFja2dyb3VuZC1jb2xv
+cjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTtib3JkZXItcmlnaHQ6MXB4
+IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0Om5vbmUiPgogICAgICAgICAgIDxwIGFsaWdu
+PSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46MHB4Ij48c3Bh
+biBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpD
+YWxpYnJpLHNhbnMtc2VyaWYiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFwdCI+PHNw
+YW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5jYm08L3NwYW4+PC9zcGFuPjwvc3Bhbj48L3Nw
+YW4+PC9wPgogICAgICAgICAgPC90ZD4KICAgICAgICAgPC90cj4KICAgICAgICAgPHRy
+PgogICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFj
+azt3aWR0aDo2OHB4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNrZ3JvdW5k
+LWNvbG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRlci1yaWdo
+dDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6MXB4IHNvbGlkIGJsYWNrIj4KICAg
+ICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXI7
+bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMnB0Ij48c3BhbiBzdHls
+ZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlmIj48c3BhbiBzdHlsZT0iZm9u
+dC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpibGFjayI+STwvc3Bhbj48L3Nw
+YW4+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAgICAgICAgPHRk
+IHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFjazt3aWR0aDoxOTZweDtw
+YWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjIwcHg7YmFja2dyb3VuZC1jb2xvcjpyZ2IoMjU1
+LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTtib3JkZXItcmlnaHQ6MXB4IHNvbGlkIGJs
+YWNrO2JvcmRlci1sZWZ0Om5vbmUiPgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIi
+IHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0i
+Zm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNh
+bnMtc2VyaWYiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9
+ImNvbG9yOmJsYWNrIj5FbGVjdHJpY2FsPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFu
+PjwvcD4KICAgICAgICAgIDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1i
+b3R0b206MXB4IHNvbGlkIGJsYWNrO3dpZHRoOjg1cHg7cGFkZGluZzowY20gN3B4O2hl
+aWdodDoyMHB4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1KTtib3JkZXIt
+dG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3JkZXItbGVmdDpu
+b25lIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idGV4dC1hbGln
+bjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMnB0Ij48
+c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlmIj48c3BhbiBz
+dHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJjb2xvcjpibGFjayI+MC4x
+PC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAgIDwvdGQ+CiAg
+ICAgICAgICA8dGQgc3R5bGU9ImJvcmRlci1ib3R0b206MXB4IHNvbGlkIGJsYWNrO3dp
+ZHRoOjExM3B4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6MjBweDtiYWNrZ3JvdW5kLWNv
+bG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpub25lO2JvcmRlci1yaWdodDox
+cHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6bm9uZSI+CiAgICAgICAgICAgPHAgYWxp
+Z249ImNlbnRlciIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyO21hcmdpbjowcHgiPjxz
+cGFuIHN0eWxlPSJmb250LXNpemU6MTJwdCI+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5
+OkNhbGlicmksc2Fucy1zZXJpZiI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMXB0Ij48
+c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPmNibTwvc3Bhbj48L3NwYW4+PC9zcGFuPjwv
+c3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAgICAgICA8L3RyPgogICAgICAgICA8
+dHI+CiAgICAgICAgICA8dGQgY29sc3Bhbj0iMiIgc3R5bGU9ImJvcmRlci1ib3R0b206
+MXB4IHNvbGlkIGJsYWNrO3dpZHRoOjI2NHB4O3BhZGRpbmc6MGNtIDdweDtoZWlnaHQ6
+MjBweDtiYWNrZ3JvdW5kLWNvbG9yOnJnYigyNTUsMjU1LDI1NSk7Ym9yZGVyLXRvcDpu
+b25lO2JvcmRlci1yaWdodDoxcHggc29saWQgYmxhY2s7Ym9yZGVyLWxlZnQ6MXB4IHNv
+bGlkIGJsYWNrIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idGV4
+dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTox
+MnB0Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlmIj48
+Yj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJiYWNrZ3Jv
+dW5kOnllbGxvdyI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5HQVJCQUdFIFRPVEFM
+PC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9iPjwvc3Bhbj48L3NwYW4+PC9wPgogICAgICAg
+ICAgPC90ZD4KICAgICAgICAgIDx0ZCBzdHlsZT0iYm9yZGVyLWJvdHRvbToxcHggc29s
+aWQgYmxhY2s7d2lkdGg6ODVweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjIwcHg7YmFj
+a2dyb3VuZC1jb2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTtib3Jk
+ZXItcmlnaHQ6MXB4IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0Om5vbmUiPgogICAgICAg
+ICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJn
+aW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxlPSJm
+b250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxiPjxzcGFuIHN0eWxlPSJmb250
+LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImJhY2tncm91bmQ6eWVsbG93Ij48c3BhbiBz
+dHlsZT0iY29sb3I6YmxhY2siPjcuNzQ8L3NwYW4+PC9zcGFuPjwvc3Bhbj48L2I+PC9z
+cGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8L3RkPgogICAgICAgICAgPHRkIHN0eWxl
+PSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBibGFjazt3aWR0aDoxMTNweDtwYWRkaW5n
+OjBjbSA3cHg7aGVpZ2h0OjIwcHg7YmFja2dyb3VuZC1jb2xvcjpyZ2IoMjU1LDI1NSwy
+NTUpO2JvcmRlci10b3A6bm9uZTtib3JkZXItcmlnaHQ6MXB4IHNvbGlkIGJsYWNrO2Jv
+cmRlci1sZWZ0Om5vbmUiPgogICAgICAgICAgIDxwIGFsaWduPSJjZW50ZXIiIHN0eWxl
+PSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1z
+aXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpDYWxpYnJpLHNhbnMtc2Vy
+aWYiPjxiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFwdCI+PHNwYW4gc3R5bGU9ImJh
+Y2tncm91bmQ6eWVsbG93Ij48c3BhbiBzdHlsZT0iY29sb3I6YmxhY2siPmNibTwvc3Bh
+bj48L3NwYW4+PC9zcGFuPjwvYj48L3NwYW4+PC9zcGFuPjwvcD4KICAgICAgICAgIDwv
+dGQ+CiAgICAgICAgIDwvdHI+CiAgICAgICAgIDx0cj4KICAgICAgICAgIDx0ZCBjb2xz
+cGFuPSIyIiBzdHlsZT0iYm9yZGVyLWJvdHRvbToxcHggc29saWQgYmxhY2s7d2lkdGg6
+MjY0cHg7cGFkZGluZzowY20gN3B4O2hlaWdodDoyMHB4O2JhY2tncm91bmQtY29sb3I6
+cmdiKDI1NSwyNTUsMjU1KTtib3JkZXItdG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBz
+b2xpZCBibGFjaztib3JkZXItbGVmdDoxcHggc29saWQgYmxhY2siPgogICAgICAgICAg
+IDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46
+MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250
+LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxiPjxzcGFuIHN0eWxlPSJmb250LXNp
+emU6MTFwdCI+PHNwYW4gc3R5bGU9ImJhY2tncm91bmQ6eWVsbG93Ij48c3BhbiBzdHls
+ZT0iY29sb3I6YmxhY2siPlNMVURHRTwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvYj48L3Nw
+YW4+PC9zcGFuPjwvcD4KICAgICAgICAgIDwvdGQ+CiAgICAgICAgICA8dGQgc3R5bGU9
+ImJvcmRlci1ib3R0b206MXB4IHNvbGlkIGJsYWNrO3dpZHRoOjg1cHg7cGFkZGluZzow
+Y20gN3B4O2hlaWdodDoyMHB4O2JhY2tncm91bmQtY29sb3I6cmdiKDI1NSwyNTUsMjU1
+KTtib3JkZXItdG9wOm5vbmU7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCBibGFjaztib3Jk
+ZXItbGVmdDpub25lIj4KICAgICAgICAgICA8cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0i
+dGV4dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjBweCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6
+ZToxMnB0Ij48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6Q2FsaWJyaSxzYW5zLXNlcmlm
+Ij48Yj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjExcHQiPjxzcGFuIHN0eWxlPSJiYWNr
+Z3JvdW5kOnllbGxvdyI+PHNwYW4gc3R5bGU9ImNvbG9yOmJsYWNrIj5hYnQgMTY8L3Nw
+YW4+PC9zcGFuPjwvc3Bhbj48L2I+PC9zcGFuPjwvc3Bhbj48L3A+CiAgICAgICAgICA8
+L3RkPgogICAgICAgICAgPHRkIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCBi
+bGFjazt3aWR0aDoxMTNweDtwYWRkaW5nOjBjbSA3cHg7aGVpZ2h0OjIwcHg7YmFja2dy
+b3VuZC1jb2xvcjpyZ2IoMjU1LDI1NSwyNTUpO2JvcmRlci10b3A6bm9uZTtib3JkZXIt
+cmlnaHQ6MXB4IHNvbGlkIGJsYWNrO2JvcmRlci1sZWZ0Om5vbmUiPgogICAgICAgICAg
+IDxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjttYXJnaW46
+MHB4Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEycHQiPjxzcGFuIHN0eWxlPSJmb250
+LWZhbWlseTpDYWxpYnJpLHNhbnMtc2VyaWYiPjxiPjxzcGFuIHN0eWxlPSJmb250LXNp
+emU6MTFwdCI+PHNwYW4gc3R5bGU9ImJhY2tncm91bmQ6eWVsbG93Ij48c3BhbiBzdHls
+ZT0iY29sb3I6YmxhY2siPmNibTwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvYj48L3NwYW4+
+PC9zcGFuPjwvcD4KICAgICAgICAgIDwvdGQ+CiAgICAgICAgIDwvdHI+CiAgICAgICAg
+PC90Ym9keT4KICAgICAgIDwvdGFibGU+CiAgICAgICA8ZGl2PiZuYnNwOzwvZGl2Pgog
+ICAgICAgPGRpdj5Bd2FpdGluZyB5b3Vycy48L2Rpdj4KICAgICAgIDxkaXY+Jm5ic3A7
+PC9kaXY+CiAgICAgICA8ZGl2PkJlc3QgUmVnYXJkcyw8YnIgLz4gRGltaXRyYSBJb2Fu
+bmlkb3U8YnIgLz4gT3BlcmF0aW9ucyBEZXB0LjxiciAvPgogICAgICAgIDxiciAvPiBB
+c3RyYSBTaGlwbWFuYWdlbWVudCBJbmM8YnIgLz4gKGFzIGFnZW50cyBvbmx5KTxiciAv
+PiA2IFZvdWxpYWdtZW5pcyBBdmVudWUgJmFtcDsgMTIgTmlydmFuYSBTdC48YnIgLz4g
+Vm91bGEsIDE2NiA3MzxiciAvPiBBdGhlbnMgLSBHcmVlY2U8YnIgLz4gVGVsOiArMzAg
+MjEzIDAxNzUgMTA2PC9kaXY+CiAgICAgIDwvZGl2PgogICAgIDwvZGl2PgogICAgIDxw
+IHN0eWxlPSJjb2xvcjpyZ2IoMCwwLDUxKTtmb250LXNpemU6MTBwdDtmb250LWZhbWls
+eTpWZXJkYW5hIj5fX19fX19fX19fX19fX19fX09yaWdpbmFsIE1lc3NhZ2VfX19fX19f
+X19fX19fX19fXzwvcD4KICAgICA8dGFibGUgd2lkdGg9IjEwMCUiPgogICAgICA8dGJv
+ZHk+CiAgICAgICA8dHI+CiAgICAgICAgPHRkIHN0eWxlPSJmb250LWZhbWlseTpWZXJk
+YW5hO2ZvbnQtc2l6ZTp4LXNtYWxsIj4KICAgICAgICAgPGRpdj48c3Ryb25nPk1lc3Nh
+Z2U6IDwvc3Ryb25nPjxzcGFuPjg0NTE4OTI8L3NwYW4+PC9kaXY+CiAgICAgICAgIDxk
+aXY+PHN0cm9uZz5Gcm9tOiA8L3N0cm9uZz48c3Bhbj5IRUxMQVMgU0hJUFBJTkcgQlIg
+Jmx0O09wZXJhdGlvbnMgLSBIZWxsYXMgU2hpcHBpbmcgQWdlbmNpZXMgJmx0OzxhIGhy
+ZWY9Im1haWx0bzpvcGVyYXRpb25zMUBoZWxsYXMtc2hpcHBpbmcuY29tLmJyIiB0YXJn
+ZXQ9Il9ibGFuayI+b3BlcmF0aW9uczFAaGVsbGFzLXNoaXBwaW5nLmNvbS5icjwvYT4m
+Z3Q7Jmd0Ozwvc3Bhbj48L2Rpdj4KICAgICAgICAgPGRpdj48c3Ryb25nPlN1YmplY3Q6
+IDwvc3Ryb25nPjxzcGFuPlJlOiBQZWxhZ2lhIFZveS4wMiAvLyBQYXJhbmFndWEgZm9y
+IGxvYWRpbmc8L3NwYW4+PC9kaXY+CiAgICAgICAgIDxkaXY+PHN0cm9uZz5EYXRlOiA8
+L3N0cm9uZz48c3Bhbj5KYW51YXJ5IDh0aCAyMDI2LCAxNzoxNToxNjwvc3Bhbj48L2Rp
+dj4KICAgICAgICAgPGRpdj48c3Ryb25nPlRvOiA8L3N0cm9uZz48c3Bhbj5PcGVyYXRp
+b25zIC0gQXN0cmEgU2hpcG1hbmFnZW1lbnQgSW5jICZsdDs8YSBocmVmPSJtYWlsdG86
+b3BzQGFzdHJhc2hpcC5jb20iIHRhcmdldD0iX2JsYW5rIj5vcHNAYXN0cmFzaGlwLmNv
+bTwvYT4mZ3Q7PC9zcGFuPjwvZGl2PgogICAgICAgICA8ZGl2PjxzdHJvbmc+Q2M6IDwv
+c3Ryb25nPjxzcGFuPk9wZXJhdGlvbnMgLSBIZWxsYXMgU2hpcHBpbmcgQWdlbmNpZXMg
+Jmx0OzxhIGhyZWY9Im1haWx0bzpvcGVyYXRpb25zMUBoZWxsYXMtc2hpcHBpbmcuY29t
+LmJyIiB0YXJnZXQ9Il9ibGFuayI+b3BlcmF0aW9uczFAaGVsbGFzLXNoaXBwaW5nLmNv
+bS5icjwvYT4mZ3Q7PC9zcGFuPjwvZGl2PgogICAgICAgIDwvdGQ+CiAgICAgICA8L3Ry
+PgogICAgICA8L3Rib2R5PgogICAgIDwvdGFibGU+CiAgICAgPGRpdj4KICAgICAgPGJy
+IC8+CiAgICAgPC9kaXY+CiAgICAgPGRpdj4mbmJzcDs8L2Rpdj4KICAgICA8ZGl2IGRp
+cj0ibHRyIj4KICAgICAgPGRpdj5EZWFyIE1zLiBEaW1pdHJhIElvYW5uaWRvdSwgR29v
+ZCBkYXkhPGJyIC8+CiAgICAgICA8YnIgLz4gQ29zdHMgZm9yIHN1Y2ggc2VydmljZXMg
+YXJlIGdlbmVyYWxseSBiYXNlZCBvbiB0aGUgcXVhbnRpdGllcyBpbnZvbHZlZCBhbmQg
+YXJlIGNhbGN1bGF0ZWQgcGVyIGN1YmljIG1ldGVyIG9yIHRvbiwgZGVwZW5kaW5nIG9u
+IHRoZSB0eXBlIG9mIHdhc3RlLiBJbiBjZXJ0YWluIGNhc2VzLCBhbmQgc3ViamVjdCB0
+byB0aGUgcXVhbnRpdGllcyBvZiBzbHVkZ2UgdG8gYmUgZGlzY2hhcmdlZCwgaXQgbWF5
+IGJlIHBvc3NpYmxlIHRvIG9idGFpbiByZWR1Y2VkIHJhdGVzIG9yIGV2ZW4gZnVsbCBj
+b3N0IHdhaXZlcnMuPGJyIC8+CiAgICAgICA8YnIgLz4gSW4gb3JkZXIgdG8gcHJvY2Vl
+ZCB3aXRoIGEgbW9yZSBhY2N1cmF0ZSBldmFsdWF0aW9uIGFuZCBjb3N0IGRpc2N1c3Np
+b24sIHdlIGtpbmRseSByZXF1ZXN0IHRoYXQgeW91IHByb3ZpZGUgdGhlIGVzdGltYXRl
+ZCBxdWFudGl0aWVzIGFuZCBjYXRlZ29yaWVzIG9mIG1hdGVyaWFscyB0byBiZSBkaXNj
+aGFyZ2VkLiA8cD48c3BhbiBzdHlsZT0iY29sb3I6cmdiKDcsNTUsOTkpO2ZvbnQtZmFt
+aWx5OkNhbWJyaWE7Zm9udC1zaXplOjEwcHQ7Zm9udC13ZWlnaHQ6Ym9sZDt0ZXh0LWlu
+ZGVudDowaW4iPk91ciBiZXN0IHJlZ2FyZHMsPC9zcGFuPjwvcD4KICAgICAgPC9kaXY+
+CiAgICAgIDxkaXY+CiAgICAgICA8ZGl2IGNsYXNzPSJnbWFpbF9zaWduYXR1cmUiIGRp
+cj0ibHRyIj4KICAgICAgICA8ZGl2IGRpcj0ibHRyIj4KICAgICAgICAgPHAgc3R5bGU9
+Im1hcmdpbjowcHQgMGluO3RleHQtaW5kZW50OjBpbjtkaXJlY3Rpb246bHRyO3ZlcnRp
+Y2FsLWFsaWduOmJhc2VsaW5lO3dvcmQtYnJlYWs6bm9ybWFsIj4KICAgICAgICAgIDxi
+ciAvPjxzcGFuIHN0eWxlPSJjb2xvcjpyZ2IoNyw1NSw5OSk7Zm9udC1zaXplOjEwcHQ7
+Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj5HYWJyaWVsPC9zcGFu
+PjxzcGFuIHN0eWxlPSJjb2xvcjpyZ2IoNyw1NSw5OSk7Zm9udC1zaXplOjEwcHQ7Zm9u
+dC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj4mbmJzcDs8L3NwYW4+PHNw
+YW4gc3R5bGU9ImNvbG9yOnJnYig3LDU1LDk5KTtmb250LXNpemU6MTBwdDtmb250LWZh
+bWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPkZlbGlwZTwvc3Bhbj48YnIgLz4K
+ICAgICAgICAgIDxiciAvPjxmb250IGNvbG9yPSIjZmYwMDAwIj48c3BhbiBzdHlsZT0i
+Zm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xk
+Ij5BdHRlbmRpbmc8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQt
+ZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IDwvc3Bhbj48c3BhbiBzdHls
+ZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpi
+b2xkIj5hbGw8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFt
+aWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IDwvc3Bhbj48c3BhbiBzdHlsZT0i
+Zm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xk
+Ij5wb3J0czwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1p
+bHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj4gPC9zcGFuPjxzcGFuIHN0eWxlPSJm
+b250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQi
+Pm9mPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWlseTpD
+YW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPiBTb3V0aCA8L3NwYW4+PHNwYW4gc3R5bGU9
+ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9s
+ZCI+YW5kPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWls
+eTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPiBDZW50cmFsIDwvc3Bhbj48c3BhbiBz
+dHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdo
+dDpib2xkIj5BbWVyaWNhPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtm
+b250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPi4gSGVhZCBvZmZpY2Ug
+aW4mbmJzcDs8L3NwYW4+PC9mb250PjwvcD4KICAgICAgICAgPHAgc3R5bGU9Im1hcmdp
+bjowcHQgMGluO3RleHQtaW5kZW50OjBpbjtkaXJlY3Rpb246bHRyO3ZlcnRpY2FsLWFs
+aWduOmJhc2VsaW5lO3dvcmQtYnJlYWs6bm9ybWFsIj48Zm9udCBjb2xvcj0iI2ZmMDAw
+MCI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7
+Zm9udC13ZWlnaHQ6Ym9sZCI+QnJhemlsPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNp
+emU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPiZuYnNw
+Ozwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2Ft
+YnJpYTtmb250LXdlaWdodDpib2xkIj5hbmQ8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQt
+c2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IDwv
+c3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJp
+YTtmb250LXdlaWdodDpib2xkIj5icmFuY2g8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQt
+c2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+IG9m
+ZmljZXMgPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWls
+eTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPmF0PC9zcGFuPjxzcGFuIHN0eWxlPSJm
+b250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQi
+PiBBcmdlbnRpbmEsIFVydWd1YXksIFBlcnUgYW5kPC9zcGFuPjwvZm9udD48c3BhbiBz
+dHlsZT0iY29sb3I6cmdiKDI1NSwwLDApO3RleHQtaW5kZW50OjBpbjtmb250LXNpemU6
+MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPiZuYnNwO1Zl
+bmV6dWVsYTwvc3Bhbj48YnIgLz4gJm5ic3A7PC9wPgogICAgICAgICA8cCBzdHlsZT0i
+bWFyZ2luOjBwdCAwaW47dGV4dC1pbmRlbnQ6MGluO2RpcmVjdGlvbjpsdHI7dmVydGlj
+YWwtYWxpZ246YmFzZWxpbmU7d29yZC1icmVhazpub3JtYWwiPjxmb250IGNvbG9yPSIj
+MDczNzYzIj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2Ft
+YnJpYTtmb250LXdlaWdodDpib2xkIj5HYWJyaWVsPC9zcGFuPjxzcGFuIHN0eWxlPSJm
+b250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQi
+PiA8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNh
+bWJyaWE7Zm9udC13ZWlnaHQ6Ym9sZCI+RmVsaXBlPC9zcGFuPjxzcGFuIHN0eWxlPSJm
+b250LXNpemU6MTBwdDtmb250LWZhbWlseTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQi
+PiA8L3NwYW4+PC9mb250PjwvcD4KICAgICAgICAgPHAgc3R5bGU9Im1hcmdpbjowcHQg
+MGluO2RpcmVjdGlvbjpsdHI7dmVydGljYWwtYWxpZ246YmFzZWxpbmU7d29yZC1icmVh
+azpub3JtYWwiPiZuYnNwOzwvcD4KICAgICAgICAgPHAgc3R5bGU9Im1hcmdpbjowcHQg
+MGluO3RleHQtaW5kZW50OjBpbjtkaXJlY3Rpb246bHRyO3ZlcnRpY2FsLWFsaWduOmJh
+c2VsaW5lO3dvcmQtYnJlYWs6bm9ybWFsIj48Zm9udCBjb2xvcj0iIzA3Mzc2MyI+PHNw
+YW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7Zm9udC13
+ZWlnaHQ6Ym9sZCI+TW9iaWxlIDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEw
+cHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpib2xkIj5udW1iZXI8L3Nw
+YW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB0O2ZvbnQtZmFtaWx5OkNhbWJyaWE7
+Zm9udC13ZWlnaHQ6Ym9sZCI+OiZuYnNwOys1NSZuYnNwOzwvc3Bhbj48c3BhbiBzdHls
+ZT0iZm9udC1zaXplOjEwcHQ7Zm9udC1mYW1pbHk6Q2FtYnJpYTtmb250LXdlaWdodDpi
+b2xkIj4xPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTBwdDtmb250LWZhbWls
+eTpDYW1icmlhO2ZvbnQtd2VpZ2h0OmJvbGQiPjMgOTk3NjQ1MDk1Jm5ic3A7PC9zcGFu
+PjwvZm9udD48L3A+CiAgICAgICAgIDxwIHN0eWxlPSJtYXJnaW46MHB0IDBpbjtkaXJl
+Y3Rpb246bHRyO3ZlcnRpY2FsLWFsaWduOmJhc2VsaW5lO3dvcmQtYnJlYWs6bm9ybWFs
+Ij48Yj48aW1nIHNyYz0iaHR0cHM6Ly9jaTMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL21h
+aWwtc2lnL0FJb3JLNHh0RTJfSVBuVk8ydHdQbnhjdGphbmN1eTBGa0lvSHo5NDdXcWVY
+b0N3UGZYU1pvdjNYckpqZEJkQ1YtZnBRSnpVdnFOR1ZjVVkiIC8+PC9iPjwvcD4KICAg
+ICAgICA8L2Rpdj4KICAgICAgIDwvZGl2PgogICAgICA8L2Rpdj4KICAgICA8L2Rpdj4K
+ICAgICA8ZGl2PiZuYnNwOyA8ZGl2IGNsYXNzPSJnbWFpbF9xdW90ZSI+CiAgICAgICA8
+ZGl2IGNsYXNzPSJnbWFpbF9hdHRyIiBkaXI9Imx0ciI+RW0gcXVpLiwgOCBkZSBqYW4u
+IGRlIDIwMjYgw6BzIDA5OjI5LCBPcGVyYXRpb25zIC0gQXN0cmEgU2hpcG1hbmFnZW1l
+bnQgSW5jICZsdDs8YSBocmVmPSJtYWlsdG86b3BzQGFzdHJhc2hpcC5jb20iIHRhcmdl
+dD0iX2JsYW5rIj5vcHNAYXN0cmFzaGlwLmNvbTwvYT4mZ3Q7IGVzY3JldmV1OjwvZGl2
+PgogICAgICAgPGJsb2NrcXVvdGUgY2xhc3M9ImdtYWlsX3F1b3RlIiBzdHlsZT0ibWFy
+Z2luOjBweCAwcHggMHB4IDAuOGV4O2JvcmRlci1sZWZ0OjFweCBzb2xpZCByZ2IoMjA0
+LDIwNCwyMDQpO3BhZGRpbmctbGVmdDoxZXgiPgogICAgICAgIDxkaXY+CiAgICAgICAg
+IDxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsMCk7Zm9udC1mYW1pbHk6dmVyZGFuYTtm
+b250LXNpemU6eC1zbWFsbCI+CiAgICAgICAgICA8ZGl2PgogICAgICAgICAgIDx0YWJs
+ZSBib3JkZXI9IjEiIGNlbGxwYWRkaW5nPSIyIiBjZWxsc3BhY2luZz0iMiIgc3R5bGU9
+ImJhY2tncm91bmQtY29sb3I6cmdiKDIxNSwyMTUsMjE1KSIgd2lkdGg9IjEwMCUiPgog
+ICAgICAgICAgICA8dGJvZHk+CiAgICAgICAgICAgICA8dHIgaGVpZ2h0PSIyNiIgdmFs
+aWduPSJ0b3AiPgogICAgICAgICAgICAgIDx0ZCBzdHlsZT0iZm9udC1zaXplOngtc21h
+bGwiPgogICAgICAgICAgICAgICA8ZGl2PjxiPk1lc3NhZ2UgTnVtYmVyOiA8L2I+NzY3
+NzYzPC9kaXY+CiAgICAgICAgICAgICAgIDxociAvPgogICAgICAgICAgICAgICA8ZGl2
+PjxiPkZyb206IDwvYj48YSBocmVmPSJtYWlsdG86b3BzQGFzdHJhc2hpcC5jb20iIHRh
+cmdldD0iX2JsYW5rIj5vcHNAYXN0cmFzaGlwLmNvbTwvYT48L2Rpdj4KICAgICAgICAg
+ICAgICAgPGRpdj48Yj5UbzogPC9iPkhFTExBUyBTQU5UT1MgKDxhIGhyZWY9Im1haWx0
+bzpvcGVyYXRpb25zMUBoZWxsYXMtc2hpcHBpbmcuY29tLmJyIiB0YXJnZXQ9Il9ibGFu
+ayI+b3BlcmF0aW9uczFAaGVsbGFzLXNoaXBwaW5nLmNvbS5icjwvYT4pPC9kaXY+CiAg
+ICAgICAgICAgICAgIDxkaXY+PGI+U2VudDogPC9iPiBUaHVyc2RheSwgSmFuIDgsIDIw
+MjYgMTQ6MjggKFVUQyArMDI6MDApPC9kaXY+CiAgICAgICAgICAgICAgIDxkaXY+PGI+
+U3ViamVjdDogPC9iPlBlbGFnaWEgVm95LjAyIC8vIFBhcmFuYWd1YSBmb3IgbG9hZGlu
+ZzwvZGl2PgogICAgICAgICAgICAgIDwvdGQ+CiAgICAgICAgICAgICA8L3RyPgogICAg
+ICAgICAgICA8L3Rib2R5PgogICAgICAgICAgIDwvdGFibGU+CiAgICAgICAgICA8L2Rp
+dj4KICAgICAgICAgPC9kaXY+CiAgICAgICAgIDxkaXYgc3R5bGU9ImNvbG9yOnJnYigw
+LDAsNTEpO2ZvbnQtZmFtaWx5OiZxdW90O1NlZ29lIFVJIFN5bWJvbCZxdW90Oztmb250
+LXNpemU6MTBwdCI+CiAgICAgICAgICA8ZGl2IHN0eWxlPSJjb2xvcjpyZ2IoMCwwLDUx
+KTtmb250LWZhbWlseTomcXVvdDtTZWdvZSBVSSBTeW1ib2wmcXVvdDs7Zm9udC1zaXpl
+OjEwcHQiPkRlYXIgU2lycywmbmJzcDs8L2Rpdj4KICAgICAgICAgIDxkaXYgc3R5bGU9
+ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFtaWx5OiZxdW90O1NlZ29lIFVJIFN5bWJv
+bCZxdW90Oztmb250LXNpemU6MTBwdCI+Jm5ic3A7PC9kaXY+CiAgICAgICAgICA8ZGl2
+IHN0eWxlPSJjb2xvcjpyZ2IoMCwwLDUxKTtmb250LWZhbWlseTomcXVvdDtTZWdvZSBV
+SSBTeW1ib2wmcXVvdDs7Zm9udC1zaXplOjEwcHQiPkdvb2QgRGF5LjwvZGl2PgogICAg
+ICAgICAgPGRpdiBzdHlsZT0iY29sb3I6cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1
+b3Q7U2Vnb2UgVUkgU3ltYm9sJnF1b3Q7O2ZvbnQtc2l6ZToxMHB0Ij4mbmJzcDs8L2Rp
+dj4KICAgICAgICAgIDxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsNTEpO2ZvbnQtZmFt
+aWx5OiZxdW90O1NlZ29lIFVJIFN5bWJvbCZxdW90Oztmb250LXNpemU6MTBwdCI+S2lu
+ZGx5IGFkdmlzZSBhdmFpbGFiaWxpdHkgb2YgcmVjZXB0aW9uIGZhY2lsaXRpZXMgZm9y
+IHNsdWRnZS9vaWx5IHdhdGVyL3dhc2ggd2F0ZXIvc2V3YWdlL2dhcmJhZ2UsIGNvc3Qg
+cGVyIGNibSBvciB0b24gYW5kIHByb2NlZHVyZXMgZm9yIG9yZGVyaW5nIHN1Y2ggb3Bl
+cmF0aW9uLjwvZGl2PgogICAgICAgICAgPGRpdiBzdHlsZT0iY29sb3I6cmdiKDAsMCw1
+MSk7Zm9udC1mYW1pbHk6JnF1b3Q7U2Vnb2UgVUkgU3ltYm9sJnF1b3Q7O2ZvbnQtc2l6
+ZToxMHB0Ij5QbGVhc2UgYWR2aXNlIGlmIGFueSBkaXNwb3NhbCBpcyBjb21wdWxzb3J5
+LiBJbiBhZGRpdGlvbiB0byB0aGlzLCBraW5kbHkgYWR2aXNlIHdoZXRoZXIgdGhlIHBy
+b3ZpZGVycyBhcmUgSVNPMTQwMDEgYXBwcm92ZWQuPC9kaXY+CiAgICAgICAgICA8ZGl2
+IHN0eWxlPSJjb2xvcjpyZ2IoMCwwLDUxKTtmb250LWZhbWlseTomcXVvdDtTZWdvZSBV
+SSBTeW1ib2wmcXVvdDs7Zm9udC1zaXplOjEwcHQiPiZuYnNwOzwvZGl2PgogICAgICAg
+ICAgPGRpdiBzdHlsZT0iY29sb3I6cmdiKDAsMCw1MSk7Zm9udC1mYW1pbHk6JnF1b3Q7
+U2Vnb2UgVUkgU3ltYm9sJnF1b3Q7O2ZvbnQtc2l6ZToxMHB0Ij5Bd2FpdGluZyB5b3Vy
+cy48L2Rpdj4KICAgICAgICAgIDxkaXYgc3R5bGU9ImNvbG9yOnJnYigwLDAsNTEpO2Zv
+bnQtZmFtaWx5OiZxdW90O1NlZ29lIFVJIFN5bWJvbCZxdW90Oztmb250LXNpemU6MTBw
+dCI+Jm5ic3A7PC9kaXY+CiAgICAgICAgICA8ZGl2IHN0eWxlPSJjb2xvcjpyZ2IoMCww
+LDUxKTtmb250LWZhbWlseTomcXVvdDtTZWdvZSBVSSBTeW1ib2wmcXVvdDs7Zm9udC1z
+aXplOjEwcHQiPkJlc3QgUmVnYXJkcyw8YnIgLz4gRGltaXRyYSBJb2Fubmlkb3U8YnIg
+Lz4gT3BlcmF0aW9ucyBEZXB0LjxiciAvPgogICAgICAgICAgIDxiciAvPiBBc3RyYSBT
+aGlwbWFuYWdlbWVudCBJbmM8YnIgLz4gKGFzIGFnZW50cyBvbmx5KTxiciAvPiA2IFZv
+dWxpYWdtZW5pcyBBdmVudWUgJmFtcDsgMTIgTmlydmFuYSBTdC48YnIgLz4gVm91bGEs
+IDE2NiA3MzxiciAvPiBBdGhlbnMgLSBHcmVlY2U8YnIgLz4gVGVsOiArMzAgMjEzIDAx
+NzUgMTA2PC9kaXY+CiAgICAgICAgIDwvZGl2PgogICAgICAgICA8ZGl2PgogICAgICAg
+ICAgPGhyIC8+CiAgICAgICAgIDwvZGl2PgogICAgICAgICA8ZGl2PjxzcGFuIGxhbmc9
+IkVOLVVTIiBzdHlsZT0iY29sb3I6cmdiKDg5LDg5LDg5KSI+PGZvbnQgZmFjZT0iQ2Fs
+aWJyaSI+PHN0cm9uZz5Qcmlvcml0aXppbmcgdGhlIHdlbGxiZWluZyBvZiBvdXIgcGxh
+bmV0IGFuZCBpdHMgcGVvcGxlPGVtPi48L2VtPjwvc3Ryb25nPjwvZm9udD48L3NwYW4+
+PC9kaXY+CiAgICAgICAgIDxkaXY+PHNwYW4gbGFuZz0iRU4tVVMiIHN0eWxlPSJjb2xv
+cjpyZ2IoODksODksODkpIj4mbmJzcDs8L3NwYW4+PC9kaXY+CiAgICAgICAgIDxkaXY+
+PHNwYW4gbGFuZz0iRU4tVVMiIHN0eWxlPSJjb2xvcjpyZ2IoODksODksODkpIj48ZW0+
+PGZvbnQgZmFjZT0iQ2FsaWJyaSI+VGhpcyBlbWFpbCBtYXkgY29udGFpbiBjb25maWRl
+bnRpYWwgYW5kIHByaXZpbGVnZWQgaW5mb3JtYXRpb24uIFVzZSBvciBkaXNjbG9zdXJl
+IG9mIGl0IGJ5IGFueW9uZSBvdGhlciB0aGFuIGFuIGludGVuZGVkIHJlY2lwaWVudCBp
+cyBwcm9oaWJpdGVkLjxiciAvPiBJZiB5b3UgcmVjZWl2ZWQgdGhpcyBlbWFpbCBpbiBl
+cnJvciwgcGxlYXNlIG5vdGlmeSB0aGUgc2VuZGVyIGltbWVkaWF0ZWx5IGJ5IHJldHVy
+biBlbWFpbCBhbmQgZGVzdHJveSBhbGwgY29waWVzIG9mIHRoaXMgZW1haWwuPC9mb250
+PjwvZW0+PC9zcGFuPjwvZGl2PgogICAgICAgICA8ZGl2PjxzcGFuIGxhbmc9IkVOLVVT
+IiBzdHlsZT0iY29sb3I6cmdiKDg5LDg5LDg5KSI+Jm5ic3A7PC9zcGFuPjwvZGl2Pgog
+ICAgICAgICA8ZGl2PjxzcGFuIGxhbmc9IkVOLVVTIiBzdHlsZT0iY29sb3I6cmdiKDg5
+LDg5LDg5KSI+PGZvbnQgZmFjZT0iQ2FsaWJyaSI+PGVtPio8L2VtPlBsZWFzZSBjb25z
+aWRlciB0aGUgZW52aXJvbm1lbnQgYmVmb3JlIHByaW50aW5nPGVtPio8L2VtPjwvZm9u
+dD48L3NwYW4+PC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgICA8L2Jsb2NrcXVvdGU+
+CiAgICAgIDwvZGl2PgogICAgIDwvZGl2PjxzcGFuIGxhbmc9IkVOLVVTIiBzdHlsZT0i
+Y29sb3I6cmdiKDg5LDg5LDg5KSI+PGRpdj48Zm9udCBmYWNlPSJDYWxpYnJpIj48c3Ry
+b25nPjxociAvPjwvc3Ryb25nPjwvZm9udD48L2Rpdj4KICAgICAgPGRpdj48Zm9udCBm
+YWNlPSJDYWxpYnJpIj48c3Ryb25nPlByaW9yaXRpemluZyB0aGUgd2VsbGJlaW5nIG9m
+IG91ciBwbGFuZXQgYW5kIGl0cyBwZW9wbGU8ZW0+LjwvZW0+PC9zdHJvbmc+PC9mb250
+PjwvZGl2PgogICAgICA8ZGl2PjxlbT48Zm9udCBmYWNlPSJDYWxpYnJpIj48L2ZvbnQ+
+PC9lbT4mbmJzcDs8L2Rpdj4KICAgICAgPGRpdj48ZW0+PGZvbnQgZmFjZT0iQ2FsaWJy
+aSI+VGhpcyBlbWFpbCBtYXkgY29udGFpbiBjb25maWRlbnRpYWwgYW5kIHByaXZpbGVn
+ZWQgaW5mb3JtYXRpb24uIFVzZSBvciBkaXNjbG9zdXJlIG9mIGl0IGJ5IGFueW9uZSBv
+dGhlciB0aGFuIGFuIGludGVuZGVkIHJlY2lwaWVudCBpcyBwcm9oaWJpdGVkLiA8YnIg
+Lz5JZiB5b3UgcmVjZWl2ZWQgdGhpcyBlbWFpbCBpbiBlcnJvciwgcGxlYXNlIG5vdGlm
+eSB0aGUgc2VuZGVyIGltbWVkaWF0ZWx5IGJ5IHJldHVybiBlbWFpbCBhbmQgZGVzdHJv
+eSBhbGwgY29waWVzIG9mIHRoaXMgZW1haWwuPC9mb250PjwvZW0+PC9kaXY+CiAgICAg
+IDxkaXY+PGVtPjxmb250IGZhY2U9IkNhbGlicmkiPjwvZm9udD48L2VtPiZuYnNwOzwv
+ZGl2PgogICAgICA8ZGl2Pjxmb250IGZhY2U9IkNhbGlicmkiPjxlbT4qPC9lbT5QbGVh
+c2UgY29uc2lkZXIgdGhlIGVudmlyb25tZW50IGJlZm9yZSBwcmludGluZzxlbT4qPC9l
+bT48L2ZvbnQ+PC9kaXY+PC9zcGFuPjwvZGl2PgogICA8L2Jsb2NrcXVvdGU+CiAgPC9k
+aXY+CiA8L2JvZHk+CjwvaHRtbD4=
+----boundary_21_a3a2d042-7df3-413a-9e8a-d098dd10368e--
+
